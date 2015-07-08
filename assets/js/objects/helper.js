@@ -7,8 +7,8 @@ window.Helper = {
   },
 
   hideAll: function hideAll(){
-    $('#main, .vendor-banner, .vendor-banner-2, .chat').removeClass('blur');
-    $('.contracts, .user-profile, .vendor, .vendor-contracts, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-banner, .vendor-banner-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases').hide();
+    $('#main, .vendor-header, .vendor-header-2, .chat').removeClass('blur');
+    $('.contracts, .onboarding, .user-profile, .vendor, .vendor-contracts, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases').hide();
   },
 
   readURL: function readURL(input) {

@@ -1,0 +1,34 @@
+<dom-module id="vendor-header">
+
+  <link href="../css/vendor.css" rel="stylesheet">
+
+  <template>
+    <div class="vendor-header visibility-hidden" style="background: url(http://saimg-a.akamaihd.net/saatchi/327735/art/2115716/1241144-MYVOMOVN-6.jpg) 50% 50% / cover no-repeat">
+      <div style="width: 1000px; margin: auto">
+        <div class="vendor-avatar position-float-left"></div>
+        <h1 class="vendor-name"></h1>
+        <h2 class="vendor-handle"></h2>
+      </div>
+      <div class="vendor-header-shadow"></div>
+    </div>
+
+    <div class="vendor-navigation visibility-hidden">
+      <div style="width: 1000px; margin: auto">
+        <ul class="position-float-left">
+          <li class="vendor-dets">About</li>
+          <li class="vendor-home">Store</li>
+        </ul>
+        <div class="vendor-actions position-float-right position-margin-right-20px">
+          <button class="button-primary vendor-follow">Follow</button>
+          <button class="button-primary vendor-message">Message</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'vendor-header'});
+  </script>
+  <script src="../js/objects/vendor.js"></script>
+
+</dom-module>

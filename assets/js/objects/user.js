@@ -38,6 +38,7 @@ window.User = {
     User.setPrimaryColor(user.colorprimary); 
     User.setSecondaryColor(user.colorsecondary); 
     User.setTextColor(user.colortext); 
+    User.setBackgroundColor(user.colorbackground); 
     $('.user-profile-navigation li:not(.user-profile-navigation-selected)').css('background', user.colorsecondary);
   },
 
@@ -46,6 +47,11 @@ window.User = {
     _.each(user.following, function(person, index){
       $('.user-profile-following').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-profile-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
     });
+  },
+
+  setBackgroundColor: function setBackgroundColor(hex){  
+    hex = hex.replace('#','');
+    $('body').css('background-color', '#' + hex);
   },
 
   setPrimaryColor: function setPrimaryColor(hex){  
@@ -57,7 +63,7 @@ window.User = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-profile-footer, .user-profile-navigation, .user-profile input, .user-profile select, .user-profile textarea').css('background-color', '#' + hex);
+    $('#header, .user-profile-footer, .user-profile-navigation, .user-profile input, .user-profile select, .user-profile textarea, .pod').css('background-color', '#' + hex);
     $('.user-profile table td').css('border-bottom-color', hex);
     $('.user-profile-navigation li:not(.user-profile-navigation-selected)').css('background', hex);
   },
@@ -84,11 +90,14 @@ window.User = {
     $('.user-profile-navigation li:not(.user-profile-navigation-selected)').css('background', user.colorsecondary);
     $('.input-search').val(user.handle);
     $('.user-profile-navigation ul li, .user-profile-message').attr('data-user-handle', user.handle);
-    $('.user-profile').fadeTo(100, 100);
+    $('.user-name').html(user.name)
+    $('.user-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
+    $('.user-details-email').html(user.email);
     $('.user-profile-photo').css('background', 'url(' + user.avatar + ') 50% 50% / cover no-repeat');
     $('.user-profile-avatar').css('background', 'url(' + user.avatar + ') 50% 50% / cover no-repeat');
-    $('.user-profile-about').html(user.description);
-    $('.user-profile-handle').html(user.handle);
+    // $('.user-profile-about p').html(user.description);
+    $('.user-profile-name').html(user.handle);
+    $('.user-profile').fadeIn('slow');
   }
 
 }

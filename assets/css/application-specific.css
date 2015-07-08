@@ -56,7 +56,7 @@ table thead tr td:last-child{
 .transactions {
   margin: auto;
   text-align: left;
-  width: 1100px;
+  width: 1000px;
   margin-bottom: 50px;
   margin-top: 30px;
   opacity: 0;
@@ -160,10 +160,11 @@ border:1px solid red;
 
 .pod {
   background-color: #327eb8;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
   padding: 20px;
   position: relative;
+  vertical-align: top;
 }
 
 @media

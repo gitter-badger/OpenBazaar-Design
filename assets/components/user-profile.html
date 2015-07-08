@@ -4,23 +4,83 @@
 
   <template>
     <div class="user-profile visibility-hidden">
-      <div class="user-profile-photo-holder"><div class="user-profile-photo"></div><div class="user-profile-avatar"></div><div class="user-profile-handle"></div><div class="user-profile-photo-shadow"></div></div>
-      <div class="user-profile-navigation">
-        <ul>
-          <li class="user-profile-navigation-selected" data-section="user-profile-about">About</li>
-          <li data-section="user-profile-following">Following</li>
-        </ul>
+      <div class="user-profile-header" style="background: url(http://d38we5ntdyxyje.cloudfront.net/496469/art/2250328/1325556-6.jpg) 50% 50% / cover no-repeat">
+        <div style="width: 1000px; margin: auto">
+          <div class="user-profile-avatar position-float-left"></div>
+          <h1 class="user-profile-name"></h1>
+          <h2 class="user-profile-handle"></h2>
+        </div>
+        <div class="user-profile-header-shadow"></div>
       </div>
 
-      <div class="user-profile-body">
-        <div class="user-profile-about type-line-height-18px "></div>
-        <table class="user-profile-following position-margin-0 visibility-hidden"></table>
+      <div class="user-profile-navigation">
+        <div style="width: 1000px; margin: auto">
+          <ul class="position-float-left">
+            <li class="user-profile-dets user-profile-navigation-selected">About</li>
+          </ul>
+          <div class="user-profile-actions position-float-right position-margin-right-20px">
+            <button class="button-primary user-profile-follow">Follow</button>
+            <button class="button-primary user-profile-message">Message</button>
+          </div>
+        </div>
       </div>
-      <div class="user-profile-footer">
-        <button class="button-first user-profile-message">Message</button>
-        <button class="user-profule-follow">Follow</button>
+
+      <div class="position-padding-20px">
+        <div class="user-profile-body">
+          <div class="user-profile-details">
+            <div class="user-profile-about pod position-inline-block position-width-555px position-margin-right-20px">
+              <p class="position-margin-top-10px type-opacity type-line-height-16px">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+              </p>
+            </div>
+            <div class="pod user-social position-inline-block position-width-300px">
+              <table>
+                <tr>
+                  <td>
+                    <div class="label">website</div>
+                    <div class="value user-details-website type-opacity"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="label">email</div>
+                    <div class="value user-details-email type-opacity"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="label">facebook</div>
+                    <div class="value user-details-facebook type-opacity"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="label">twitter</div>
+                    <div class="value user-details-twitter type-opacity"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <table class="user-profile-following position-margin-0 visibility-hidden"></table>
+          </div>
+        </div>
       </div>
     </div>
+
+<!--     <div class="user-profile visibility-hidden">
+      <div class="user-profile-photo-holder"><div class="user-profile-photo"></div><div class="user-profile-avatar"></div><div class="user-profile-handle"></div><div class="user-profile-photo-shadow"></div></div>
+
+    </div> -->
   </template>
 
   <script>

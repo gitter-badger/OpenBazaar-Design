@@ -8,7 +8,13 @@ window.Navigation = {
     $(document).on("click", ".navigation-controls-forward", function(){  Navigation.stepForward() });
     $(document).on("click", ".menu-transaction", function(){ Purchase.display() });
     $(document).on("click", ".control-panel-user", function(event){ Navigation.toggleUserSettings(event) });
-    $(document).on("click", ".control-panel-discover", function(event){ Navigation.toggleDiscovery(event) });
+    $(document).on("click", ".control-panel-discover", function(event){ 
+      // Navigation.toggleDiscovery(event) 
+      Discover.contracts(false, true);
+      Navigation.unsetActivePage();
+      Navigation.setAsCurrentPage(previousPage);
+      Navigation.setPageUrl();      
+    });
     $(document).on("click", ".menu-home", function(event){
       Discover.contracts(true, false);
       Navigation.setPageUrl();
@@ -82,7 +88,6 @@ window.Navigation = {
           Navigation.setPageUrl(store.guid);
           break;
         case "user":
-          console.log(nextPage);
           var user = User.find(nextPage.handle);
           User.view(user, false);
           Navigation.unsetActivePage();

@@ -41,7 +41,7 @@ $(function() {
 
   // events
   $(document).on("keyup", keypress);
-  $('#main').on("scroll", scroll);
+  // $('#main').on("scroll", scroll);
 
   // functions
 	function start(){
@@ -53,9 +53,9 @@ $(function() {
     if($('.input-search').is(":focus") && e.which == 13){ Search.find(); }
     if($('.input-chat-new-message').is(":focus") && e.which == 13) { Chat.saveMessage(); }
     if($('.bitcoin-address').is(":focus")){ $('.onboarding-button-skip').hide(); $('.onboarding-button-next').show(); }
-    if($('.vendor-meta-name').is(':focus') && $('.vendor-meta-name').val() !== ""){ $('.vendor-banner-2 .vendor-name').html($('.vendor-meta-name').val()); }
-    if($('.vendor-meta-description').is(':focus') && $('.vendor-meta-description').val() !== ""){ $('.vendor-banner-2 .vendor-description').html($('.vendor-meta-description').val()); }
-    if($('.vendor-meta-avatar').is(':focus') && $('.vendor-meta-avatar').val() !== ""){ $('.vendor-banner-2 .vendor-avatar').css('background', 'url(' + $('.vendor-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
+    if($('.vendor-meta-name').is(':focus') && $('.vendor-meta-name').val() !== ""){ $('.vendor-header-2 .vendor-name').html($('.vendor-meta-name').val()); }
+    if($('.vendor-meta-description').is(':focus') && $('.vendor-meta-description').val() !== ""){ $('.vendor-header-2 .vendor-description').html($('.vendor-meta-description').val()); }
+    if($('.vendor-meta-avatar').is(':focus') && $('.vendor-meta-avatar').val() !== ""){ $('.vendor-header-2 .vendor-avatar').css('background', 'url(' + $('.vendor-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();

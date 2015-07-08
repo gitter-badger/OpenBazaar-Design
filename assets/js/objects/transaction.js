@@ -60,7 +60,7 @@ window.Transaction = {
         break;
     }
 
-    $('#main, .vendor-banner').addClass('blur');
+    $('#main, .vendor-header').addClass('blur');
     $('.modal-trade-flow').hide();
     $('.modal-purchase-dispute').attr('data-mod-guid', purchase['mod-guid'])
     $('.modal-mod-name').html(purchase['mod'])

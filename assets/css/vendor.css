@@ -1,11 +1,19 @@
 .vendor {
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   margin: auto;
+  margin-bottom: 75px;
+  margin-top: 20px;
+  min-height: 650px;
+  height: auto;
   text-align: left;
-  width: 1100px;
+  width: 1000px;
 }
 
-.vendor-banner,
-.vendor-banner-2 {
+.vendor-header,
+.vendor-header-2 {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   height: 150px; 
   opacity: .9;
   padding: 0;
@@ -14,14 +22,12 @@
 }
 
 .vendor-navigation {
-  border-bottom: 15px solid #9E252B;
-  height: 25px;
+  height: 42px;
   font-family: "font-medium";
   font-size: 14px;
-  line-height: 25px;
-  margin-bottom: 5px; 
+  line-height: 42px;
   opacity: 1;
-  padding: 10px 0;
+  padding: 0;
   position: relative;
   /*top: 250px;*/
 }
@@ -29,7 +35,7 @@
 .vendor-navigation-docked {
   left: 0;
   position: fixed;
-  top: 50px;
+  top: 42px;
   width: 100%;
   z-index: 100;
 }
@@ -37,11 +43,12 @@
 .vendor-navigation ul li {
   cursor: pointer;
   float: left;
-  margin-right: 8px;
+  margin-right: 0;
   min-width: 50px;
+  height: 42px;
+  line-height: 42px;
   opacity: .75;
   padding: 0 15px;
-  padding-top: 4px;
   text-align: center;
 }
 
@@ -51,14 +58,12 @@
 
 .vendor-navigation ul li.vendor-navigation-selected {
   background: #086BA0;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  height: 31px;
+  height: 42px;
   opacity: 1;
 }
 
-.vendor-banner.blur,
-.vendor-banner-2.blur {
+.vendor-header.blur,
+.vendor-header-2.blur {
   -webkit-filter: blur(4px);
 }
 
@@ -66,7 +71,7 @@
   margin-top: 40px;
 }
 
-.vendor-banner-shadow {
+.vendor-header-shadow {
   box-shadow: inset 0px -130px 112px -52px rgba(37,37,37,.9);
   height: 100%;
   position: absolute;
@@ -83,6 +88,7 @@
   height: 80px;
   margin: auto;
   margin-right: 10px;
+  margin-left: 20px;
   position: absolute;
   width: 80px;
   z-index: 50;
@@ -91,7 +97,15 @@
 .vendor-name {
   bottom: 40px;
   font-size: 18px;
-  margin-left: 90px;
+  margin-left: 110px;
+  position: absolute;
+  z-index: 50;
+}
+
+.vendor-handle {
+  bottom: 26px;
+  font-size: 15px;
+  margin-left: 110px;
   position: absolute;
   z-index: 50;
 }
@@ -102,9 +116,23 @@
 }
 
 .vendor-contracts {
-  margin-bottom: 200px;
+  margin-bottom: 0;
   text-align: left;
 }
+
+.vendor-contracts .contract {
+  width: 225px;
+  margin: 0 20px 20px 0;
+}
+
+.vendor-contracts .contract .contract-image {
+  height: 225px;
+}
+
+.vendor-contracts  .contract:nth-child(4n){
+  margin-right: 0 !important;
+}
+
 
 .vendor-description {
   font-family: "font-medium";

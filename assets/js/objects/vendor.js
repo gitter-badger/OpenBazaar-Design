@@ -11,7 +11,7 @@ window.Vendor = {
       Vendor.setActiveTab();
       $('.vendor-home').addClass('vendor-navigation-selected');
     });
-    $(document).on("click", ".item-vendor-name, .vendor-banner .vendor-name, .vendor-banner .vendor-avatar, .vendor-home", function(event) { 
+    $(document).on("click", ".item-vendor-name, .vendor-header .vendor-name, .vendor-header .vendor-avatar, .vendor-home", function(event) { 
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
       Navigation.stripPageHistory();
@@ -27,6 +27,7 @@ window.Vendor = {
       Vendor.displayDetails(vendor);
       Vendor.setSecondaryColor(vendor.colorsecondary);
       Vendor.setPrimaryColor(vendor.colorprimary);
+      Vendor.setBackgroundColor(vendor.colorbackground);
       Vendor.setTextColor(vendor.colortext);
       Vendor.setActiveTab();
       $('.vendor-dets').addClass('vendor-navigation-selected');
@@ -51,7 +52,7 @@ window.Vendor = {
     });
     $(document).on("click", ".vendor-meta-save", function(){
       $('.overlay, .modal, .modal-vendor-meta').hide();
-      $('#main, .vendor-banner, .vendor-banner-2, .chat').removeClass('blur');      
+      $('#main, .vendor-header, .vendor-header-2, .chat').removeClass('blur');      
     });
   },
 
@@ -74,29 +75,26 @@ window.Vendor = {
 
     Helper.hideAll();
     Vendor.setSecondaryColor(vendor.colorsecondary);
-    Vendor.setPrimaryColor(vendor.colorprimary);
+    Vendor.setBackgroundColor(vendor.colorbackground);
     Vendor.setTextColor(vendor.colortext);
-    Vendor.setActiveTab();
+    Vendor.setPrimaryColor(vendor.colorprimary);
     $('.vendor-home').addClass('vendor-navigation-selected');
     $('.connecting').fadeIn();
     $('.loading-icon').attr('src', vendor.avatar).show();
     $('.vendor-message').attr('data-vendor-guid', vendor.guid);
     $('.loading-message').html('Connecting to ' + Vendor.handle(vendor));
     Connect.load();
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .vendor-navigation-selected, .button-primary').animate({ backgroundColor: vendor.colorprimary, color: vendor.colortext }, fade);
-    $('.item-meta-data, .item-price').animate({ color: vendor.colortext }, fade);
-    $('#header, .item-meta-data, .item-image, .contracts .item, .vendor-banner, .vendor-navigation, .pod').animate({ backgroundColor: vendor.colorsecondary }, fade);
     setTimeout(function(){  
-      if (Connect.toVendor() ||  autoConnect){
+      if (Connect.toVendor() || autoConnect){
         $('.contracts, .connecting').hide();
         $('.vendor-contracts, .vendor-buttons').show();
-        $('.vendor-name').html(Vendor.name).attr('data-vendor-guid', vendor.guid);
-        $('.vendor-handle').html(vendor.handle).attr('data-vendor-guid', vendor.guid);
+        $('.vendor-name').html(vendor.name).attr('data-vendor-guid', vendor.guid);
+        $('.vendor-handle').html('@' + vendor.handle).attr('data-vendor-guid', vendor.guid);
         $('.vendor-home').attr('data-vendor-guid', vendor.guid);
         $('.vendor-dets').attr('data-vendor-guid', vendor.guid);
         $('.vendor-description').html(vendor.description);
         $('.vendor-avatar').css('background-image', 'url(' + vendor.avatar + ')').attr('data-vendor-guid', vendor.guid);
-        $('.vendor-banner, .vendor-navigation').show();
+        $('.vendor-header, .vendor-navigation').show();
         if (instant){
           $('.vendor').show();
         }else{
@@ -112,7 +110,7 @@ window.Vendor = {
 
   displayDetails: function displayDetails(vendor){  
     Helper.hideAll();
-    $('.vendor, .vendor-banner, .vendor-navigation').show();
+    $('.vendor, .vendor-header, .vendor-navigation').show();
     $('.vendor-details').fadeIn('fast');
     $('.vendor-details-website').html('<a href="' + vendor.website + '" target="_blank">' + vendor.website + '</a>');
     $('.vendor-details-email').html(vendor.email);
@@ -152,7 +150,7 @@ window.Vendor = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .vendor-avatar').css('background-color', '#' + hex);
+    $('.vendor, .contract-detail, .navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .vendor-avatar').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $('.vendor-navigation').css('border-color', '#' + hex);
@@ -161,9 +159,14 @@ window.Vendor = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .settings-contract, .vendor-navigation, .vendor-navigation ul li, .settings-contract-meta-data, .contract-meta-data, .vendor-banner-2, .pod, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
+    $('#header, .settings-contract, .vendor-navigation, .vendor-navigation ul li, .settings-contract-meta-data, .contract-meta-data, .vendor-header-2, .pod, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
+  },
+
+  setBackgroundColor: function setBackgroundColor(hex){  
+    hex = hex.replace('#','');
+    $('body').css('background-color', '#' + hex);
   },
 
   setTextColor: function setTextColor(hex){  
