@@ -38,18 +38,19 @@ window.Configuration = {
 
     Vendor.setPrimaryColor(defaultPrimaryColor);
     Vendor.setSecondaryColor(defaultSecondaryColor);
+    Vendor.setBackgroundColor(vendor.colorbackground);
     Vendor.setTextColor(defaultTextColor);
     Helper.hideAll();
     $('.user-configuration').show();
     $('.chat').css('bottom', '-240px');
     $('.chat').hide();
-    $('.vendor-banner-2, .modal-settings').fadeIn('slow');
-    $('#main, .vendor-banner, .vendor-banner-2').addClass('blur');
+    $('.vendor-header-2, .modal-settings').fadeIn('slow');
+    $('#main, .vendor-header, .vendor-header-2').addClass('blur');
     Configuration.pageMeta();
   },
 
   pageMeta: function pageMeta(){
-    $('#main, .vendor-banner, .vendor-banner-2').addClass('blur');
+    $('#main, .vendor-header, .vendor-header-2').addClass('blur');
     $('.modal-product, .chat').hide();
     $('.overlay, .modal, .modal-vendor-meta').show();
     $('.vendor-meta-name').focus();    

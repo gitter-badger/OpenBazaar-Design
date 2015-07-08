@@ -74,7 +74,6 @@ window.Chat = {
 
   saveMessage: function saveMessage(){
     var id = $('.input-chat-new-message').attr('data-id');
-    console.log(id);
     var chat = Chat.find(id);
     var newMessage = {
       "from": "@mike",

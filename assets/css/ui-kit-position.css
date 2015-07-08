@@ -79,10 +79,6 @@
   width: 130px;
 }
 
-.position-width-650px {
-  width: 650px;
-}
-
 .position-height-72px {
   height: 72px;
 }
@@ -139,8 +135,8 @@
   width: 600px !important;
 }
 
-.position-width-650px {
-  width: 650px !important;
+.position-width-555px {
+  width: 555px !important;
 }
 .position-width-40px {
   width: 40px !important;

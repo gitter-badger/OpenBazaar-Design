@@ -50,9 +50,9 @@ window.Contract = {
     $('.modal-purchase-detail').hide();
 
     // reset the colors
-    Vendor.setPrimaryColor($('body').css('bgColor').replace('#',''));
-    Vendor.setSecondaryColor($('#header').css('bgColor').replace('#',''));
-    Vendor.setTextColor($('body').css('color').replace('#',''));
+    // Vendor.setPrimaryColor($('body').css('bgColor').replace('#',''));
+    // Vendor.setSecondaryColor($('#header').css('bgColor').replace('#',''));
+    // Vendor.setTextColor($('body').css('color').replace('#',''));
 
     var image = $('.contract-detail-image').css('background-image');
     var avatar = $('.vendor-avatar').css('background-image');
@@ -64,7 +64,7 @@ window.Contract = {
     $('.modal-pretty .modal-contract-price').html(price + ' ($52 USD)');
     $('.modal-pretty .modal-vendor-name').html(name);
 
-    $('#main, .vendor-banner').addClass('blur');
+    $('#main, .vendor-header').addClass('blur');
     $('.modal-product, .modal-vendor-meta').hide();
     $('.overlay, .modal-trade-flow').show();
     $('.modal-pretty').fadeTo(100, 100);
@@ -189,13 +189,14 @@ window.Contract = {
       $('.contract-detail-meta').css('background', vendor.colorsecondary);
       $('.contract-detail').fadeIn('slow');
     }else{
-      $('.vendor, .vendor-banner, .contracts, .ob-icon, .button-try-again').hide();
+      $('.vendor, .vendor-header, .contracts, .ob-icon, .button-try-again').hide();
       $('.connecting').fadeIn();
       $('.loading-icon').attr('src', vendor.avatar).show();
       $('.loading-message').html('Connecting to ' + Vendor.handle(vendor));
       Connect.load();
       Vendor.setSecondaryColor(vendor.colorsecondary);
       Vendor.setPrimaryColor(vendor.colorprimary);
+      Vendor.setBackgroundColor(vendor.colorbackground);
       Vendor.setTextColor(vendor.colortext);
       setTimeout(function(){  
         if (Connect.toVendor()){
@@ -204,7 +205,7 @@ window.Contract = {
           $('.vendor-home').attr('data-vendor-guid', vendor.guid);
           $('.vendor-description').html(vendor.description);
           $('.vendor-avatar').css('background-image', 'url(' + vendor.avatar + ')').attr('data-vendor-guid', vendor.guid);
-          $('.vendor-banner, .vendor-navigation').show();
+          $('.vendor-header, .vendor-navigation').show();
           $('.contract-detail-name').html(contract.name);
           $('.contract-detail-description').html(contract.description);
           $('.contract-detail-image').css('background-image', 'url(' + contract.photo1 + ')');
