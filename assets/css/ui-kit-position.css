@@ -123,12 +123,18 @@
   width: 125px !important;
 }
 
-.position-width-550px {
-  width: 550px !important;
+.position-width-650px {
+  width: 650px !important;
 }
 
 .position-width-300px {
   width: 300px !important;
+}
+.position-width-308px {
+  width: 308px !important;
+}
+.position-width-350px {
+  width: 350px !important;
 }
 
 .position-width-600px {

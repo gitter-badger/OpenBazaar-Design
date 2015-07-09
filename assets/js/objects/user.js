@@ -26,11 +26,11 @@ window.User = {
     switch(section){
       case "user-profile-about": 
         $('.user-profile-following').hide();
-        $('.user-profile-about').show();
+        $('.user-profile-about, .user-social').show();
         break;
       case "user-profile-following":
         User.loadFollowing(user);
-        $('.user-profile-about').hide();
+        $('.user-profile-about, .user-social').hide();
         $('.user-profile-following').show();
         break;
     }
@@ -56,16 +56,18 @@ window.User = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('.navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-profile, .user-profile-navigation-selected').css('background-color', '#' + hex);
+    $('.navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-profile, .user-profile-navigation-selected, .pod').css('background-color', '#' + hex);
     $('.user-profile .button-first').css('border-right-color', hex);
     $('body').css('background', '#2A2A2A');
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-profile-footer, .user-profile-navigation, .user-profile input, .user-profile select, .user-profile textarea, .pod').css('background-color', '#' + hex);
+    $('#header, .user-profile-footer, .user-profile-navigation, .user-profile input, .user-profile select, .user-profile textarea').css('background-color', '#' + hex);
     $('.user-profile table td').css('border-bottom-color', hex);
     $('.user-profile-navigation li:not(.user-profile-navigation-selected)').css('background', hex);
+    $('.pod').css('border-right-color', '#' + hex);
+    $('.user-profile-details table tr td').css('border-bottom-color', '#' + hex);
   },
 
   setTextColor: function setTextColor(hex){  
