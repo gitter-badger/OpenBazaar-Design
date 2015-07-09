@@ -56,7 +56,7 @@ table thead tr td:last-child{
 .transactions {
   margin: auto;
   text-align: left;
-  width: 1000px;
+  width: 950px;
   margin-bottom: 50px;
   margin-top: 30px;
   opacity: 0;

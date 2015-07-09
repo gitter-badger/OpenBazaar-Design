@@ -58,6 +58,7 @@ window.User = {
     hex = hex.replace('#','');
     $('.navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-profile, .user-profile-navigation-selected, .pod').css('background-color', '#' + hex);
     $('.user-profile .button-first').css('border-right-color', hex);
+    $('.user-profile-navigation ul li ').css('border-right-color', '#' + hex);
     $('body').css('background', '#2A2A2A');
   },
 

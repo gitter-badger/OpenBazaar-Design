@@ -154,6 +154,7 @@ window.Vendor = {
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $('.vendor-navigation').css('border-color', '#' + hex);
+    $('.vendor-navigation ul li ').css('border-right-color', '#' + hex);
     $store.colorprimary = '#' + hex;
   },
 
