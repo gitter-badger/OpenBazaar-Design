@@ -1,6 +1,6 @@
 .vendor {
   border-radius: 3px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0 0 rgba(0, 0, 0, 0.15);
   margin: auto;
   margin-bottom: 75px;
   margin-top: 20px;
@@ -14,7 +14,7 @@
 .vendor-header-2 {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  height: 150px; 
+  height: 400px; 
   opacity: .9;
   padding: 0;
   position: relative;
@@ -35,8 +35,8 @@
 .vendor-navigation-docked {
   left: 0;
   position: fixed;
-  top: 42px;
-  width: 100%;
+  margin: auto;
+  top: 50px;
   z-index: 100;
 }
 
@@ -44,6 +44,7 @@
   cursor: pointer;
   float: left;
   margin-right: 0;
+  font-size: 15px;
   min-width: 50px;
   height: 42px;
   line-height: 42px;
