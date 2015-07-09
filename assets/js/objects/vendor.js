@@ -150,7 +150,7 @@ window.Vendor = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('.vendor, .contract-detail, .navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .vendor-avatar').css('background-color', '#' + hex);
+    $('.vendor, .contract-detail, .navigation-controls, .pod, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .vendor-avatar').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $('.vendor-navigation').css('border-color', '#' + hex);
@@ -159,8 +159,10 @@ window.Vendor = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .settings-contract, .vendor-navigation, .vendor-navigation ul li, .settings-contract-meta-data, .contract-meta-data, .vendor-header-2, .pod, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
+    $('#header, .settings-contract, .vendor-navigation, .vendor-navigation ul li, .settings-contract-meta-data, .contract-meta-data, .vendor-header-2, .user-configuration-secondary-color, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .dropzone').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
+    $('.pod').css('border-right-color', '#' + hex);
+    $('.vendor-details table tr td').css('border-bottom-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 

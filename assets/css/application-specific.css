@@ -160,8 +160,8 @@ border:1px solid red;
 
 .pod {
   background-color: #327eb8;
+  border-right: solid 1px #ccc;
   border-radius: 0;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
   padding: 20px;
   position: relative;
   vertical-align: top;
