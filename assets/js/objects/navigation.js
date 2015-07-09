@@ -11,8 +11,7 @@ window.Navigation = {
     $(document).on("click", ".control-panel-discover", function(event){ 
       // Navigation.toggleDiscovery(event) 
       Discover.contracts(false, true);
-      Navigation.unsetActivePage();
-      Navigation.setAsCurrentPage(previousPage);
+      // Navigation.unsetActivePage();
       Navigation.setPageUrl();      
     });
     $(document).on("click", ".menu-home", function(event){

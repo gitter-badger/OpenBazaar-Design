@@ -1,5 +1,5 @@
 .onboarding {
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0 0 rgba(0, 0, 0, 0.15);
   height: 590px;
   background: #086A9E;
   font-family: "font-regular";
@@ -176,4 +176,5 @@
 .onboarding table td {
   border-bottom: solid 1px #327EB8;
   vertical-align: middle;
+  text-align: center;
 }

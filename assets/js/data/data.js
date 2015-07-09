@@ -291,7 +291,7 @@ var vendors = [
     "guid": "be3b0ea96265af272c5fb196ae14b04faf662a8f",
     "colorprimary": "#9E252B",
     "colorsecondary": "#B03037",
-  	"colorbackground": "#911D23",
+  	"colorbackground": "#272626",
     "website": "http://rhythmandpoetry.com",
     "email": "music@rhythmandpoetry.com",
     "hero": "http://saimg-a.akamaihd.net/saatchi/327735/art/2115716/1241144-MYVOMOVN-8.jpg",

@@ -14,8 +14,21 @@ jQuery.expr[':'].Contains = function(a, i, m) {
 $(window).load(function(){
     $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
       theme:"minimal-dark",
-      scrollInertia: 0
-      // mouseWheelPixels: 200
+      scrollInertia: 0,
+      // mouseWheelPixels: 200,
+      callbacks:{
+        onScroll: function(){
+          // if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && this.mcs.draggerTop >= 168){
+          //   $(".vendor-navigation").addClass('vendor-navigation-docked');
+          //   $(".vendor").css('margin-top', '64px');
+          //   $(".contract-detail").css('margin-top', '64px');
+          // }else{
+          //   $(".vendor-navigation").removeClass('vendor-navigation-docked');
+          //   $(".vendor").css('margin-top', '0');
+          //   $(".contract-detail").css('margin-top', '0');
+          // }
+        }
+      }
     });
 });
 
