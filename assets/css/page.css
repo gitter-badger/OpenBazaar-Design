@@ -17,15 +17,30 @@
   top: 0;
 }
 
+.user-page .input {
+  background: #fff;
+}
+
+.user-page .contract-vendor-avatar {
+  display: none;
+}
+
 .user-page-breadcrumb {
   border-bottom: solid 1px #327eb8;
-  font-family: "font-regular";
-  font-size: 13px;
+  font-family: "font-medium";
+  font-size: 14px;
   color: #fff;
   padding: 15px 20px;
 }
 
-.user-page-about {
+.user-page-breadcrumb span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.user-page-about,
+.user-page-following,
+.user-page-followers {
   min-height: 400px;
 }
 
@@ -52,7 +67,7 @@
   cursor: pointer;
   float: left;
   margin-right: 0;
-  min-width: 50px;
+  min-width: 95px;
   font-size: 14px;
   height: 42px;
   line-height: 42px;
@@ -179,4 +194,40 @@
 .user-page-followers td {
   border-bottom: solid 1px #ccc;
   padding: 10px 16px;
+}
+
+.user-page-contract-detail {
+  font-family: "font-medium";
+  margin: auto;
+  min-height: 550px;
+  position: relative;
+}
+
+.user-page-contract-detail-meta {
+  border: 0;
+  padding: 20px 0 0 0;
+  display: inline-block;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 449px;
+}
+
+.user-page-contract-detail-image {
+  display: inline-block;
+  height: 420px;
+  width: 420px;
+  padding: 0;
+  margin: 20px;
+}
+
+.user-page-contract-detail-sold-out {
+  cursor: default;
+}
+
+.user-page-contract-detail-description {
+  clear: both;
+  font-size: 14px;
+  font-family: "font-medium";
+  line-height: 17px;
+  margin: 12px 0;
+  opacity: 0.80;
 }

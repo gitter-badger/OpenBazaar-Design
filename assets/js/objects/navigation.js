@@ -11,6 +11,7 @@ window.Navigation = {
     $(document).on("click", ".control-panel-discover", function(event){ 
       // Navigation.toggleDiscovery(event) 
       Discover.contracts(false, true);
+      $('.chat').show();
       // Navigation.unsetActivePage();
       Navigation.setPageUrl();      
     });
@@ -52,7 +53,9 @@ window.Navigation = {
 
   setPageUrl: function setPageUrl(params){
     var input = $('.input-search');
-    if (params){
+    if (params.includes('@')){
+      input.val(params);
+    }else if(params){
       input.val('ob://' + params);
     }else{
       input.val('');

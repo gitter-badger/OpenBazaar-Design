@@ -20,76 +20,28 @@ window.Page = {
     });
     $(document).on("click", ".user-page-navigation-followers", function(event){ 
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
-      Page.viewFollowers(user, event) 
+      Page.followers(user, event) 
     });
     $(document).on("click", ".user-page-navigation-following", function(event){ 
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
-      Page.viewFollowing(user, event) 
+      Page.following(user, event) 
     });
     $(document).on("click", ".user-page-navigation-about", function(event){ 
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
-      Page.viewAbout(user, event) 
+      Page.about(user, event) 
     });
     $(document).on("click", ".user-page-navigation-store", function(event){ 
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
-      Page.viewStore(user, event) 
+      Page.store(user, event) 
     });
-    $(document).on("click", ".user-page-link", function(event){ 
+    $(document).on("click", ".user-page-link, .contract-vendor-avatar", function(event){ 
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
       Page.view(user, event) 
     });
   },
 
-  displayContracts: function displayContracts(vendor, updatePageViews, instant, autoConnect){  
-    if (instant){ delay = 0; fade = 0; } else {  delay = 1900; fade = 500; }
-    $('.contracts, .vendor-contracts-grid').empty();
-    if (updatePageViews){
-      pageViews.push({"page": "vendor", "guid": vendor.guid, "active": true});
-      Navigation.unsetActivePage();
-      Navigation.stripPageHistory();
-      Navigation.setArrowOpacity();
-    }
-    _.each(vendor.contracts, function(contract, index){
-      Contract.renderGridContract(vendor, contract, '.vendor-contracts-grid');
-    });
-
-    Helper.hideAll();
-    Page.setSecondaryColor(vendor.colorsecondary);
-    Page.setBackgroundColor(vendor.colorbackground);
-    Page.setTextColor(vendor.colortext);
-    Page.setPrimaryColor(vendor.colorprimary);
-    $('.vendor-home').addClass('vendor-navigation-selected');
-    $('.connecting').fadeIn();
-    $('.loading-icon').attr('src', vendor.avatar).show();
-    $('.vendor-message').attr('data-vendor-guid', vendor.guid);
-    $('.loading-message').html('Connecting to ' + Page.handle(vendor));
-    Connect.load();
-    setTimeout(function(){  
-      if (Connect.toVendor() || autoConnect){
-        $('.contracts, .connecting').hide();
-        $('.vendor-contracts, .vendor-buttons').show();
-        $('.vendor-name').html(vendor.name).attr('data-vendor-guid', vendor.guid);
-        $('.vendor-handle').html('@' + vendor.handle).attr('data-vendor-guid', vendor.guid);
-        $('.vendor-home').attr('data-vendor-guid', vendor.guid);
-        $('.vendor-dets').attr('data-vendor-guid', vendor.guid);
-        $('.vendor-description').html(vendor.description);
-        $('.vendor-avatar').css('background-image', 'url(' + vendor.avatar + ')').attr('data-vendor-guid', vendor.guid);
-        $('.vendor-header, .vendor-navigation').show();
-        if (instant){
-          $('.vendor').show();
-        }else{
-          $('.vendor').fadeIn('slow');
-        }
-      }else{
-        $('#spinner').empty().hide();
-        $('.loading-message').html('Connection failed');
-        $('.button-try-again').removeData().attr('data-vendor-guid', vendor.guid).attr('data-view', "item-detail").attr('data-view', "vendor").show();
-      }
-    }, delay);
-  }, 
-
   hideSections: function hideSections(){  
-    $('.user-page-details, .user-page-contracts, .user-page-services, .user-page-following, .user-page-followers').hide();
+    $('.user-page-details, .user-page-contracts, .user-page-services, .user-page-following, .user-page-followers, .user-page-contract-detail').hide();
   },
 
   setActiveTab: function setActiveTab(event){
@@ -106,7 +58,7 @@ window.Page = {
   },
 
   setMetaData: function setMetaData(user){
-    $('.user-page-navigation ul li, .user-page-message').attr('data-user-handle', user.handle);
+    $('.user-page-navigation ul li, .user-page-message, .user-page-navigation-store').attr('data-user-handle', user.handle);
     $('.user-page-name').html(user.name);
     $('.user-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
     $('.user-details-email').html(user.email);
@@ -127,6 +79,11 @@ window.Page = {
         $('.user-page-details').show();
         break;
       case "vendor":
+        $('.user-page-contracts-grid').empty();
+        _.each(user.contracts, function(contract, index){
+          Contract.renderGridContract(user, contract, '.user-page-contracts-grid');
+        });    
+        $('.user-page-navigation-store').show();
         $('.user-page-contracts').show();
         $('.user-page-navigation-store').addClass('user-page-navigation-selected');
         break;
@@ -189,27 +146,28 @@ window.Page = {
       Navigation.stripPageHistory();
       Navigation.setArrowOpacity();
     }
+    $('.chat').show();
     Helper.hideAll();
     Page.hideSections();
     Page.setActiveTab(event);
     Page.setNavigation(user);
     Page.setColors(user);
     Page.setMetaData(user);
+    Navigation.setPageUrl(user.handle);
     $('.user-page').fadeIn('slow');
   }, 
 
-  viewAbout: function viewAbout(user, event){
+  about: function about(user, event){
     Page.setActiveTab(event);
     Page.hideSections();
     Page.setColors(user)
     $('.user-page-details').show();
   },
 
-  viewStore: function viewStore(user, event){
-    Page.setActiveTab(event);
+  store: function store(user, event){
+    Page.setNavigation(user);
     Page.hideSections();
     $('.user-page-contracts-grid').empty();
-    $('.user-page-contracts-count').html(user.contracts.length);
     _.each(user.contracts, function(contract, index){
       Contract.renderGridContract(user, contract, '.user-page-contracts-grid');
     });    
@@ -217,25 +175,42 @@ window.Page = {
     $('.user-page-contracts').show();
   },
 
-  viewFollowers: function viewFollowers(user, event){
+  contract: function contract(user, contract){
+    $('.user-page-contract-detail-name').html(contract.name);
+    $('.user-page-contract-detail-image').css('background', 'url(' + contract.photo1 + ') 50% 50% / cover no-repeat');
+    $('.user-page-contract-detail-price').html('$23.52 (' + contract.price + ' btc)');
+    $('.user-page-contract-detail-shipping').html(contract.shipping);
+    $('.user-page-contract-detail-condition').html(contract.condition);
+    $('.user-page-contract-detail-type').html(contract.type);
+    $('.user-page-contract-detail-description').html(contract.description);
+    Page.setMetaData(user);
+    Page.setNavigation(user);
+    Page.setColors(user);
+    Page.hideSections();
+    $('.user-page-contract-detail').show();
+    $('.user-page').fadeIn('slow');
+
+  },
+
+  followers: function followers(user, event){
     Page.setActiveTab(event);
     Page.hideSections();
-    $('.user-page-followers').empty();
+    $('.user-page-followers-list').empty();
     _.each(user.followers, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-followers').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
+      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-followers').show();
   },
 
-  viewFollowing: function viewFollowing(user, event){
+  following: function following(user, event){
     Page.setActiveTab(event);
     Page.hideSections();
-    $('.user-page-following').empty();
+    $('.user-page-following-list').empty();
     _.each(user.following, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-following').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
+      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-following').show();

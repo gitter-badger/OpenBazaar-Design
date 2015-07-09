@@ -27,7 +27,6 @@ window.Onboarding = {
     $('.onboarding').hide();
     $('.connecting, .chat').show();
     Connect.load();
-    Chat.loadMessages();
     Navigation.setArrowOpacity();  
     setTimeout(function(){ Discover.populateFeed() }, delay);
   },
@@ -177,7 +176,7 @@ window.Onboarding = {
 
   show: function show(){
     Onboarding.renderContributors();
-    $('body').css('background', '#0B4564')
+    $('body').css('background', '#08486B')
     setTimeout(function(){ $('.onboarding').fadeTo(100,100) }, 500);
   }
 }

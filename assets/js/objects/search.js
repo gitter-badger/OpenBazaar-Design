@@ -21,7 +21,7 @@ window.Search = {
     var user = User.find(handle);
     if(user){
       Page.view(user, true);
-      Navigation.setPageUrl(user.guid);
+      Navigation.setPageUrl(user.handle);
     }
   },
 

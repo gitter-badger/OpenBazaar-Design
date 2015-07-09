@@ -64,16 +64,44 @@
       </div>
 
       <div class="user-page-contracts visibility-hidden">
-        <div class="user-page-breadcrumb">All items</div>
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All items</span></div>
         <div class="user-page-contracts-grid"></div>
+      </div>
+
+      <div class="user-page-contract-detail visibility-hidden">
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name"></span></div>
+
+        <div style="position-padding-20px">
+          <div class="user-page-contract-detail-image"></div>
+          <div class="pod user-page-contract-detail-meta">
+            <h1 class="user-page-contract-detail-name"></h1>
+            <div class="user-page-contract-detail-pricing">
+              <div class="user-page-contract-detail-price position-inline-block position-margin-right-10px"></div>
+              <div class="user-page-contract-detail-shipping position-inline-block position-margin-right-10px"></div>
+              <div class="user-page-contract-detail-condition position-inline-block position-margin-right-10px"></div>
+              <div class="user-page-contract-detail-type position-inline-block"></div>
+            </div>
+            <div class="user-page-contract-detail-description"></div>
+            <div class="user-page-contract-detail-buttons">
+              <div class="user-page-contract-detail-quantity position-float-left position-margin-right-5px "><input class="input input-user-page-contract-detail-quantity input-quantity" value="1" /></div>
+              <button class="button-primary user-page-contract-detail-buy position-float-left">Buy</button>
+              <!-- <button class="button-primary user-page-contract-detail-sold-out visibility-hidden position-float-left">Sold out</button> -->
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="user-page-services visibility-hidden">
         <table></table>
       </div>
 
-      <table class="user-page-following position-margin-0 visibility-hidden"></table>
-      <table class="user-page-followers position-margin-0 visibility-hidden"></table>
+      <div class="user-page-following position-margin-0 visibility-hidden">
+        <table class="user-page-following-list"></table>
+      </div>
+      
+      <div class="user-page-followers position-margin-0 visibility-hidden">
+        <table class="user-page-followers-list"></table>       
+      </div>
 
     </div>
   </template>

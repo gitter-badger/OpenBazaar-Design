@@ -22,7 +22,7 @@ window.Discover = {
       setTimeout(function(){  
         Discover.populateFeed();
         $('.connecting').hide();
-        $('.contracts').fadeIn('fast');
+        $('.discover').fadeIn('fast');
       }, 1000);
     }else{
       $('.loading-message').html('Connecting to stores...');
@@ -38,10 +38,10 @@ window.Discover = {
 
   populateFeed: function populateFeed(){
     $('.connecting').hide();
-    $('.contracts').show();
+    $('.discover, .discover-contracts').show();
     _.each(_.shuffle(users), function(user){
       _.each(_.shuffle(user.contracts), function(contract){
-        Contract.renderGridContract(user, contract, '.contracts');
+        Contract.renderGridContract(user, contract, '.discover-contracts');
       });
     });
   }  
