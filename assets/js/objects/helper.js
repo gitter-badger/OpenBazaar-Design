@@ -26,14 +26,17 @@ window.Helper = {
   setDefualtColors: function setDefualtColors(instant){
     if (instant){
       $('body').css('background', '#08486B');
-      $('.navigation-controls, .navigation-controls span, .control-panel li').css('background', defaultPrimaryColor);
-      $('#header, .item-meta-data').css('background', defaultSecondaryColor); 
+      $('.user-page-navigation li').css('border-color', defaultPrimaryColor); 
+      $('#header, .user-page-navigation, .item-meta-data').css('background', defaultSecondaryColor); 
+      $('.navigation-controls, .navigation-controls span, .control-panel li, .user-page-navigation-selected').css('background', defaultPrimaryColor);
       $('.item-price, .item-meta-data').css('color', defaultTextColor); 
     }else{
       $('body').animate({ backgroundColor: '#08486B', color: defaultTextColor }, fade);
-      $('.navigation-controls, .navigation-controls span, .control-panel li').animate({ backgroundColor: defaultPrimaryColor, color: defaultTextColor }, fade);
-      $('#header, .item-meta-data').animate({ backgroundColor: defaultSecondaryColor }, fade);  
+      $('.user-page-navigation li').css('border-color', defaultPrimaryColor); 
+      $('#header, .user-page-navigation, .item-meta-data').animate({ backgroundColor: defaultSecondaryColor }, fade);  
+      $('.navigation-controls, .navigation-controls span, .control-panel li,.user-page-navigation-selected').animate({ backgroundColor: defaultPrimaryColor, color: defaultTextColor }, fade);
       $('.item-meta-data, .item-price').animate({ color: defaultTextColor });
+
     }
   }
 }
