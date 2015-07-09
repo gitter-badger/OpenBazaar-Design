@@ -39,9 +39,9 @@ window.Discover = {
   populateFeed: function populateFeed(){
     $('.connecting').hide();
     $('.contracts').show();
-    _.each(_.shuffle(vendors), function(vendor){
-      _.each(_.shuffle(vendor.contracts), function(contract){
-        Contract.renderGridContract(vendor, contract, '.contracts');
+    _.each(_.shuffle(users), function(user){
+      _.each(_.shuffle(user.contracts), function(contract){
+        Contract.renderGridContract(user, contract, '.contracts');
       });
     });
   }  

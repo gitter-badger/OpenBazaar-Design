@@ -18,14 +18,10 @@ window.Search = {
   },
 
   byHandle: function byHandle(handle){
-    var tmpStore = Vendor.findByHandle(handle);
-    if(tmpStore){
-      Vendor.displayContracts(tmpStore, true, false);
-      Navigation.setPageUrl(tmpStore.guid);
-    }else{
-      var user = User.find(handle);
-      User.view(user, true);
-      Navigation.setPageUrl(user.handle);
+    var user = User.find(handle);
+    if(user){
+      Page.view(user, true);
+      Navigation.setPageUrl(user.guid);
     }
   },
 

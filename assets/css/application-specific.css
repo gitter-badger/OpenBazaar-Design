@@ -49,6 +49,12 @@ table thead tr td:last-child{
   border-top-right-radius: 3px;
 }
 
+.pill {
+  padding: 4px 6px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+
 .border-bottom-0 {
   border-bottom: 0 !important;
 }

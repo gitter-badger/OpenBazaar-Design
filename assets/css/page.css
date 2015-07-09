@@ -1,5 +1,4 @@
-.user-profile {
-  border-radius: 3px;
+.user-page {
   box-shadow: 0px 0 0 rgba(0, 0, 0, 0.15);
   margin: auto;
   margin-bottom: 75px;
@@ -10,9 +9,7 @@
   width: 950px;
 }
 
-.user-profile-header {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+.user-page-header {
   height: 400px; 
   opacity: .9;
   padding: 0;
@@ -20,7 +17,19 @@
   top: 0;
 }
 
-.user-profile-navigation {
+.user-page-breadcrumb {
+  border-bottom: solid 1px #327eb8;
+  font-family: "font-regular";
+  font-size: 13px;
+  color: #fff;
+  padding: 15px 20px;
+}
+
+.user-page-about {
+  min-height: 400px;
+}
+
+.user-page-navigation {
   height: 42px;
   font-family: "font-medium";
   font-size: 14px;
@@ -30,15 +39,15 @@
   position: relative;
 }
 
-.user-profile-navigation-docked {  left: 0;
-
+.user-page-navigation-docked {  
+  left: 0;
   position: fixed;
   top: 42px;
   width: 100%;
   z-index: 100;
 }
 
-.user-profile-navigation ul li {
+.user-page-navigation ul li {
   border-right: solid 1px #327eb8;
   cursor: pointer;
   float: left;
@@ -52,25 +61,25 @@
   text-align: center;
 }
 
-.user-profile-navigation ul li:hover {
+.user-page-navigation ul li:hover {
   opacity: 1;
 }
 
-.user-profile-navigation ul li.user-profile-navigation-selected {
+.user-page-navigation ul li.user-page-navigation-selected {
   background: #086BA0;
   height: 42px;
   opacity: 1;
 }
 
-.user-profile-header.blur {
+.user-page-header.blur {
   -webkit-filter: blur(4px);
 }
 
-.user-profile-buttons {
+.user-page-buttons {
   margin-top: 40px;
 }
 
-.user-profile-header-shadow {
+.user-page-header-shadow {
   box-shadow: inset 0px -130px 112px -52px rgba(25,25,25,1);
   height: 100%;
   position: absolute;
@@ -78,7 +87,11 @@
   width: 100%;
 }
 
-.user-profile-avatar {
+.user-page-link {
+  cursor: pointer;
+}
+
+.user-page-avatar {
   background: #086A9E;
   background-size: cover;
   border-radius: 40px;
@@ -93,7 +106,7 @@
   z-index: 50;
 }
 
-.user-profile-name {
+.user-page-name {
   bottom: 40px;
   font-size: 18px;
   margin-left: 110px;
@@ -101,42 +114,69 @@
   z-index: 50;
 }
 
-.user-profile-name:hover {
+.user-page-name:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.user-profile-details table {
+.user-page-details table {
   font-family: "font-medium";
   font-size: 13px;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.user-profile-details a {
+.user-page-details a {
   color: #fff;
 }
 
-.user-profile-details a:hover {
+.user-page-details a:hover {
   color: #fff;
 }
 
-.user-profile-details table td {
+.user-page-contracts {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.user-page-contracts .contract {
+  width: 250px;
+  padding: 33px;
+  border-right: solid 1px #327eb8;
+  border-bottom: solid 1px #327eb8;
+}
+
+.user-page-contracts .contract .contract-image {
+  height: 250px;
+}
+
+.user-page-contracts  .contract:nth-child(3n){
+  border-right: 0;
+}
+
+
+.user-page-details table td {
   min-height: 30px;
   word-break: break-word;
   padding: 16px;
   border-bottom: solid 1px #ccc;
 }
 
-.user-profile-details .user-profile-following td {
+.user-page-details .user-page-following td {
   padding: 10px 16px;
 }
 
-.user-profile-details td.label{
+.user-page-details td.label{
   font-family: "font-medium";
   width: 150px;
 }
 
-.user-profile-details td.value {
+.user-page-details td.value {
   line-height: 15px;
   opacity: 0.80;
+}
+
+.user-page-following td,
+.user-page-followers td {
+  border-bottom: solid 1px #ccc;
+  padding: 10px 16px;
 }

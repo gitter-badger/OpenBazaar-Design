@@ -62,108 +62,6 @@ var contributors = [
 	},
 ]
 
-var users = [
-	{
-		"id": 1,
-		"avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg",
-    "colorprimary": "#4A4848",
-    "colorsecondary": "#575656",
-    "colortext": "#fff",
-    "colorbackground": "#252525",
-    "website": "http://wolf.com",
-    "email": "mike@ob1.com",
-		"description": "UX / Design dude out of Chicago focused on making Bitcoin and Bitcoin applications more user friendly for the world to use.",
-		"handle": "@wolf",
-		"name": "Mike Wolf",
-		"following": [
-			{
-				"id":"2",
-				"handle":"@mike",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg"
-			},
-			{
-				"id":"3",
-				"handle":"@matt",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg"
-			},
-			{
-				"id":"4",
-				"handle":"@jack",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
-			},
-			{
-				"id":"2",
-				"handle":"@mike",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg"
-			},
-			{
-				"id":"3",
-				"handle":"@matt",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg"
-			},
-			{
-				"id":"4",
-				"handle":"@jack",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
-			},
-			{
-				"id":"2",
-				"handle":"@mike",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg"
-			},
-			{
-				"id":"3",
-				"handle":"@matt",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg"
-			},
-			{
-				"id":"4",
-				"handle":"@jack",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
-			},
-		]
-	},
-	{
-		"id": 2,
-		"avatar": "http://i39.photobucket.com/albums/e186/tsaw_2008/cool-kid.jpg",
-    "colorprimary": "#572E3A",
-    "colorsecondary": "#332521",
-    "colortext": "#fff",
-		"description": "UX / Design dude out of Chicago focused on making Bitcoin and Bitcoin applications more user friendly for the world to use.",
-		"handle": "@mike",
-		"name": "Mike",
-		"following": []
-	},
-	{
-		"id": 3,
-		"avatar": "http://i39.photobucket.com/albums/e186/tsaw_2008/swimcat.jpg",
-    "colorprimary": "#DFC79B",
-    "colorsecondary": "#C2A777",
-    "colortext": "#fff",
-		"description": "I'm a cat, meooooow.",
-		"handle": "@matt",
-		"name": "Matt",
-		"following": [
-			{
-				"id":"4",
-				"handle":"@jack",
-				"avatar":"http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg"
-			},
-		]
-	},
-	{
-		"id": 4,
-		"avatar": "http://i39.photobucket.com/albums/e186/tsaw_2008/cool-dog-outfit.jpg",
-    "colorprimary": "#A6487A",
-    "colorsecondary": "#B83359",
-    "colortext": "#fff",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-		"handle": "@jack",
-		"name": "Jack",
-		"following": []
-	},
-]
-
 var chats = [
 {
 	"id": 1,
@@ -332,7 +230,7 @@ var vendors = [
     "guid": "369eb3b406b2d5c98ed407a3ec129ab9e27be123",
     "colorprimary": "#258B9E",
     "colorsecondary": "#4A92A4",
-  	"colorbackground": "#267C8C",
+  	"colorbackground": "#30494D",
     "website": "http://rhythmandpoetry.com",
     "handle": "@rhythm",
     "email": "music@rhythmandpoetry.com",

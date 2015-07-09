@@ -8,7 +8,7 @@ window.Helper = {
 
   hideAll: function hideAll(){
     $('#main, .vendor-header, .vendor-header-2, .chat').removeClass('blur');
-    $('.contracts, .onboarding, .user-profile, .vendor, .vendor-contracts, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases').hide();
+    $('.contracts, .onboarding, .user-page, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases').hide();
   },
 
   readURL: function readURL(input) {
