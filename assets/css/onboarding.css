@@ -143,14 +143,14 @@
 }
 
 .onboarding .onboarding-photo {
-  background: #fff url(../img/onboarding-header.jpg) 50% 50% / cover no-repeat;
+  background: #fff url(../img/onboarding-header.jpg) 100% 15% / cover no-repeat;
   height: 265px;
   overflow: hidden;
   position: absolute;
   margin: -15px -10px -10px -12px;
   opacity: .95;
   width: 555px;
-  -webkit-filter: blur(12px);
+  -webkit-filter: blur(0);
 }
 
 .onboarding .avatar {
@@ -176,5 +176,5 @@
 .onboarding table td {
   border-bottom: solid 1px #327EB8;
   vertical-align: middle;
-  text-align: center;
+  text-align: left;
 }
