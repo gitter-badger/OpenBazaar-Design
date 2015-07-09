@@ -1,7 +1,7 @@
 .container {
   /*position: relative;*/
   min-width: 800px;
-  max-width: 1000px;
+  max-width: 950px;
   margin: auto;
   padding: 0 40px;
 }
