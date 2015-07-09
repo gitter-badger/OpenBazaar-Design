@@ -58,6 +58,7 @@ $(function() {
 
   // functions
 	function start(){
+    Chat.loadMessages();
     Onboarding.show();
 	}
 

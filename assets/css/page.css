@@ -1,0 +1,233 @@
+.user-page {
+  box-shadow: 0px 0 0 rgba(0, 0, 0, 0.15);
+  margin: auto;
+  margin-bottom: 75px;
+  margin-top: 25px;
+  min-height: 650px;
+  height: auto;
+  text-align: left;
+  width: 950px;
+}
+
+.user-page-header {
+  height: 400px; 
+  opacity: .9;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.user-page .input {
+  background: #fff;
+}
+
+.user-page .contract-vendor-avatar {
+  display: none;
+}
+
+.user-page-breadcrumb {
+  border-bottom: solid 1px #327eb8;
+  font-family: "font-medium";
+  font-size: 14px;
+  color: #fff;
+  padding: 15px 20px;
+}
+
+.user-page-breadcrumb span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.user-page-about,
+.user-page-following,
+.user-page-followers {
+  min-height: 400px;
+}
+
+.user-page-navigation {
+  height: 42px;
+  font-family: "font-medium";
+  font-size: 14px;
+  line-height: 42px;
+  opacity: 1;
+  padding: 0;
+  position: relative;
+}
+
+.user-page-navigation-docked {  
+  left: 0;
+  position: fixed;
+  top: 42px;
+  width: 100%;
+  z-index: 100;
+}
+
+.user-page-navigation ul li {
+  border-right: solid 1px #327eb8;
+  cursor: pointer;
+  float: left;
+  margin-right: 0;
+  min-width: 95px;
+  font-size: 14px;
+  height: 42px;
+  line-height: 42px;
+  opacity: .75;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.user-page-navigation ul li:hover {
+  opacity: 1;
+}
+
+.user-page-navigation ul li.user-page-navigation-selected {
+  background: #086BA0;
+  height: 42px;
+  opacity: 1;
+}
+
+.user-page-header.blur {
+  -webkit-filter: blur(4px);
+}
+
+.user-page-buttons {
+  margin-top: 40px;
+}
+
+.user-page-header-shadow {
+  box-shadow: inset 0px -130px 112px -52px rgba(25,25,25,1);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.user-page-link {
+  cursor: pointer;
+}
+
+.user-page-avatar {
+  background: #086A9E;
+  background-size: cover;
+  border-radius: 40px;
+  bottom: 12px;
+  cursor: pointer;
+  height: 80px;
+  margin: auto;
+  margin-right: 10px;
+  margin-left: 20px;
+  position: absolute;
+  width: 80px;
+  z-index: 50;
+}
+
+.user-page-name {
+  bottom: 40px;
+  font-size: 18px;
+  margin-left: 110px;
+  position: absolute;
+  z-index: 50;
+}
+
+.user-page-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.user-page-details table {
+  font-family: "font-medium";
+  font-size: 13px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.user-page-details a {
+  color: #fff;
+}
+
+.user-page-details a:hover {
+  color: #fff;
+}
+
+.user-page-contracts {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.user-page-contracts .contract {
+  width: 250px;
+  padding: 33px;
+  border-right: solid 1px #327eb8;
+  border-bottom: solid 1px #327eb8;
+}
+
+.user-page-contracts .contract .contract-image {
+  height: 250px;
+}
+
+.user-page-contracts  .contract:nth-child(3n){
+  border-right: 0;
+}
+
+
+.user-page-details table td {
+  min-height: 30px;
+  word-break: break-word;
+  padding: 16px;
+  border-bottom: solid 1px #ccc;
+}
+
+.user-page-details .user-page-following td {
+  padding: 10px 16px;
+}
+
+.user-page-details td.label{
+  font-family: "font-medium";
+  width: 150px;
+}
+
+.user-page-details td.value {
+  line-height: 15px;
+  opacity: 0.80;
+}
+
+.user-page-following td,
+.user-page-followers td {
+  border-bottom: solid 1px #ccc;
+  padding: 10px 16px;
+}
+
+.user-page-contract-detail {
+  font-family: "font-medium";
+  margin: auto;
+  min-height: 550px;
+  position: relative;
+}
+
+.user-page-contract-detail-meta {
+  border: 0;
+  padding: 20px 0 0 0;
+  display: inline-block;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 449px;
+}
+
+.user-page-contract-detail-image {
+  display: inline-block;
+  height: 420px;
+  width: 420px;
+  padding: 0;
+  margin: 20px;
+}
+
+.user-page-contract-detail-sold-out {
+  cursor: default;
+}
+
+.user-page-contract-detail-description {
+  clear: both;
+  font-size: 14px;
+  font-family: "font-medium";
+  line-height: 17px;
+  margin: 12px 0;
+  opacity: 0.80;
+}

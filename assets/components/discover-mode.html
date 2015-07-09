@@ -1,7 +1,21 @@
 <dom-module id="discover-mode">
 
+  <link href="../css/discover.css" rel="stylesheet">
+
   <template>
-    <div class="contracts visibility-hidden"></div>
+    <div class="discover visibility-hidden">
+      <div class="user-page-navigation">
+        <div style="width: 950px; margin: auto">
+          <ul class="position-float-left">
+            <li class="discover-navigation-contracts user-page-navigation-selected" data-section="discover-contracts">Items</li>
+            <li class="discover-navigation-vendors" data-section="discover-vendors">Stores</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="discover-contracts visibility-hidden"></div>
+      <div class="discover-vendors visibility-hidden"></div>
+    </div>
   </template>
 
   <script>

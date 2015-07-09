@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background: #086A9E;
+  background: #08486B;
   color: #fff;
   cursor: default;
   overflow: hidden; 
@@ -47,6 +47,13 @@ table thead tr td:first-child{
 }
 table thead tr td:last-child{
   border-top-right-radius: 3px;
+}
+
+.pill {
+  padding: 4px 6px;
+  border-radius: 2px;
+  opacity: .75;
+  font-size: 11px;
 }
 
 .border-bottom-0 {

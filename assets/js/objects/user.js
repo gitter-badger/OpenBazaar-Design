@@ -15,6 +15,14 @@ window.User = {
   find: function find(handle){  
     return _.find(users, function(user){ return user.handle == handle });
   },  
+  
+  findById: function findById(id){  
+    return _.find(users, function(user){ return user.id == id });
+  },   
+
+  findByGuid: function findByGuid(guid){  
+    return _.find(users, function(user){ return user.guid == guid });
+  },  
 
   changeSection: function changeSection(event){
     $('.user-profile-navigation li').removeClass('user-profile-navigation-selected');
@@ -47,35 +55,6 @@ window.User = {
     _.each(user.following, function(person, index){
       $('.user-profile-following').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-profile-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
     });
-  },
-
-  setBackgroundColor: function setBackgroundColor(hex){  
-    hex = hex.replace('#','');
-    $('body').css('background-color', '#' + hex);
-  },
-
-  setPrimaryColor: function setPrimaryColor(hex){  
-    hex = hex.replace('#','');
-    $('.navigation-controls, .vendor-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-profile, .user-profile-navigation-selected, .pod').css('background-color', '#' + hex);
-    $('.user-profile .button-first').css('border-right-color', hex);
-    $('.user-profile-navigation ul li ').css('border-right-color', '#' + hex);
-    $('body').css('background', '#2A2A2A');
-  },
-
-  setSecondaryColor: function setSecondaryColor(hex){  
-    hex = hex.replace('#','');
-    $('#header, .user-profile-footer, .user-profile-navigation, .user-profile input, .user-profile select, .user-profile textarea').css('background-color', '#' + hex);
-    $('.user-profile table td').css('border-bottom-color', hex);
-    $('.user-profile-navigation li:not(.user-profile-navigation-selected)').css('background', hex);
-    $('.pod').css('border-right-color', '#' + hex);
-    $('.user-profile-details table tr td').css('border-bottom-color', '#' + hex);
-  },
-
-  setTextColor: function setTextColor(hex){  
-    hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-profile input, .user-profile select, .user-profile textarea, .user-profile input, .user-profile select, .user-profile textarea, .user-profile button').css('color',  '#' + hex);
-    $('.user-configuration-font-color').css('background-color', '#' + hex);
-    $('.settings-add-new').css('border-color', '#' + hex);
   },
 
   view: function view(user, updatePageViews){

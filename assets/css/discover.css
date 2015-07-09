@@ -1,0 +1,70 @@
+.discover {
+  min-height: 400px;
+  width: 950px;
+  background: #086A9E;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 75px;
+}
+
+.discover .user-page-navigation {
+  background: #327EB8;
+}
+
+.dicover-contracts {
+  text-align: left;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.discover-contracts .contract {
+  width: 250px;
+  padding: 33px;
+  border-right: solid 1px #327eb8;
+  border-bottom: solid 1px #327eb8;
+}
+
+.discover-contracts .contract:nth-child(3n){
+  border-right: 0;
+}
+
+.discover-navigation {
+  height: 42px;
+  font-family: "font-medium";
+  font-size: 14px;
+  line-height: 42px;
+  opacity: 1;
+  padding: 0;
+  position: relative;
+}
+
+.discover-navigation-docked {  
+  left: 0;
+  position: fixed;
+  top: 42px;
+  width: 100%;
+  z-index: 100;
+}
+
+.discover-navigation ul li {
+  border-right: solid 1px #327eb8;
+  cursor: pointer;
+  float: left;
+  margin-right: 0;
+  min-width: 95px;
+  font-size: 14px;
+  height: 42px;
+  line-height: 42px;
+  opacity: .75;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.discover-navigation ul li:hover {
+  opacity: 1;
+}
+
+.discover-navigation ul li.user-page-navigation-selected {
+  background: #327eb8;
+  height: 42px;
+  opacity: 1;
+}

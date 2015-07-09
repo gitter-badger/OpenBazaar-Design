@@ -1,0 +1,114 @@
+<dom-module id="user-page">
+
+  <link href="../css/page.css" rel="stylesheet">
+
+  <template>
+    <div class="user-page visibility-hidden">
+
+      <div class="user-page-header">
+        <div style="width: 950px; margin: auto">
+          <div class="user-page-avatar position-float-left"></div>
+          <h1 class="user-page-name"></h1>
+          <h2 class="user-page-handle"></h2>
+        </div>
+        <div class="user-page-header-shadow"></div>
+      </div>
+
+      <div class="user-page-navigation">
+        <div style="width: 950px; margin: auto">
+          <ul class="position-float-left">
+            <li class="user-page-navigation-about" data-section="user-page-about">About</li>
+            <li class="user-page-navigation-followers" data-section="user-page-followers">Followers <span class="pill user-page-followers-count"></span></li>
+            <li class="user-page-navigation-following" data-section="user-page-following">Following <span class="pill user-page-following-count"></span></li>
+            <li class="user-page-navigation-store" data-section="user-page-store">Store <span class="pill user-page-contracts-count"></span></li>
+          </ul>
+          <div class="user-page-actions position-float-right position-margin-right-10px">
+            <button class="button-primary user-page-follow">Follow</button>
+            <button class="button-primary user-page-message">Message</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-page-details visibility-hidden">
+        <div class="pod user-page-about position-inline-block position-width-600px">
+          <p class="position-margin-top-10px type-opacity type-line-height-16px"></p>
+        </div>
+        <div class="pod user-page-social position-inline-block position-width-308px" style="border: 0; padding: 0; margin-left: -4px">
+          <table>
+            <tr>
+              <td>
+                <div class="label">website</div>
+                <div class="value user-page-details-website type-opacity">not provided</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">email</div>
+                <div class="value user-page-details-email type-opacity">not provided</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">facebook</div>
+                <div class="value user-page-details-facebook type-opacity">not provided</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">twitter</div>
+                <div class="value user-page-details-twitter type-opacity">not provided</div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="user-page-contracts visibility-hidden">
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All items</span></div>
+        <div class="user-page-contracts-grid"></div>
+      </div>
+
+      <div class="user-page-contract-detail visibility-hidden">
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name"></span></div>
+
+        <div style="position-padding-20px">
+          <div class="user-page-contract-detail-image"></div>
+          <div class="pod user-page-contract-detail-meta">
+            <h1 class="user-page-contract-detail-name"></h1>
+            <div class="user-page-contract-detail-pricing">
+              <div class="user-page-contract-detail-price position-inline-block position-margin-right-10px"></div>
+              <div class="user-page-contract-detail-shipping position-inline-block position-margin-right-10px"></div>
+              <div class="user-page-contract-detail-condition position-inline-block position-margin-right-10px"></div>
+              <div class="user-page-contract-detail-type position-inline-block"></div>
+            </div>
+            <div class="user-page-contract-detail-description"></div>
+            <div class="user-page-contract-detail-buttons">
+              <div class="user-page-contract-detail-quantity position-float-left position-margin-right-5px "><input class="input input-user-page-contract-detail-quantity input-quantity" value="1" /></div>
+              <button class="button-primary user-page-contract-detail-buy position-float-left">Buy</button>
+              <!-- <button class="button-primary user-page-contract-detail-sold-out visibility-hidden position-float-left">Sold out</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-page-services visibility-hidden">
+        <table></table>
+      </div>
+
+      <div class="user-page-following position-margin-0 visibility-hidden">
+        <table class="user-page-following-list"></table>
+      </div>
+      
+      <div class="user-page-followers position-margin-0 visibility-hidden">
+        <table class="user-page-followers-list"></table>       
+      </div>
+
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'user-page'});
+  </script>
+  <script src="../js/objects/page.js"></script>
+
+</dom-module>
