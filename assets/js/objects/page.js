@@ -68,6 +68,8 @@ window.Page = {
   },
 
   setNavigation: function setNavigation(user){  
+    $('.user-page-navigation ul li').removeClass('user-page-navigation-selected');
+    $('.user-page-navigation ul li').css('background-color', 'transparent');
     $('.user-page-followers-count').html(user.followers.length);
     $('.user-page-following-count').html(user.following.length);
     $('.user-page-contracts-count').html(user.contracts.length);
@@ -176,6 +178,8 @@ window.Page = {
   },
 
   contract: function contract(user, contract){
+    $('.user-page-navigation ul li').removeClass('user-page-navigation-selected');
+    $('.user-page-navigation ul li').css('background-color', 'transparent');
     $('.user-page-contract-detail-name').html(contract.name);
     $('.user-page-contract-detail-image').css('background', 'url(' + contract.photo1 + ') 50% 50% / cover no-repeat');
     $('.user-page-contract-detail-price').html('$23.52 (' + contract.price + ' btc)');
