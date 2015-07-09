@@ -143,7 +143,7 @@
 }
 
 .onboarding .onboarding-photo {
-  background: #fff url(../img/onboarding-header.jpg) 100% 15% / cover no-repeat;
+  background: #fff url(../img/onboarding-header.jpg) 100% 0% / cover no-repeat;
   height: 265px;
   overflow: hidden;
   position: absolute;
