@@ -15,7 +15,7 @@ $(window).load(function(){
     $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
       theme:"minimal-dark",
       scrollInertia: 0,
-      // mouseWheelPixels: 200,
+      // mouseWheelPixels: 850,
       callbacks:{
         onScroll: function(){
           // if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && this.mcs.draggerTop >= 168){
