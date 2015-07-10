@@ -17,6 +17,11 @@
   top: 0;
 }
 
+.user-page-footer {
+  height: 20px;
+  width: 100%;
+}
+
 .user-page .input {
   background: #fff;
 }
