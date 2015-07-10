@@ -53,6 +53,9 @@
   margin: 20px 0 20px 0;
   padding: 15px;
 }
+.user-page-contract-detail-pricing table td {
+  font-size: 14px;
+}
 
 .user-page-navigation {
   height: 46px;
