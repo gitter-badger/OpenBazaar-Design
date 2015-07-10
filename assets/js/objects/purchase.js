@@ -9,9 +9,7 @@ window.Purchase = {
   display: function display(){
     Purchase.load();
     Helper.hideAll();
-    Vendor.setPrimaryColor(defaultPrimaryColor);
-    Vendor.setSecondaryColor(defaultSecondaryColor);
-    Vendor.setTextColor(defaultTextColor);
+    Helper.setDefualtColors(true);
     $('.transactions-h1').html('Purchases');
     $('.transactions-sales, .transactions-cases').hide();
     $('.transactions').fadeTo(100, 100);

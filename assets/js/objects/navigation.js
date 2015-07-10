@@ -53,10 +53,8 @@ window.Navigation = {
 
   setPageUrl: function setPageUrl(params){
     var input = $('.input-search');
-    if (params.includes('@')){
+    if (params){
       input.val(params);
-    }else if(params){
-      input.val('ob://' + params);
     }else{
       input.val('');
     }
@@ -91,14 +89,14 @@ window.Navigation = {
           break;
         case "user":
           var user = User.find(nextPage.handle);
-          User.view(user, false);
+          Page.view(user, false);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(nextPage);
           Navigation.setPageUrl(user.handle);
           break;
       }
     } 
-      Navigation.setArrowOpacity();
+    Navigation.setArrowOpacity();
   },
 
   stepBack: function stepBack(){
@@ -131,7 +129,7 @@ window.Navigation = {
           break;
         case "user":
           var user = User.find(previousPage.handle);
-          User.view(user, false);
+          Page.view(user, false);
           Navigation.unsetActivePage();
           Navigation.setAsCurrentPage(previousPage);
           Navigation.setPageUrl(user.handle);

@@ -11,6 +11,13 @@ h2 {
   letter-spacing: .2px;
 }
 
+h2 {
+  font-family: "font-medium";
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: .2px;
+}
+
 a {
   color: #4A90E2;
   text-decoration: none;
