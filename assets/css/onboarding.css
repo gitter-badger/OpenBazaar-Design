@@ -106,10 +106,10 @@
   color: #fff;
   font-size: 15px;
   font-family: "font-medium";
-  margin: 0 5%;
+  margin: 0 10%;
   position: absolute;
   text-align: center;
-  width: 90%;
+  width: 80%;
   z-index: 50;
   line-height: 18px;
 }

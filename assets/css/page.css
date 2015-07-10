@@ -68,11 +68,14 @@
   float: left;
   margin-right: 0;
   min-width: 95px;
-  font-size: 14px;
+  font-family: "font-medium";
+  font-size: 12px;
   height: 42px;
   line-height: 42px;
   opacity: .75;
   padding: 0 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   text-align: center;
 }
 
