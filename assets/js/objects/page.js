@@ -60,8 +60,8 @@ window.Page = {
   setMetaData: function setMetaData(user){
     $('.user-page-navigation ul li, .user-page-message, .user-page-navigation-store').attr('data-user-handle', user.handle);
     $('.user-page-name').html(user.name);
-    $('.user-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
-    $('.user-details-email').html(user.email);
+    $('.user-page-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
+    $('.user-page-details-email').html(user.email);
     $('.user-page-header').css('background', 'url(' + user.hero + ') 50% 50% / cover no-repeat');
     $('.user-page-avatar').css('background', 'url(' + user.avatar + ') 50% 50% / cover no-repeat');
     $('.user-page-about p').html(user.description);   
@@ -177,7 +177,13 @@ window.Page = {
     $('.user-page-contracts').show();
   },
 
-  contract: function contract(user, contract){
+  contract: function contract(user, contract, updatePageViews){
+    if (updatePageViews){
+      pageViews.push({"page": "user", "id": user.id, "handle": user.handle, "active": true});
+      Navigation.unsetActivePage();
+      Navigation.stripPageHistory();
+      Navigation.setArrowOpacity();
+    }
     $('.user-page-navigation ul li').removeClass('user-page-navigation-selected');
     $('.user-page-navigation ul li').css('background-color', 'transparent');
     $('.user-page-contract-detail-name').html(contract.name);

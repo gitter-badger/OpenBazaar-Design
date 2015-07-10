@@ -9,10 +9,8 @@ window.Transaction = {
   },
 
   changeType: function changeType(event){
-    Vendor.setPrimaryColor(defaultPrimaryColor);
-    Vendor.setSecondaryColor(defaultSecondaryColor);
-    Vendor.setTextColor(defaultTextColor);
-
+    Helper.setDefualtColors(true);
+    
     switch($(event.currentTarget).val()){
       case "purchases":
         Purchase.display();

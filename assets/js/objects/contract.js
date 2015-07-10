@@ -56,12 +56,12 @@ window.Contract = {
 
     var image = $('.user-page-contract-detail-image').css('background-image');
     var avatar = $('.user-page-avatar').css('background-image');
-    var price = $('.user-page-contract-detail-price span').html();
+    var price = $('.user-page-contract-detail-price').html();
     var name = $('.user-page-name').html();
 
     $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat');
     $('.modal-pretty .direct-avatar').css('background', avatar + '100% 100% / cover no-repeat');
-    $('.modal-pretty .modal-contract-price').html(price + ' ($52 USD)');
+    $('.modal-pretty .modal-contract-price').html(price);
     $('.modal-pretty .modal-vendor-name').html(name);
 
     $('#main, .vendor-header').addClass('blur');
@@ -80,7 +80,7 @@ window.Contract = {
     Navigation.stripPageHistory();
     Navigation.setArrowOpacity();
     Helper.hideAll();
-    Page.contract(user, contract);
+    Page.contract(user, contract, true);
   },
 
   displayContractInModal: function displayContractInModal(){
