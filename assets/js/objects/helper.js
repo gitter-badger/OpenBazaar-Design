@@ -25,13 +25,13 @@ window.Helper = {
 
   setDefualtColors: function setDefualtColors(instant){
     if (instant){
-      $('body').css('background', '#08486B');
+      $('body').css('background', '#00527E');
       $('.user-page-navigation li').css('border-color', defaultPrimaryColor); 
       $('#header, .user-page-navigation, .item-meta-data').css('background', defaultSecondaryColor); 
       $('.navigation-controls, .navigation-controls span, .control-panel li, .user-page-navigation-selected').css('background', defaultPrimaryColor);
       $('.item-price, .item-meta-data').css('color', defaultTextColor); 
     }else{
-      $('body').animate({ backgroundColor: '#08486B', color: defaultTextColor }, fade);
+      $('body').animate({ backgroundColor: '#00527E', color: defaultTextColor }, fade);
       $('.user-page-navigation li').css('border-color', defaultPrimaryColor); 
       $('#header, .user-page-navigation, .item-meta-data').animate({ backgroundColor: defaultSecondaryColor }, fade);  
       $('.navigation-controls, .navigation-controls span, .control-panel li,.user-page-navigation-selected').animate({ backgroundColor: defaultPrimaryColor, color: defaultTextColor }, fade);
