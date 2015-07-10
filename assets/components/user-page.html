@@ -64,29 +64,49 @@
       </div>
 
       <div class="user-page-contracts visibility-hidden">
-        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All items</span></div>
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span></div>
         <div class="user-page-contracts-grid"></div>
       </div>
 
       <div class="user-page-contract-detail visibility-hidden">
-        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name"></span></div>
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name"></span></div>
 
         <div style="position-padding-20px">
+          <!-- <h1 class="user-page-contract-detail-name position-padding-20px"></h1> -->
           <div class="user-page-contract-detail-image"></div>
           <div class="pod user-page-contract-detail-meta">
-            <h1 class="user-page-contract-detail-name"></h1>
             <div class="user-page-contract-detail-pricing">
-              <div class="user-page-contract-detail-price position-inline-block position-margin-right-10px"></div>
-              <div class="user-page-contract-detail-shipping position-inline-block position-margin-right-10px"></div>
-              <div class="user-page-contract-detail-condition position-inline-block position-margin-right-10px"></div>
-              <div class="user-page-contract-detail-type position-inline-block"></div>
+              <table>
+                <tr class="user-page-contract-detail-price-row">
+                  <td>Price</td>
+                  <td class="user-page-contract-detail-price"></td>
+                </tr>
+                <tr class="user-page-contract-detail-shipping-row">
+                  <td>Shipping</td>
+                  <td class="user-page-contract-detail-shipping"></td>
+                </tr>
+                <tr class="user-page-contract-detail-condition-row">
+                  <td>Condition</td>
+                  <td class="user-page-contract-detail-condition"></td>
+                </tr>
+                <tr class="user-page-contract-detail-type-row">
+                  <td>Type</td>
+                  <td class="user-page-contract-detail-type"></td>
+                </tr>
+                <tr>
+                  <td>Location</td>
+                  <td>California, United States</td>
+                </tr>
+              </table>
+              
+              <div class="user-page-contract-detail-buttons position-padding-left-10px">
+                <div class="user-page-contract-detail-quantity position-inline-block position-margin-right-5px "><input class="input input-user-page-contract-detail-quantity input-quantity" value="1" /></div>
+                <button class="button-primary user-page-contract-detail-buy position-inline-block">Buy</button>
+                <!-- <button class="button-primary user-page-contract-detail-sold-out visibility-hidden position-inline-block">Sold out</button> -->
+              </div>
             </div>
+            <h2>Description</h2>
             <div class="user-page-contract-detail-description"></div>
-            <div class="user-page-contract-detail-buttons">
-              <div class="user-page-contract-detail-quantity position-float-left position-margin-right-5px "><input class="input input-user-page-contract-detail-quantity input-quantity" value="1" /></div>
-              <button class="button-primary user-page-contract-detail-buy position-float-left">Buy</button>
-              <!-- <button class="button-primary user-page-contract-detail-sold-out visibility-hidden position-float-left">Sold out</button> -->
-            </div>
           </div>
         </div>
       </div>

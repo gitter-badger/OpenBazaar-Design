@@ -1,28 +1,28 @@
 .button-primary {
   border: 0;
-  border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
   color: #ffffff;
   cursor: pointer;
   font-family: "font-medium";
-  font-size: 13px;
+  font-size: 13px;  
   height: 30px;
   letter-spacing: .2px;
   line-height: 32px;
   outline: none;
   padding: 0 22px;
+  letter-spacing: .6px;
   text-align: center;
   transition: box-shadow .3s;
 }
 
 .button-primary:hover{
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.30);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.30);
   opacity: .9;
   /*margin-top: -2px;*/
 }
 
 .button-primary:active{
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45);
   opacity: .75;
   /*margin-top: -2px;*/
 }

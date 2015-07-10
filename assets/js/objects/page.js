@@ -108,7 +108,7 @@ window.Page = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-page-footer, .user-page-navigation, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
+    $('#header, .user-page-footer, .user-page-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $('.pod').css('border-right-color', '#' + hex);
     $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb').css('border-color', '#' + hex);
@@ -183,7 +183,11 @@ window.Page = {
     $('.user-page-contract-detail-name').html(contract.name);
     $('.user-page-contract-detail-image').css('background', 'url(' + contract.photo1 + ') 50% 50% / cover no-repeat');
     $('.user-page-contract-detail-price').html('$23.52 (' + contract.price + ' btc)');
-    $('.user-page-contract-detail-shipping').html(contract.shipping);
+    if (contract.shipping == 0){
+      $('.user-page-contract-detail-shipping-row').hide();
+    }else{
+      $('.user-page-contract-detail-shipping').html(contract.shipping).show();
+    }
     $('.user-page-contract-detail-condition').html(contract.condition);
     $('.user-page-contract-detail-type').html(contract.type);
     $('.user-page-contract-detail-description').html(contract.description);
