@@ -11,6 +11,13 @@
   background: #327EB8;
 }
 
+.discover-footer {
+  background: #327EB8;
+  height: 20px;
+  width: 100%;
+}
+
+
 .dicover-contracts {
   text-align: left;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
