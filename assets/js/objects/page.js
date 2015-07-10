@@ -108,7 +108,7 @@ window.Page = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-page-footer, .user-page-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
+    $('#header, .user-page-footer, .user-page-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $('.pod').css('border-right-color', '#' + hex);
     $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb').css('border-color', '#' + hex);
