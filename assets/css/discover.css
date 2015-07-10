@@ -18,7 +18,7 @@
 
 .discover-contracts .contract {
   width: 250px;
-  padding: 33px;
+  padding: 20px 33px;
   border-right: solid 1px #327eb8;
   border-bottom: solid 1px #327eb8;
 }
