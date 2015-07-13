@@ -1,2 +1,4 @@
 .divshot-cache
 bower_components
+npm-debug.log
+node_modules

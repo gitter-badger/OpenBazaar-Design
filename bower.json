@@ -13,6 +13,10 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~1.0.4"
+    "polymer": "Polymer/polymer#~1.0.4",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.0",
+    "jquery-easing": "*",
+    "spin.js": "~2.3.1"
   }
 }

@@ -1,4 +1,4 @@
-var users = [
+window.preloadData.users = [
   {
     "id": 1,
     "avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg",
@@ -136,7 +136,7 @@ var users = [
     "contracts": []
   },
   {
-    "id": 5,    
+    "id": 5,
     "avatar": "https://www.rhythmandpoetry.net/cover-lone.png",
     "colorprimary": "#9E252B",
     "colorsecondary": "#B03037",

@@ -7,12 +7,12 @@ window.Onboarding = {
     $(document).on("click", ".onboarding-button-start, .onboarding-button-next, .onboarding-button-skip", function(event){ Onboarding.next(event) });
     $(document).on("click", ".onboarding-button-back", function(event){ Onboarding.back(event) });
     $(document).on("click", ".onboarding-button-close", function(event){ Onboarding.close(event) });
-    $(document).on("click", ".onboarding-choose-avatar, .avatar-circle", function(event){  
+    $(document).on("click", ".onboarding-choose-avatar, .avatar-circle", function(event){
       $('.onboarding-input-avatar').click();
       $('.onboarding-button-skip').hide();
       $('.onboarding-button-next').show();
     });
-    $(document).on("click", ".connect-to-onename", function(event){ 
+    $(document).on("click", ".connect-to-onename", function(event){
       $('.onboarding-button-skip').hide();
       $('.onboarding-button-next').show();
       alert("Don't know how this is going to work yet =/");
@@ -27,7 +27,7 @@ window.Onboarding = {
     $('.onboarding').hide();
     $('.connecting, .chat').show();
     Connect.load();
-    Navigation.setArrowOpacity();  
+    Navigation.setArrowOpacity();
     setTimeout(function(){ Discover.populateFeed() }, delay);
   },
 
@@ -97,33 +97,33 @@ window.Onboarding = {
 
   renderContributors: function renderContributors(){
     $('.onboarding-contributors-list').empty();
-    _.each(contributors, function(person, index){
+    _.each(preloadData.contributors, function(person, index){
       $('.onboarding-contributors-list').append('<tr><td class="position-padding-16px">' + person.name + ' &ndash; <span class="type-opacity position-margin-top-2px">' + person.role + '</span></div></td></tr>');
     });
     Onboarding.setTitle('247 contributors');
     $('.onboarding-contributors, .onboarding-button-start').show();
-    $('.onboarding').attr('data-active-step', 'contributors');   
+    $('.onboarding').attr('data-active-step', 'contributors');
   },
 
   renderLocation: function renderLocation(){
     $('.onboarding-location-list').empty();
     Onboarding.setTitle('Country');
-    _.each(countries, function(country, index){
+    _.each(preloadData.countries, function(country, index){
       $('.onboarding-location-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + country + '" name="country" /> <label class="position-margin-left-12px" for="' + country + '">' + country + '</td></tr>');
     });
     $('.onboarding-location, .onboarding-button-back, .onboarding-button-next').show();
-    $('.onboarding').attr('data-active-step', 'location');   
+    $('.onboarding').attr('data-active-step', 'location');
     $('.onboarding-location-search').focus();
   },
 
   renderCurrency: function renderCurrency(){
     $('.onboarding-currency-list').empty();
     Onboarding.setTitle('Local currency');
-    _.each(currencies, function(currency, index){
+    _.each(preloadData.currencies, function(currency, index){
       $('.onboarding-currency-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + currency + '" name="currency" /> <label class="position-margin-left-12px" for="' + currency + '">' + currency + '</td></tr>');
     });
     $('.onboarding-currency, .onboarding-button-back, .onboarding-button-next').show();
-    $('.onboarding').attr('data-active-step', 'currency'); 
+    $('.onboarding').attr('data-active-step', 'currency');
     $('.onboarding-currency-search').focus();
 
   },
@@ -131,11 +131,11 @@ window.Onboarding = {
   renderTimeZone: function renderTimeZone(){
     $('.onboarding-timezone-list').empty();
     Onboarding.setTitle('Time zone');
-    _.each(timeZones, function(time, index){
+    _.each(preloadData.timeZones, function(time, index){
       $('.onboarding-timezone-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + time + '" name="time" /> <label class="position-margin-left-12px" for="' + time + '">' + time + '</td></tr>');
     });
     $('.onboarding-timezone, .onboarding-button-back, .onboarding-button-next').show();
-    $('.onboarding').attr('data-active-step', 'timezone'); 
+    $('.onboarding').attr('data-active-step', 'timezone');
     $('.onboarding-timezone-search').focus();
   },
 
@@ -166,7 +166,7 @@ window.Onboarding = {
 
   renderFinal: function renderFinal(){
     Onboarding.setTitle('Enjoy OpenBazaar');
-    $('.onboarding-final, .onboarding-button-back, .onboarding-button-close').show();      
+    $('.onboarding-final, .onboarding-button-back, .onboarding-button-close').show();
     $('.onboarding').attr('data-active-step', 'final');
   },
 

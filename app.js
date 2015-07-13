@@ -20,11 +20,11 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1200, 
-    height: 700, 
-    frame: false, 
+    width: 1200,
+    height: 700,
+    frame: false,
     title: "OpenBazaar",
-    icon: __dirname + '/assets/img/icon.jpg'  
+    icon: __dirname + '/assets/img/icon.jpg'
   });
 
   // and load the index.html of the app.
@@ -43,17 +43,17 @@ app.on('ready', function() {
 
   // mainWindow.getElementById("window-minimize").addEventListener("click", function (e) {
   //    var window = BrowserWindow.getCurrentWindow();
-  //    window.minimize(); 
+  //    window.minimize();
   // });
 
   // mainWindow.getElementById("window-maximize").addEventListener("click", function (e) {
   //    var window = BrowserWindow.getCurrentWindow();
-  //    window.maximize(); 
+  //    window.maximize();
   // });
 
   // mainWindow.getElementById("window-button").addEventListener("click", function (e) {
   //    var window = BrowserWindow.getCurrentWindow();
   //    window.close();
-  // }); 
+  // });
 
 });

@@ -13,13 +13,13 @@ window.Discover = {
     }
     Helper.hideAll();
     $('.ob-icon').show();
-    
+
     if (backwards){
       $('.loading-icon').hide();
-      $('.loading-message').html(_.shuffle(messages)[0]);
+      $('.loading-message').html(_.shuffle(window.preloadData.messages)[0]);
       $('.connecting').fadeIn();
       Connect.load();
-      setTimeout(function(){  
+      setTimeout(function(){
         Discover.populateFeed();
         $('.connecting').hide();
         $('.discover').fadeIn('fast');
@@ -29,7 +29,7 @@ window.Discover = {
       $('.loading-icon').hide();
       $('.connecting').fadeIn();
       Connect.load();
-      setTimeout(function(){  
+      setTimeout(function(){
         Discover.populateFeed();
       }, delay);
     }
@@ -39,10 +39,10 @@ window.Discover = {
   populateFeed: function populateFeed(){
     $('.connecting').hide();
     $('.discover, .discover-contracts').show();
-    _.each(_.shuffle(users), function(user){
+    _.each(_.shuffle(window.preloadData.users), function(user){
       _.each(_.shuffle(user.contracts), function(contract){
         Contract.renderGridContract(user, contract, '.discover-contracts');
       });
     });
-  }  
+  }
 }

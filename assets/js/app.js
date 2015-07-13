@@ -1,7 +1,3 @@
-if (typeof require !== 'undefined') {
-  require('./extensions/jquery-2.1.1.min.js');
-}
-
 var pageViews = [{"page": "home", "active": true}]
 var defaultPrimaryColor = "#086A9E";
 var defaultSecondaryColor = "#327eb8";
@@ -16,24 +12,29 @@ jQuery.expr[':'].Contains = function(a, i, m) {
 };
 
 $(window).load(function(){
-    $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
-      theme:"minimal-dark",
-      scrollInertia: 0,
-      // mouseWheelPixels: 850,
-      callbacks:{
-        onScroll: function(){
-          // if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && this.mcs.draggerTop >= 168){
-          //   $(".vendor-navigation").addClass('vendor-navigation-docked');
-          //   $(".vendor").css('margin-top', '64px');
-          //   $(".contract-detail").css('margin-top', '64px');
-          // }else{
-          //   $(".vendor-navigation").removeClass('vendor-navigation-docked');
-          //   $(".vendor").css('margin-top', '0');
-          //   $(".contract-detail").css('margin-top', '0');
-          // }
-        }
+  // This isn't playing nice with electron's module loader
+  if (!$.fn.mCustomScrollbar && typeof require !== 'undefined') {
+    var path = require('path');
+    require(path.join(process.cwd(), 'assets', 'js', 'extensions', 'jquery.mCustomScrollbar.min.js'))($);
+  }
+  $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
+    theme:"minimal-dark",
+    scrollInertia: 0,
+    // mouseWheelPixels: 850,
+    callbacks:{
+      onScroll: function(){
+        // if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && this.mcs.draggerTop >= 168){
+        //   $(".vendor-navigation").addClass('vendor-navigation-docked');
+        //   $(".vendor").css('margin-top', '64px');
+        //   $(".contract-detail").css('margin-top', '64px');
+        // }else{
+        //   $(".vendor-navigation").removeClass('vendor-navigation-docked');
+        //   $(".vendor").css('margin-top', '0');
+        //   $(".contract-detail").css('margin-top', '0');
+        // }
       }
-    });
+    }
+  });
 });
 
 $(function() {
