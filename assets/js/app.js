@@ -1,3 +1,7 @@
+if (typeof require !== 'undefined') {
+  require('./assets/js/extensions/jquery-2.1.1.min.js');
+}
+
 var pageViews = [{"page": "home", "active": true}]
 var defaultPrimaryColor = "#086A9E";
 var defaultSecondaryColor = "#327eb8";

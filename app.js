@@ -8,6 +8,7 @@ require('crash-reporter').start();
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
 
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin')
@@ -23,15 +24,14 @@ app.on('ready', function() {
     height: 700, 
     frame: false, 
     title: "OpenBazaar",
-    icon: __dirname + '/assets/img/icon.jpg',
-    "node-integration": false
+    icon: __dirname + '/assets/img/icon.jpg'  
   });
 
   // and load the index.html of the app.
   mainWindow.loadUrl('http://localhost:9080/index.html');
 
   // Open the devtools.
-  // mainWindow.openDevTools();
+  mainWindow.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
@@ -40,5 +40,20 @@ app.on('ready', function() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+  // mainWindow.getElementById("window-minimize").addEventListener("click", function (e) {
+  //    var window = BrowserWindow.getCurrentWindow();
+  //    window.minimize(); 
+  // });
+
+  // mainWindow.getElementById("window-maximize").addEventListener("click", function (e) {
+  //    var window = BrowserWindow.getCurrentWindow();
+  //    window.maximize(); 
+  // });
+
+  // mainWindow.getElementById("window-button").addEventListener("click", function (e) {
+  //    var window = BrowserWindow.getCurrentWindow();
+  //    window.close();
+  // }); 
 
 });
