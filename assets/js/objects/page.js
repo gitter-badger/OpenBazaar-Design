@@ -98,20 +98,20 @@ window.Page = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar').css('background-color', '#' + hex);
+    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .user-page-details-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
-    $('.user-page-navigation').css('border-color', '#' + hex);
-    $('.user-page-navigation ul li ').css('border-right-color', '#' + hex);
+    $('.user-page-navigation ul li, .user-page-details-navigation ul li ').css('border-right-color', '#' + hex);
     $store.colorprimary = '#' + hex;
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-page-footer, .user-page-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
+    $('#header, .user-page-footer, .user-page-navigation, .user-page-details-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $('.pod').css('border-right-color', '#' + hex);
-    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb').css('border-color', '#' + hex);
+    $('.user-page-navigation, .user-page-details-navigation').css('border-color', '#' + hex);
+    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description').css('border-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 
@@ -122,7 +122,7 @@ window.Page = {
 
   setTextColor: function setTextColor(hex){  
     hex = hex.replace('#','');
-    $('body, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .contract-meta-data, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
+    $('.user-page-navigation, .user-page-details, .user-page-social, .user-page a, .user-page-following, .user-page-followers, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .contract-meta-data, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
     $('.user-configuration-font-color').css('background-color', '#' + hex);
     $store.colortext = '#' + hex;
   },
