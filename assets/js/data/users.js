@@ -14,7 +14,7 @@ window.preloadData.users = [
     "guid": "ce3b0ea96265bf272c5fb196ae14b04faf662a8f",
     "hero": "http://d38we5ntdyxyje.cloudfront.net/496469/art/2250328/1325556-8.jpg",
     "name": "Mike Wolf",
-    "roles": ['vendor'],
+    "roles": [],
     "contracts": [
       {
         "id": 1,

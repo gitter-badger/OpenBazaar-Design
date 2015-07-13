@@ -101,7 +101,8 @@ window.Chat = {
     $('.chat-message').hide();
     $('.chat-conversation-detail').show();
     $('.chat-conversation-detail-body').empty();
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + message.handle + '</div>');
+    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left">Messages</div>');
+    $('.chat-conversation-detail-title').html(message.handle);
     $('.chat-avatar').not('.chat-avatar:first').fadeTo(150, 0.15);
     $('.input-chat-new-message').focus();
   },
@@ -166,7 +167,8 @@ window.Chat = {
     $('.chat-view-details[data-id=' + id + ']').find('.chat-message-count').remove();
     $('.input-chat-new-message').focus();
     $('.input-chat-new-message').attr('data-id', id);
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + chat.from + '</div>');
+    $('.chat-conversation-detail-title').html(chat.from);
+    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left">Messages</div>');
     $('.chat-count').html($('.chat-message-count').length);
     if ($('.chat-count').length === 0){
       $('.chat-count').hide();
