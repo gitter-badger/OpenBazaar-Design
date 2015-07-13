@@ -1,5 +1,5 @@
 if (typeof require !== 'undefined') {
-  require('./assets/js/extensions/jquery-2.1.1.min.js');
+  require('./extensions/jquery-2.1.1.min.js');
 }
 
 var pageViews = [{"page": "home", "active": true}]
@@ -77,11 +77,11 @@ $(function() {
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
-    }    
+    }
     if($('.onboarding-currency-search').is(':focus') ){
       var locations = $(".onboarding-currency-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-currency-search').val() + "')").show();
-    }    
+    }
     if($('.onboarding-timezone-search').is(':focus') ){
       var locations = $(".onboarding-timezone-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-timezone-search').val() + "')").show();
