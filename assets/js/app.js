@@ -12,6 +12,23 @@ jQuery.expr[':'].Contains = function(a, i, m) {
 };
 
 $(window).load(function(){
+  var remote = require('remote');     
+
+  document.getElementById("window-minimize").addEventListener("click", function (e) {
+     var window = remote.getCurrentWindow();
+     window.minimize(); 
+  });
+
+  document.getElementById("window-maximize").addEventListener("click", function (e) {
+     var window = remote.getCurrentWindow();
+     window.maximize(); 
+  });
+
+  document.getElementById("window-close").addEventListener("click", function (e) {
+     var window = remote.getCurrentWindow();
+     window.close();
+  });
+
   // This isn't playing nice with electron's module loader
   if (!$.fn.mCustomScrollbar && typeof require !== 'undefined') {
     var path = require('path');
