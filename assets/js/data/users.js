@@ -15,75 +15,7 @@ window.preloadData.users = [
     "hero": "http://d38we5ntdyxyje.cloudfront.net/496469/art/2250328/1325556-8.jpg",
     "name": "Mike Wolf",
     "roles": [],
-    "contracts": [
-      {
-        "id": 1,
-        "name": "Selekt Few - MD (Music)",
-        "price": "0.03",
-        "shipping": "0",
-        "type": "Digital",
-        "condition": "New",
-        "quantity": 10,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photo1": "https://f1.bcbits.com/img/a1005251708_16.jpg"
-      },
-      {
-        "id": 2,
-        "name": "Paradox - Tacitus D.R. (Music)",
-        "price": "0.025",
-        "shipping": "0",
-        "type": "Digital",
-        "condition": "New",
-        "quantity": 10,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photo1": "https://f1.bcbits.com/img/a0996983842_16.jpg"
-      },
-      {
-        "id": 3,
-        "name": "Paradox - Tacitus D.R. (Music)",
-        "price": "0.025",
-        "shipping": "0",
-        "type": "Digital",
-        "condition": "New",
-        "quantity": 10,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photo1": "https://f1.bcbits.com/img/a0996983842_16.jpg"
-      },
-      {
-        "id": 4,
-        "name": "Selekt Few - MD (Music)",
-        "price": "0.03",
-        "shipping": "0",
-        "type": "Digital",
-        "condition": "New",
-        "quantity": 10,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photo1": "https://f1.bcbits.com/img/a1005251708_16.jpg"
-      },
-      {
-        "id": 5,
-        "name": "Paradox - Tacitus D.R. (Music)",
-        "price": "0.025",
-        "shipping": "0",
-        "type": "Digital",
-        "condition": "New",
-        "quantity": 10,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photo1": "https://f1.bcbits.com/img/a0996983842_16.jpg"
-      },
-      {
-        "id": 6,
-        "name": "Paradox - Tacitus D.R. (Music)",
-        "price": "0.025",
-        "shipping": "0",
-        "type": "Digital",
-        "condition": "New",
-        "quantity": 10,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "photo1": "https://f1.bcbits.com/img/a0996983842_16.jpg"
-      }
-    ],
-    "website": "http://wolf.com",
+    "website": "http://wolf.com"
   },
   {
     "id": 2,

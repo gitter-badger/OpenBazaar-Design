@@ -11,7 +11,7 @@ window.Navigation = {
     $(document).on("click", ".window-minimize", function(event) { 
       console.log('a');
        var window = remote.getCurrentWindow();
-       window.minimize(); 
+       window.minimize();
     });
     $(document).on("click", ".window-maximize", function(event) { 
       console.log('a');

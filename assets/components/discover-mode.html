@@ -4,7 +4,7 @@
 
   <template>
     <div class="discover visibility-hidden">
-      <div class="user-page-navigation">
+      <div class="user-page-navigation" style="border: 0">
         <div style="width: 950px; margin: auto">
           <ul class="position-float-left">
             <li class="discover-navigation-contracts user-page-navigation-selected" data-section="discover-contracts">Items</li>
@@ -14,7 +14,10 @@
       </div>
 
       <div class="discover-contracts visibility-hidden"></div>
-      <div class="discover-vendors visibility-hidden"></div>
+      <div class="discover-vendors visibility-hidden">
+        <input class="list-input discover-vendor-search" type="text" placeholder="Search for a store..." />
+        <table class="discover-vendors-list"></table>
+      </div>
       <div class="discover-footer"></div>
     </div>
   </template>

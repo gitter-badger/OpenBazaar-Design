@@ -18,10 +18,8 @@ window.Onboarding = {
       window.open('https://onename.com/login');
     });
     $(document).on("click", ".register-new-onename", function(event){
-      $('.onboarding-button-skip').hide();
-      $('.onboarding-button-next').show();
-      $('.handle-new-registration').show();
-      $('.onboarding-handle-buttons').hide();
+      $('.onboarding-button-skip, .onboarding-handle-buttons').hide();
+      $('.handle-new-registration, .onboarding-button-next').show();
       $('.onename-handle-input').focus();
     });
     $(".onboarding-input-avatar").change(function (){
