@@ -53,7 +53,7 @@ window.User = {
   loadFollowing: function loadFollowing(user){
     $('.user-profile-following').empty();
     _.each(user.following, function(person, index){
-      $('.user-profile-following').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-profile-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
+      $('.user-profile-following').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-profile-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
     });
   },
 
