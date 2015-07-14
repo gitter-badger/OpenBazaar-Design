@@ -4,21 +4,18 @@
 
   <template>
     <section id="header">
-      <ul class="window-controls">
-        <li class="window-close" title="Close"></li>
-        <li class="window-minimize" title="Minimize"></li>
-        <li class="window-maximize" title="Maximize"></li>
-      </ul>
+      <div class="window-control window-close"></div>
+      <div class="window-control window-minimize"></div>
+      <div class="window-control window-maximize"></div>
       <div class="navigation-controls position-float-left">
         <ul>
           <li class="navigation-controls-back"><span><</span></li>
           <li class="navigation-controls-forward"><span>></span></li>
         </ul>
       </div>
-      <input type="text" class="input input-search position-float-left" placeholder="Enter @handle or #keyword to search" />
+      <input type="text" class="input input-search position-float-left" placeholder="Enter a handle or a keyword" />
       <ul class="control-panel position-float-left">
         <li class="control-panel-discover">h</li>
-        <li class="control-panel-user" style="background: url(https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg) 50% 50% / cover no-repeat"></li>
       </ul>
     </section>
 
@@ -49,5 +46,4 @@
   <script src="../js/objects/navigation.js"></script>
   <script src="../js/objects/search.js"></script>
   <script src="../js/objects/history.js"></script>
-
 </dom-module>

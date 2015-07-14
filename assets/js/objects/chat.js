@@ -4,9 +4,10 @@ $(function() {
 
 window.Chat = {
   initialize: function() {
+    this.chats = JSON.parse(JSON.stringify(preloadData.chats));
     $(document).on('click', '.chat-condensed, .chat-condensed-title, .chat-close, .chat-header', function(){ Chat.toggle(event) });
     $(document).on('click', '.chat-view-all', function(){ Chat.viewAll() });
-    $(document).on('click', '.chat-message', function(event){ 
+    $(document).on('click', '.chat-message', function(event){
       var id = $(event.currentTarget).parent().parent().data('id');
       Chat.viewDetails(id);
     });
@@ -34,14 +35,14 @@ window.Chat = {
   },
 
   find: function find(id) {
-    return _.find(chats, function(chat){ return chat.id == id })
+    return _.find(this.chats, function(chat){ return chat.id == id })
   },
 
   loadMessages: function loadMessages(){
     $('.chat-expanded-conversations ul').empty();
     $('.chat-expanded').css('overflow-y','scroll');
 
-    _.each(chats.reverse(), function(chat){
+    _.each(this.chats.reverse(), function(chat){
       var conversation = chat.conversation;
       var lastMessage = _.last(conversation);
       if(chat.read){
@@ -68,7 +69,7 @@ window.Chat = {
       "date": "",
       "conversation": []
     };
-    chats.push(chat);
+    this.chats.push(chat);
     Chat.saveMessage();
   },
 
@@ -100,11 +101,12 @@ window.Chat = {
     $('.chat-message').hide();
     $('.chat-conversation-detail').show();
     $('.chat-conversation-detail-body').empty();
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + message.handle + '</div>');
+    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left">Messages</div>');
+    $('.chat-conversation-detail-title').html(message.handle).attr('data-user-handle', message.handle);
     $('.chat-avatar').not('.chat-avatar:first').fadeTo(150, 0.15);
     $('.input-chat-new-message').focus();
   },
-  
+
   toggle: function toggle(event){
     event.stopPropagation();
     if ($('.chat').css('bottom') === "-310px"){
@@ -140,7 +142,7 @@ window.Chat = {
         }else{
           $('.chat-count').show();
         }
-        $('.chat').css('bottom','-310px');      
+        $('.chat').css('bottom','-310px');
       }
     }
   },
@@ -165,7 +167,8 @@ window.Chat = {
     $('.chat-view-details[data-id=' + id + ']').find('.chat-message-count').remove();
     $('.input-chat-new-message').focus();
     $('.input-chat-new-message').attr('data-id', id);
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left"> ' + chat.from + '</div>');
+    $('.chat-conversation-detail-title').html(chat.from).attr('data-user-handle', chat.from);
+    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left">Messages</div>');
     $('.chat-count').html($('.chat-message-count').length);
     if ($('.chat-count').length === 0){
       $('.chat-count').hide();
@@ -179,6 +182,6 @@ window.Chat = {
         var bodyClass = '';
       }
       $('.chat-conversation-detail .chat-conversation-detail-body').append('<div class="' + bodyClass + ' position-clear-both "><div class="chat-conversation-detail-avatar" style="background: url(' + message.avatar +') 100% 100% / cover no-repeat"></div><div class="chat-conversation-detail-message">' + message.message + '</div></div>');
-    });   
+    });
   }
 }

@@ -19,19 +19,18 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1200, 
-    height: 700, 
-    frame: false, 
+    width: 1200,
+    height: 700,
+    frame: false,
     title: "OpenBazaar",
-    icon: __dirname + '/assets/img/icon.jpg',
-    "node-integration": false
+    icon: __dirname + '/assets/img/icon.jpg'
   });
 
   // and load the index.html of the app.
   mainWindow.loadUrl('http://localhost:9080/index.html');
 
   // Open the devtools.
-  // mainWindow.openDevTools();
+  mainWindow.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
@@ -40,5 +39,4 @@ app.on('ready', function() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
-
 });

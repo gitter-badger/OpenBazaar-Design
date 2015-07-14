@@ -13,6 +13,17 @@ Run any static HTTP server in the root directory to run (file:/// urls will not 
 For example:
 
 ```
+bower install
 npm install -g static-server
 static-server .
+```
+
+### Running in Electron
+
+OpenBazaar-Design runs in Electron using `electron-prebuilt` via npm.
+
+```bash
+bower install
+npm install
+npm run start
 ```

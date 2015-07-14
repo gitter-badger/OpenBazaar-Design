@@ -17,10 +17,13 @@
   width: 100%;
 }
 
-
 .dicover-contracts {
   text-align: left;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.discover-vendors {
+  min-height: 400px;
 }
 
 .discover-contracts .contract {
@@ -50,6 +53,10 @@
   top: 42px;
   width: 100%;
   z-index: 100;
+}
+
+.discover-vendors-list tr {
+  border-bottom: solid 1px #ccc;
 }
 
 .discover-navigation ul li {

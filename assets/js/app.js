@@ -12,24 +12,30 @@ jQuery.expr[':'].Contains = function(a, i, m) {
 };
 
 $(window).load(function(){
-    $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
-      theme:"minimal-dark",
-      scrollInertia: 0,
-      // mouseWheelPixels: 850,
-      callbacks:{
-        onScroll: function(){
-          // if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && this.mcs.draggerTop >= 168){
-          //   $(".vendor-navigation").addClass('vendor-navigation-docked');
-          //   $(".vendor").css('margin-top', '64px');
-          //   $(".contract-detail").css('margin-top', '64px');
-          // }else{
-          //   $(".vendor-navigation").removeClass('vendor-navigation-docked');
-          //   $(".vendor").css('margin-top', '0');
-          //   $(".contract-detail").css('margin-top', '0');
-          // }
-        }
+  var remote = require('remote');     
+  // This isn't playing nice with electron's module loader
+  if (!$.fn.mCustomScrollbar && typeof require !== 'undefined') {
+    var path = require('path');
+    require(path.join(process.cwd(), 'assets', 'js', 'extensions', 'jquery.mCustomScrollbar.min.js'))($);
+  }
+  $('#main, .chat-conversations, .onboarding-body, .modal-body').mCustomScrollbar({
+    theme:"minimal-dark",
+    scrollInertia: 0,
+    // mouseWheelPixels: 850,
+    callbacks:{
+      onScroll: function(){
+        // if( ($('.vendor').is(':visible') || $('.contract-detail').is(':visible')) && this.mcs.draggerTop >= 168){
+        //   $(".vendor-navigation").addClass('vendor-navigation-docked');
+        //   $(".vendor").css('margin-top', '64px');
+        //   $(".contract-detail").css('margin-top', '64px');
+        // }else{
+        //   $(".vendor-navigation").removeClass('vendor-navigation-docked');
+        //   $(".vendor").css('margin-top', '0');
+        //   $(".contract-detail").css('margin-top', '0');
+        // }
       }
-    });
+    }
+  });
 });
 
 $(function() {
@@ -70,14 +76,18 @@ $(function() {
     if($('.vendor-meta-name').is(':focus') && $('.vendor-meta-name').val() !== ""){ $('.vendor-header-2 .vendor-name').html($('.vendor-meta-name').val()); }
     if($('.vendor-meta-description').is(':focus') && $('.vendor-meta-description').val() !== ""){ $('.vendor-header-2 .vendor-description').html($('.vendor-meta-description').val()); }
     if($('.vendor-meta-avatar').is(':focus') && $('.vendor-meta-avatar').val() !== ""){ $('.vendor-header-2 .vendor-avatar').css('background', 'url(' + $('.vendor-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
+    if($('.discover-vendor-search').is(':focus') ){
+      var locations = $(".discover-vendors-list").find("tr").hide();
+      locations.filter(":Contains('" + $('.discover-vendor-search').val() + "')").show();
+    }    
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
-    }    
+    }
     if($('.onboarding-currency-search').is(':focus') ){
       var locations = $(".onboarding-currency-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-currency-search').val() + "')").show();
-    }    
+    }
     if($('.onboarding-timezone-search').is(':focus') ){
       var locations = $(".onboarding-timezone-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-timezone-search').val() + "')").show();

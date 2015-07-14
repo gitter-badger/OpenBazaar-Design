@@ -4,25 +4,25 @@ $(function() {
 
 window.User = {
   initialize: function() {
-    $(document).on("click", ".menu-user-profile, .user-profile-link", function(event){ 
+    $(document).on("click", ".menu-user-profile, .user-profile-link", function(event){
       var handle = $(event.currentTarget).attr('data-user-handle');
       var user = User.find(handle);
-      User.view(user, true); 
+      User.view(user, true);
     });
     $(document).on("click", ".user-profile-navigation li", function(event){ User.changeSection(event) });
   },
-  
-  find: function find(handle){  
-    return _.find(users, function(user){ return user.handle == handle });
-  },  
-  
-  findById: function findById(id){  
-    return _.find(users, function(user){ return user.id == id });
-  },   
 
-  findByGuid: function findByGuid(guid){  
-    return _.find(users, function(user){ return user.guid == guid });
-  },  
+  find: function find(handle){
+    return _.find(window.preloadData.users, function(user){ return user.handle == handle });
+  },
+
+  findById: function findById(id){
+    return _.find(window.preloadData.users, function(user){ return user.id == id });
+  },
+
+  findByGuid: function findByGuid(guid){
+    return _.find(window.preloadData.users, function(user){ return user.guid == guid });
+  },
 
   changeSection: function changeSection(event){
     $('.user-profile-navigation li').removeClass('user-profile-navigation-selected');
@@ -32,7 +32,7 @@ window.User = {
     var user = User.find(handle);
 
     switch(section){
-      case "user-profile-about": 
+      case "user-profile-about":
         $('.user-profile-following').hide();
         $('.user-profile-about, .user-social').show();
         break;
@@ -43,10 +43,10 @@ window.User = {
         break;
     }
 
-    User.setPrimaryColor(user.colorprimary); 
-    User.setSecondaryColor(user.colorsecondary); 
-    User.setTextColor(user.colortext); 
-    User.setBackgroundColor(user.colorbackground); 
+    User.setPrimaryColor(user.colorprimary);
+    User.setSecondaryColor(user.colorsecondary);
+    User.setTextColor(user.colortext);
+    User.setBackgroundColor(user.colorbackground);
     $('.user-profile-navigation li:not(.user-profile-navigation-selected)').css('background', user.colorsecondary);
   },
 
