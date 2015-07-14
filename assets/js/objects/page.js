@@ -38,6 +38,15 @@ window.Page = {
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
       Page.view(user, event) 
     });
+    $(document).on("click", ".follow-user", function(event){ 
+      if($(this).html() === "Follow"){
+        new Notification('You\'re now following ' + $(event.currentTarget).attr('data-user-handle'));
+        $(this).html('Unfollow');
+      }else{
+        new Notification('You\'re no longer following ' + $(event.currentTarget).attr('data-user-handle'));
+        $(this).html('Follow');
+      }
+    });
   },
 
   hideSections: function hideSections(){  
@@ -107,7 +116,7 @@ window.Page = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-page-footer, .user-page-navigation, .user-page-details-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
+    $('#header, .user-page-following-list .button-primary, .user-page-followers-list .button-primary, .user-page-footer, .user-page-navigation, .user-page-details-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $('.pod').css('border-right-color', '#' + hex);
     $('.user-page-navigation, .user-page-details-navigation').css('border-color', '#' + hex);
@@ -212,7 +221,7 @@ window.Page = {
     $('.user-page-followers-list').empty();
     _.each(user.followers, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
+      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-followers').show();
@@ -224,7 +233,7 @@ window.Page = {
     $('.user-page-following-list').empty();
     _.each(user.following, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right">Follow</button></td></tr>');
+      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-following').show();

@@ -64,7 +64,7 @@ window.Chat = {
       "id": vendor.id,
       "read": true,
       "incoming": false,
-      "from": "@mike",
+      "from": "@wolf",
       "to": Vendor.handle(vendor),
       "date": "",
       "conversation": []
@@ -77,7 +77,7 @@ window.Chat = {
     var id = $('.input-chat-new-message').attr('data-id');
     var chat = Chat.find(id);
     var newMessage = {
-      "from": "@mike",
+      "from": "@wolf",
       "message": $('.input-chat-new-message').val(),
       "avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg"
     }
@@ -176,12 +176,12 @@ window.Chat = {
 
     $('.chat-conversation-detail .chat-conversation-detail-body').empty();
     _.each(chat.conversation, function(message){
-      if (message.from === "@mike"){
+      if (message.from === "@wolf"){
         var bodyClass = 'chat-conversation-detail-flip';
       }else{
         var bodyClass = '';
       }
-      $('.chat-conversation-detail .chat-conversation-detail-body').append('<div class="' + bodyClass + ' position-clear-both "><div class="chat-conversation-detail-avatar" style="background: url(' + message.avatar +') 100% 100% / cover no-repeat"></div><div class="chat-conversation-detail-message">' + message.message + '</div></div>');
+      $('.chat-conversation-detail .chat-conversation-detail-body').append('<div class="' + bodyClass + ' position-clear-both "><div class="chat-conversation-detail-avatar user-page-link" data-user-handle="' + message.from + '" style="background: url(' + message.avatar +') 100% 100% / cover no-repeat"></div><div class="chat-conversation-detail-message">' + message.message + '</div></div>');
     });
   }
 }
