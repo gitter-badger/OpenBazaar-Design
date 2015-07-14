@@ -23,7 +23,7 @@
             <li class="user-page-navigation-store" data-section="user-page-store">Store <span class="pill user-page-contracts-count"></span></li>
           </ul>
           <div class="user-page-actions position-float-right position-margin-right-10px position-margin-top--2px">
-            <button class="button-primary user-page-follow">Follow</button>
+            <button class="button-primary user-page-link">Follow</button>
             <button class="button-primary user-page-message">Message</button>
           </div>
         </div>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="user-page-contracts visibility-hidden">
-        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span></div>
+        <input class="list-input list-input-search search-store" placeholder="" />
         <div class="user-page-contracts-grid"></div>
       </div>
 
@@ -127,10 +127,12 @@
       </div>
 
       <div class="user-page-following position-margin-0 visibility-hidden">
+        <input class="list-input list-input-search search-following" placeholder="" />
         <table class="user-page-following-list"></table>
       </div>
       
       <div class="user-page-followers position-margin-0 visibility-hidden">
+        <input class="list-input list-input-search search-followers" placeholder="" />
         <table class="user-page-followers-list"></table>       
       </div>
 
