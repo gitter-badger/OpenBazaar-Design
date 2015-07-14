@@ -83,6 +83,18 @@ $(function() {
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
+    }    
+    if($('.search-store').is(':focus') ){
+      var locations = $(".user-page-contracts .user-page-contracts-grid").find(".contract").hide();
+      locations.filter(":Contains('" + $('.search-store').val() + "')").show();
+    }    
+    if($('.search-following').is(':focus') ){
+      var locations = $(".user-page-following-list").find("tr").hide();
+      locations.filter(":Contains('" + $('.search-following').val() + "')").show();
+    }    
+    if($('.search-followers').is(':focus') ){
+      var locations = $(".user-page-followers-list").find("tr").hide();
+      locations.filter(":Contains('" + $('.search-followers').val() + "')").show();
     }
     if($('.onboarding-currency-search').is(':focus') ){
       var locations = $(".onboarding-currency-list").find("tr").hide();

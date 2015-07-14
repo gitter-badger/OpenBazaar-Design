@@ -61,6 +61,28 @@ label {
   margin-bottom: 5px;
 }
 
+.list-input {
+  outline: none;
+  color: #fff;
+  background: transparent;
+  height: 52px;
+  border: 0;
+  font-size: 13px;
+  border-bottom: solid 1px #327EB8;
+  width: 100%;
+  padding: 15px;
+}
+
+.list-input-search {
+  background-image: url('../img/icon-search-white.png') !important;     
+  background-position: left 20px top 16px !important;
+  background-repeat: no-repeat !important; 
+  background-size: 14px !important;  
+  height: 45px;
+  text-indent: 25px;
+
+}
+
 .input-search {
   background: #fff;
   -webkit-app-region: no-drag;

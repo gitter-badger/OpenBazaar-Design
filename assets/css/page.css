@@ -32,10 +32,13 @@
 
 .user-page-breadcrumb {
   border-bottom: solid 1px #327eb8;
-  font-family: "font-medium";
-  font-size: 14px;
   color: #fff;
   padding: 15px 20px;
+}
+
+.user-page-breadcrumb span {
+  font-family: "font-medium";
+  font-size: 16px;
 }
 
 .user-page-breadcrumb span:hover {

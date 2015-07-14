@@ -69,6 +69,8 @@ window.Page = {
   setMetaData: function setMetaData(user){
     $('.user-page-navigation ul li, .user-page-message, .user-page-navigation-store').attr('data-user-handle', user.handle);
     $('.user-page-name').html(user.name);
+    $('.user-page-follow').attr('data-user-handle', user.handle);
+    $('.user-page .button-primary').attr('data-user-handle', user.handle);
     $('.user-page-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
     $('.user-page-details-email').html(user.email);
     $('.user-page-header').css('background', 'url(' + user.hero + ') 50% 50% / cover no-repeat');
@@ -120,7 +122,7 @@ window.Page = {
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $('.pod').css('border-right-color', '#' + hex);
     $('.user-page-navigation, .user-page-details-navigation').css('border-color', '#' + hex);
-    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description').css('border-color', '#' + hex);
+    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description, .list-input').css('border-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 
@@ -166,6 +168,7 @@ window.Page = {
     Page.setMetaData(user);
     Navigation.setPageUrl(user.handle);
     $('.user-page').fadeIn('slow');
+    $('.search-store').focus();
   }, 
 
   about: function about(user, event){
@@ -184,6 +187,7 @@ window.Page = {
     });    
     Page.setColors(user)
     $('.user-page-contracts').show();
+    $('.search-store').focus();
   },
 
   contract: function contract(user, contract, updatePageViews){
@@ -225,6 +229,7 @@ window.Page = {
     });
     Page.setColors(user)
     $('.user-page-followers').show();
+    $('.search-followers').focus();
   },
 
   following: function following(user, event){
@@ -237,5 +242,7 @@ window.Page = {
     });
     Page.setColors(user)
     $('.user-page-following').show();
+    $('.search-following').focus();
+
   }
 }
