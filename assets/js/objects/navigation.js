@@ -8,6 +8,21 @@ window.Navigation = {
     $(document).on("click", ".navigation-controls-forward", function(){  Navigation.stepForward() });
     $(document).on("click", ".menu-transaction", function(){ Purchase.display() });
     $(document).on("click", ".control-panel-user", function(event){ Navigation.toggleUserSettings(event) });
+    $(document).on("click", ".window-minimize", function(event) { 
+      console.log('a');
+       var window = remote.getCurrentWindow();
+       window.minimize(); 
+    });
+    $(document).on("click", ".window-maximize", function(event) { 
+      console.log('a');
+       var window = remote.getCurrentWindow();
+       window.maximize(); 
+    });  
+    $(document).on("click", ".window-close", function(event) { 
+      console.log('a');
+       var window = remote.getCurrentWindow();
+       window.close(); 
+    });
     $(document).on("click", ".control-panel-discover", function(event){ 
       // Navigation.toggleDiscovery(event) 
       Discover.contracts(false, true);

@@ -15,7 +15,14 @@ window.Onboarding = {
     $(document).on("click", ".connect-to-onename", function(event){
       $('.onboarding-button-skip').hide();
       $('.onboarding-button-next').show();
-      alert("Don't know how this is going to work yet =/");
+      window.open('https://onename.com/login');
+    });
+    $(document).on("click", ".register-new-onename", function(event){
+      $('.onboarding-button-skip').hide();
+      $('.onboarding-button-next').show();
+      $('.handle-new-registration').show();
+      $('.onboarding-handle-buttons').hide();
+      $('.onename-handle-input').focus();
     });
     $(".onboarding-input-avatar").change(function (){
        Helper.readURL(this);

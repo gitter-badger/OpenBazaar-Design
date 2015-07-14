@@ -1,7 +1,8 @@
 #header {
   -webkit-app-region: drag;
   background-color: #327eb8;
-  height: 50px;
+  height: 30px;
+  padding-top: 20px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -61,12 +62,7 @@
   width: 100%;
 }
 
-.window-controls {
-  margin-left: 12px;
-  padding-top: 20px;
-}
-
-.window-controls li {
+.window-control {
   border-radius: 6px;  
   cursor: pointer;
   float: left;
@@ -77,6 +73,7 @@
 
 .window-close {
   background: #E45A5A;
+  margin-left: 12px;
 }
 
 .window-minimize {
