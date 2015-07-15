@@ -85,7 +85,10 @@ $(function() {
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
     }    
     if($('.search-store').is(':focus') ){
+      var search = $('.search-store').val();
+      var handle = $('.input-search').val().substring($('.input-search').val().indexOf(" ") + 1);
       var locations = $(".user-page-contracts .user-page-contracts-grid").find(".contract").hide();
+      Navigation.setPageUrl(handle + " " + search);
       locations.filter(":Contains('" + $('.search-store').val() + "')").show();
     }    
     if($('.search-following').is(':focus') ){
