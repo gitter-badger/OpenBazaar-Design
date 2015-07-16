@@ -4,6 +4,10 @@ $(function() {
 
 window.Page = {
   initialize: function() {
+    $(document).on("click", ".trade-back-to-payment", function(){ Page.tradeBackToPayment() });
+    $(document).on("click", ".trade-back-to-address", function(){ Page.tradeBackToAddress() });
+    $(document).on("click", ".modal-qr-code", function(){ Page.tradeConfirmed() });
+    $(document).on("click", ".trade-done", function(){ Page.tradeDone() });
     $(document).on("click", ".contract-vendor-name", function(event) { 
       event.stopPropagation();
       var guid = $(event.currentTarget).attr('data-vendor-guid');
@@ -144,6 +148,13 @@ window.Page = {
     $('.modal-trade-flow-payment-type').show();
   },
 
+  tradeConfirmed: function tradeConfirmed(){
+    $('.trade-pending').hide();
+    $('.trade-done').show();
+    $('.modal-qr-cost').html('Payment received!');
+    new Notification('Payment received');
+  },
+
   tradeBackToAddress: function tradeBackToAddress(){
     var image = $('.item-detail-image').css('background-image');
     Modal.setTitle('Ship to');
@@ -243,6 +254,29 @@ window.Page = {
     Page.setColors(user)
     $('.user-page-following').show();
     $('.search-following').focus();
+  },
+  
+  tradeBackToPayment: function tradeBackToPayment(){
+    Modal.setTitle('Payment type');
+    $('.modal-qr-payment').hide();
+    $('.modal-contract-price').show();  
+    $('.modal-trade-flow-payment-type').show();
+  },
 
+  tradeBackToAddress: function tradeBackToAddress(){
+    var image = $('.user-page-contract-detail-image').css('background-image');
+    Modal.setTitle('Ship to');
+    $('.modal-qr-payment').hide();
+    $('.modal-photo-shadow').show();
+    $('.modal-contract-price').show();
+    console.log(image);
+    $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
+    $('.modal-trade-flow-summary').hide();
+    $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
+  },
+
+  tradeDone: function tradeDone(){
+    Modal.close();
+    new Notification('Thank you for shopping at ' + $('.user-page-name').html());
   }
 }

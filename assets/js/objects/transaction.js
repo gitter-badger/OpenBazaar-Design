@@ -4,14 +4,18 @@ $(function() {
 
 window.Transaction = {
   initialize: function() {
-    $(document).on("change", ".transactions-select", function(event){ Transaction.changeType(event) });
+    $(document).on("click", ".transactions li", function(event){ Transaction.changeType(event) });
     $(document).on("click", ".transaction-detail", function(event){ Transaction.renderDetails(event) });
+    $(document).on("click", ".modal-purchase-release-funds-to-buyer", function(event){ Transaction.releaseFundsToBuyer() });
+    $(document).on("click", ".modal-purchase-release-funds-to-seller", function(event){ Transaction.releaseFundsToSeller() });
   },
 
   changeType: function changeType(event){
-    Helper.setDefualtColors(true);
+    $('.transactions li').removeClass('user-page-navigation-selected');
+    $(event.currentTarget).addClass('user-page-navigation-selected');
+    Helper.setDefualtColors(true);    
     
-    switch($(event.currentTarget).val()){
+    switch($(event.currentTarget).attr('data-section')){
       case "purchases":
         Purchase.display();
         break;
@@ -22,11 +26,25 @@ window.Transaction = {
         Case.display();
         break;
     }
+
+    $(".transactions-order-search").focus();
+  },
+
+  releaseFundsToBuyer: function releaseFundsToBuyer(){
+    if (confirm("Are you sure you want to relase the funds to the buyer?") == true) {
+      new Notification('Payment released to the buyer');        
+    }
+  },
+
+  releaseFundsToSeller: function releaseFundsToSeller(){
+    if (confirm("Are you sure you want to relase the funds to the seller?") == true) {
+      new Notification('Payment released to the seller');        
+    }
   },
 
   renderDetails: function renderDetails(event){
     var purchaseId = $(event.currentTarget).data('id');
-    var purchase = _.find(purchases, function(purchase){ return purchase.id == purchaseId });
+    var purchase = _.find(window.preloadData.purchases, function(purchase){ return purchase.id == purchaseId });
     var type = $(event.currentTarget).data('transactionType');
 
     if (purchase.tracking != ""){
@@ -52,8 +70,8 @@ window.Transaction = {
         $('.modal-navigation ul li:nth-child(4)').show();
         break;
       case "case":
-        $('.modal-purchase-dispute').hide();
-        $('.modal-purchase-release-funds, .modal-purchase-request-funds').show();
+        $('.modal-purchase-dispute, .modal-purchase-request-funds').hide();
+        $('.modal-purchase-release-funds-to-buyer, .modal-purchase-release-funds-to-seller').show();
         $('.modal-navigation ul li:nth-child(4)').show();
         break;
     }

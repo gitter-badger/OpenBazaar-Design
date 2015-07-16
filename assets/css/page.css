@@ -185,6 +185,7 @@
 .user-page-contracts {
   margin-bottom: 0;
   text-align: left;
+  min-height: 386px;
 }
 
 .user-page-contracts .contract {

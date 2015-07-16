@@ -47,12 +47,8 @@ window.Contract = {
   },
 
   displayCheckout: function displayCheckout(){  
-    $('.modal-purchase-detail').hide();
-
-    // reset the colors
-    // Vendor.setPrimaryColor($('body').css('bgColor').replace('#',''));
-    // Vendor.setSecondaryColor($('#header').css('bgColor').replace('#',''));
-    // Vendor.setTextColor($('body').css('color').replace('#',''));
+    $('.modal-purchase-detail, .modal-trade-flow-address, .modal-trade-flow-summary').hide();
+    $('.modal-trade-flow-payment-type').show();
 
     var image = $('.user-page-contract-detail-image').css('background-image');
     var avatar = $('.user-page-avatar').css('background-image');
@@ -85,7 +81,7 @@ window.Contract = {
 
   displayContractInModal: function displayContractInModal(){
     Modal.clear();
-
+    $('.modal-qr-payment').hide();
     $('.new-product-name').val(product.name);
     $('.new-product-description').val(product.description);
     $('.new-product-price').val(product.price);
@@ -100,6 +96,8 @@ window.Contract = {
   },
 
   displayTradeFlowSummary: function displayTradeFlowSummary(){
+    $('.modal-qr-payment').show();
+    $('.modal-contract-price').hide();
     $('.modal-item').html($('.item-detail-name').html());
     $('.modal-trade-flow-address').hide();
     $('.modal-trade-flow-summary').show();
@@ -109,8 +107,10 @@ window.Contract = {
   },
 
   displayTradeFlowAddress: function displayTradeFlowAddress(){
+    $('.modal-qr-payment').hide();
     $('.modal-trade-flow-payment-type').hide();
     $('.modal-trade-flow-address').show();
+    $('.modal-contract-price').show();
     Modal.setTitle('Ship to');
   },
 

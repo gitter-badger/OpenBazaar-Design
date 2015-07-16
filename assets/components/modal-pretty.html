@@ -23,7 +23,7 @@
               <td class="position-padding-0">
                 <div class="position-float-left type-no-wrap">
                   <div class="type-weight-medium position-margin-bottom-3px type-size-14px modal-contract-name"></div>
-                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium ">Sold by <span class="modal-vendor-name"></span></div>
+                  <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium ">Sold by <span class="modal-vendor-name"></span></div>
                 </div>
                 <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-contract-price"></div>
               </td>
@@ -33,7 +33,7 @@
               <td class="position-padding-0">
                 <div class="position-float-left type-no-wrap">
                   <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Shipping</div>
-                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-vendor-name"></span></div>
+                  <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-vendor-name"></span></div>
                 </div>
                 <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-shipping-price"></div>
               </td>
@@ -43,7 +43,7 @@
               <td class="position-padding-0">
                 <div class="position-float-left type-no-wrap">
                   <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Protected transaction</div>
-                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-mod-name"></span></div>
+                  <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-mod-name"></span></div>
                 </div>
                 <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-mod-price"></div>
               </td>
@@ -55,7 +55,7 @@
               <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px"><div class="avatar modal-buyer-avatar"></div></td>
               <td class="position-padding-0">
                 <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Ship to</div>
-                <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium "><div class="modal-buyer-address"></div></div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><div class="modal-buyer-address"></div></div>
               </td>
             </tr>
           </table>
@@ -66,7 +66,7 @@
               <td class="position-padding-0">
                 <div class="position-float-left type-no-wrap">
                   <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Payment sent to <span class="modal-mod-name"></span></div>
-                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium "><span class="modal-puchase-date"></span></div>
+                  <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><span class="modal-puchase-date"></span></div>
                 </div>
                 <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-contract-price"></div>
               </td>
@@ -101,14 +101,15 @@
           </table>
         </div>
         <div class="modal-footer">
-          <button class="button-first modal-purchase-release-funds visibility-hidden">Release funds to seller</button>
+          <button class="button-first modal-purchase-release-funds-to-buyer visibility-hidden">Release funds to buyer</button>
+          <button class="button-first modal-purchase-release-funds-to-seller visibility-hidden">Release funds to seller</button>
           <button class="button-first modal-purchase-request-funds visibility-hidden">Request funds from buyer</button>
           <button class="modal-purchase-dispute">Dispute transaction</button>
         </div>
       </div>
 
       <div class="modal-trade-flow visibility-hidden">
-        <div class="modal-photo"><div class="modal-photo-shadow"></div><div class="modal-contract-price modal-contract-price-style"></div></div>
+        <div class="modal-photo"><div class="modal-qr-payment visibility-hidden"><div class="modal-qr-cost">Send .00286 btc to</div><div class="modal-qr-code"></div><input class="modal-qr-input" value="16RpcL7QAYZi1LaiW5NwRVABXaezvBCd73" /></div><div class="modal-photo-shadow"></div><div class="modal-contract-price modal-contract-price-style"></div></div>
         <div class="modal-header">Payment type</div>
         <div class="modal-trade-flow-payment-type">
           <div class="modal-body">
@@ -121,7 +122,7 @@
                 <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar"></div></td>
                 <td>
                   <div class="type-weight-medium position-margin-bottom-3px type-size-14px ">Moderated (1% tip will be included)</div>
-                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium "><span class="modal-vendor-name"></span> uses @ob1 as their trusted moderator to safely transfer the funds between you and them.</div>
+                  <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><span class="modal-vendor-name"></span> uses @ob1 as their trusted moderator to safely transfer the funds between you and them.</div>
                 </td>
               </tr>
               <tr>
@@ -129,7 +130,7 @@
                 <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px"><div class="avatar direct-avatar"></div></td>
                 <td>
                   <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Direct</div>
-                  <div class="position-width-80 type-line-height-16px type-opacity type-weight-medium">Send funds directly to <span class="modal-vendor-name"></span></div>
+                  <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium">Send funds directly to <span class="modal-vendor-name"></span></div>
                 </td>
               </tr>
             </table>
@@ -198,6 +199,7 @@
           </div>
           <div class="modal-footer">
             <button class="button-first trade-back-to-address">Back</button>
+            <button class="trade-pending type-opacity-half">Pending payment</button>
             <button class="trade-done">Done</button>
           </div>
         </div>

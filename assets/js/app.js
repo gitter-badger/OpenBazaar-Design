@@ -86,7 +86,11 @@ $(function() {
     }    
     if($('.search-store').is(':focus') ){
       var search = $('.search-store').val();
-      var handle = $('.input-search').val().substring($('.input-search').val().indexOf(" ") + 1);
+      if ($('.input-search').val().indexOf(" ") > 0){
+        var handle = $('.input-search').val().substring(0, $('.input-search').val().indexOf(" "));
+      }else{
+        var handle = $('.input-search').val();
+      }
       var locations = $(".user-page-contracts .user-page-contracts-grid").find(".contract").hide();
       Navigation.setPageUrl(handle + " " + search);
       locations.filter(":Contains('" + $('.search-store').val() + "')").show();
@@ -94,6 +98,16 @@ $(function() {
     if($('.search-following').is(':focus') ){
       var locations = $(".user-page-following-list").find("tr").hide();
       locations.filter(":Contains('" + $('.search-following').val() + "')").show();
+    }     
+    if($('.transactions-order-search').is(':focus') ){
+      if ($('.transactions-purchases').is(':visible')){
+        var orders = $(".transactions-purchases").find("tr").hide();
+      }else if($('.transactions-sales').is(':visible')){
+        var orders = $(".transactions-sales").find("tr").hide();
+      }else if($('.transactions-cases').is(':visible')){
+        var orders = $(".transactions-cases").find("tr").hide();
+      }
+      orders.filter(":Contains('" + $('.transactions-order-search').val() + "')").show();
     }    
     if($('.search-followers').is(':focus') ){
       var locations = $(".user-page-followers-list").find("tr").hide();

@@ -7,7 +7,11 @@ window.Search = {
   },
 
   find: function find(){
-    if($('.input-search').val().includes('@')){
+    if($('.input-search').val().includes('@') && $('.input-search').val().includes(' ')){
+      var handle = $('.input-search').val().split(" ")[0];
+      var keyword = $('.input-search').val().split(" ")[1];
+      Search.byHandleAndKeyword(handle,keyword);
+    }else if($('.input-search').val().includes('@')){
       Search.byHandle($('.input-search').val());
     }else if($('.input-search').val() === ''){
       Discover.contracts(true, false);
@@ -22,6 +26,15 @@ window.Search = {
     if(user){
       Page.view(user, true);
       Navigation.setPageUrl(user.handle);
+    }
+  },
+
+  byHandleAndKeyword: function byHandle(handle,keyword){
+    var user = User.find(handle);
+    if(user){
+      Page.view(user, true);
+      Navigation.setPageUrl(user.handle);
+      $('.search-store').val(keyword);
     }
   },
 

@@ -34,6 +34,10 @@ span {
   opacity: .80;
 }
 
+.type-opacity-half {
+  opacity: .50;
+}
+
 .type-align-right {
   text-align: right;
 }
