@@ -95,7 +95,12 @@
             <tr>
               <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px">Refund</td>
               <td class="position-padding-0">
-                <input type="text" class="input input-medium" placeholder="Enter amount in btc" /> <button class="button-primary">Send</button>
+                <input type="text" class="input release-funds-amount input-medium position-float-left" placeholder="Enter amount in btc" /> 
+                <select class="refund-to select position-float-left position-margin-left-10px position-margin-right-10px">
+                  <option value="buyer">To buyer</option>
+                  <option value="seller">To seller</option>
+                </select>
+                <button class="button-primary release-funds-to">Send</button>
               </td>
             </tr>
           </table>
@@ -199,7 +204,7 @@
           </div>
           <div class="modal-footer">
             <button class="button-first trade-back-to-address">Back</button>
-            <button class="trade-pending type-opacity-half">Pending payment</button>
+            <button class="trade-pending type-opacity-half">Payment pending</button>
             <button class="trade-done">Done</button>
           </div>
         </div>

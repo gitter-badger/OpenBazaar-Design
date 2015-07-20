@@ -9,6 +9,15 @@
   width: 950px;
 }
 
+.user-page textarea,
+.user-page input {
+  border: solid 1px #898989;
+}
+
+.user-page .label {
+  margin-bottom: 2px;
+}
+
 .user-page-header {
   height: 400px; 
   opacity: .9;
@@ -48,7 +57,7 @@
 .user-page-about,
 .user-page-following,
 .user-page-followers {
-  min-height: 400px;
+  min-height: 600px;
 }
 
 .user-page-contract-detail-pricing {
@@ -98,13 +107,13 @@
   margin-right: 0;
   min-width: 95px;
   font-family: "font-medium";
-  font-size: 12px;
+  font-size: 14px;
   height: 46px;
   line-height: 46px;
   opacity: .75;
-  padding: 0 15px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  padding: 0 20px 0 15px;
+
+  letter-spacing: .25px;
   text-align: center;
 }
 
@@ -270,3 +279,29 @@
   top: -10px;
   opacity: 0.80;
 }
+
+.user-page-configuration-colors {
+  width: 40px;
+  /*height: 180px;*/
+  position: fixed;
+  left: 40px;
+  bottom: 10px;
+}
+
+.user-page-configuration-color {
+  background: red;
+  border-radius: 2px;
+  border: solid 2px #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 40px;
+  margin-bottom: 5px;
+  width: 40px;
+}
+
+.user-page-configuration-preset div {
+  height: 19px;
+  width: 19px;
+  float: left;
+}
+

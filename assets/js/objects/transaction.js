@@ -5,7 +5,10 @@ $(function() {
 window.Transaction = {
   initialize: function() {
     $(document).on("click", ".transactions li", function(event){ Transaction.changeType(event) });
-    $(document).on("click", ".transaction-detail", function(event){ Transaction.renderDetails(event) });
+    $(document).on("click", ".transaction-detail", function(event){ 
+      Transaction.renderDetails($(event.currentTarget).data('id'), $(event.currentTarget).data('transactionType'));
+    });
+    $(document).on("click", ".release-funds-to", function(event){ Transaction.releaseFunds(event) });
     $(document).on("click", ".modal-purchase-release-funds-to-buyer", function(event){ Transaction.releaseFundsToBuyer() });
     $(document).on("click", ".modal-purchase-release-funds-to-seller", function(event){ Transaction.releaseFundsToSeller() });
   },
@@ -13,7 +16,6 @@ window.Transaction = {
   changeType: function changeType(event){
     $('.transactions li').removeClass('user-page-navigation-selected');
     $(event.currentTarget).addClass('user-page-navigation-selected');
-    Helper.setDefualtColors(true);    
     
     switch($(event.currentTarget).attr('data-section')){
       case "purchases":
@@ -30,22 +32,29 @@ window.Transaction = {
     $(".transactions-order-search").focus();
   },
 
+  releaseFunds: function releaseFunds(){
+    if (confirm('Are you sure you want to relase ' + $('.release-funds-amount').val() + 'btc to the '+  $(".refund-to option:selected").val() +' ?') == true) {
+      new Notification($('.release-funds-amount').val() + 'btc released to the ' + $(".refund-to option:selected").val());     
+    }
+  },
+
   releaseFundsToBuyer: function releaseFundsToBuyer(){
     if (confirm("Are you sure you want to relase the funds to the buyer?") == true) {
-      new Notification('Payment released to the buyer');        
+      new Notification('Payment released to the buyer');     
+      $('.modal-footer').hide();   
     }
   },
 
   releaseFundsToSeller: function releaseFundsToSeller(){
     if (confirm("Are you sure you want to relase the funds to the seller?") == true) {
       new Notification('Payment released to the seller');        
+      $('.modal-footer').hide();   
     }
   },
 
-  renderDetails: function renderDetails(event){
-    var purchaseId = $(event.currentTarget).data('id');
+  renderDetails: function renderDetails(id, type){
+    var purchaseId = id;
     var purchase = _.find(window.preloadData.purchases, function(purchase){ return purchase.id == purchaseId });
-    var type = $(event.currentTarget).data('transactionType');
 
     if (purchase.tracking != ""){
       var status = purchase.status + ": " + purchase.tracking;

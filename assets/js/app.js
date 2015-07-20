@@ -5,6 +5,7 @@ var defaultTextColor = "#ffffff";
 var delay = 1900; //3000
 var fade = 500;
 $store = {'avatar': '', 'name': '', 'description': '', 'colorprimary': '', 'colorsecondary': '', 'colortext': '', 'website': '', 'email': '', 'guid': '', 'handle': '', 'items': []};
+$session = {'handle':'@wolf', 'colorprimary':'#4A4848', 'colorsecondary':'#575656', 'colorbackground':'#2a2a2a', 'colortext':'#ffffff'};
 
 jQuery.expr[':'].Contains = function(a, i, m) {
   return jQuery(a).text().toUpperCase()
@@ -70,6 +71,7 @@ $(function() {
 
   function keypress(e){
     e.stopPropagation();
+    if($('input, select').not(":focus") && e.which == 27){ Modal.close(); }
     if($('.input-search').is(":focus") && e.which == 13){ Search.find(); }
     if($('.input-chat-new-message').is(":focus") && e.which == 13) { Chat.saveMessage(); }
     if($('.bitcoin-address').is(":focus")){ $('.onboarding-button-skip').hide(); $('.onboarding-button-next').show(); }
@@ -108,7 +110,46 @@ $(function() {
         var orders = $(".transactions-cases").find("tr").hide();
       }
       orders.filter(":Contains('" + $('.transactions-order-search').val() + "')").show();
-    }    
+    }  
+
+    if ($('.transactions-purchases').is(':visible') && e.which == 38){
+      var position = $('.transactions-purchases tr.secondary-color-background').index();
+      var previous = position;
+      if (position === 0){
+        $('.transactions-purchases tr').removeClass('secondary-color-background');
+        $('.transactions-order-search').focus();
+      }else{
+        $('.transactions-purchases tr').removeClass('secondary-color-background');
+        $('.transactions-purchases tr:nth-child(' + previous + ')').addClass('secondary-color-background');
+        // $('#main').scrollTop($('.transactions-purchases tr:nth-child(' + previous + ')').offset().top);
+      }
+    }
+
+    if ($('.transactions-purchases').is(':visible') && e.which == 40){
+      var position = $('.transactions-purchases tr.secondary-color-background').index() + 1;
+      var next = position + 1;
+      $('.transactions-purchases tr').removeClass('secondary-color-background');
+      $('.transactions-purchases tr:nth-child(' + next + ')').addClass('secondary-color-background');
+      // $('#main').scrollTop($('.transactions-purchases tr:nth-child(' + next + ')').offset().top);
+    }
+
+    if ($('.transactions-purchases').is(':visible') && e.which == 13 && $('.transactions-purchases tr.secondary-color-background').index() > 0){
+      var id = $('.transactions-purchases tr.secondary-color-background').attr('data-id');
+      var type = $('.transactions-purchases tr.secondary-color-background').attr('data-transaction-type');
+      Transaction.renderDetails(id, type);
+    }
+
+    if($('.transactions-order-search').is(':focus') && e.which == 40){
+      $('.transactions-order-search').blur();
+      if ($('.transactions-purchases').is(':visible')){
+        $('.transactions-purchases tr:nth-child(1)').addClass('secondary-color-background');
+      }else if($('.transactions-sales').is(':visible')){
+        $('.transactions-sales tr:nth-child(1)').addClass('secondary-color-background');
+      }else if($('.transactions-cases').is(':visible')){
+        $('.transactions-cases tr:nth-child(1)').addClass('secondary-color-background');
+      }      
+    }
+
     if($('.search-followers').is(':focus') ){
       var locations = $(".user-page-followers-list").find("tr").hide();
       locations.filter(":Contains('" + $('.search-followers').val() + "')").show();

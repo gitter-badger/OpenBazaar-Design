@@ -127,12 +127,17 @@
   color: #fff;
   font-family: "font-medium";
   font-size: 13px;
-  padding: 15px;
-  right: 14px;
+  padding: 5px 0;
+  right: 10px;
   top: 44px;
   position: absolute;
   width: 200px;
   z-index: 1250;
+}
+
+.user-menu-group {
+  border-bottom: solid 2px #353535;
+  padding: 5px 15px;
 }
 
 .menu {

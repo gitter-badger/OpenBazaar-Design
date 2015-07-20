@@ -1,9 +1,9 @@
 {
   "name": "openbazaar",
-  "version": "0.1.0",
+  "version": "0.0.9",
   "main": "app.js",
   "devDependencies": {
-    "electron-prebuilt": "^0.29.2"
+    "electron-prebuilt": "^0.30.0"
   },
   "scripts": {
     "start": "electron app.js --disable-http-cache switch*"

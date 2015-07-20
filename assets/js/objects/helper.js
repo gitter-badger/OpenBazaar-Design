@@ -8,7 +8,8 @@ window.Helper = {
 
   hideAll: function hideAll(){
     $('#main, .user-page-header, .chat').removeClass('blur');
-    $('.contracts, .discover, .onboarding, .user-page, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases, .modal, .modal-pretty').hide();
+    $('.contracts, .discover, .onboarding, .user-page, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases, .modal, .modal-pretty, .settings').hide();
+    $('.user-page-configuration-colors, .user-page-social .input, .user-page-about .textarea').hide();
   },
 
   readURL: function readURL(input) {
@@ -25,7 +26,7 @@ window.Helper = {
 
   setDefualtColors: function setDefualtColors(instant){
     if (instant){
-      $('body').css('background', '#00527E');
+      $('body').css('background', '#074161');
       $('.user-page-navigation li, .button-first').css('border-color', defaultPrimaryColor); 
       $('.modal-pretty tbody td, .discover-vendors-list tr, .list-input').css('border-color', defaultSecondaryColor); 
       $('#header, .user-page-navigation, .user-page-navigation li, .button-primary, .item-meta-data, thead tr, .modal-footer, .modal-footer button').css('background', defaultSecondaryColor); 
@@ -33,7 +34,7 @@ window.Helper = {
       $('.item-price, .item-meta-data').css('color', defaultTextColor); 
       $('.user-page-navigation-selected .pill').css('background', defaultSecondaryColor);
     }else{
-      $('body').animate({ backgroundColor: '#00527E', color: defaultTextColor }, fade);
+      $('body').animate({ backgroundColor: '#074161', color: defaultTextColor }, fade);
       $('.user-page-navigation li, .button-first').css('border-color', defaultPrimaryColor); 
       $('.modal-pretty tbody td, .discover-vendors-list tr, .list-input').css('border-color', defaultSecondaryColor); 
       $('#header, .user-page-navigation, .user-page-navigation li, .button-primary, .item-meta-data, thead tr, .modal-footer, .modal-footer button').animate({ backgroundColor: defaultSecondaryColor }, fade);  

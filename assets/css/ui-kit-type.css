@@ -58,6 +58,10 @@ span {
   color: #222222;
 }
 
+.type-color-000 {
+  color: #000;
+}
+
 .type-weight-light {
   font-family: "font-regular";
 }

@@ -181,7 +181,7 @@ window.Onboarding = {
 
   show: function show(){
     Onboarding.renderContributors();
-    $('body').css('background', '#012437')
+    $('body').css('background', '#074161')
     setTimeout(function(){ $('.onboarding').fadeTo(100,100) }, 500);
   }
 }

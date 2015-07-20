@@ -4,12 +4,6 @@ $(function() {
 
 window.User = {
   initialize: function() {
-    $(document).on("click", ".menu-user-profile, .user-profile-link", function(event){
-      var handle = $(event.currentTarget).attr('data-user-handle');
-      var user = User.find(handle);
-      User.view(user, true);
-    });
-    $(document).on("click", ".user-profile-navigation li", function(event){ User.changeSection(event) });
   },
 
   find: function find(handle){

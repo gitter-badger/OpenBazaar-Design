@@ -8,6 +8,37 @@ window.Page = {
     $(document).on("click", ".trade-back-to-address", function(){ Page.tradeBackToAddress() });
     $(document).on("click", ".modal-qr-code", function(){ Page.tradeConfirmed() });
     $(document).on("click", ".trade-done", function(){ Page.tradeDone() });
+    $(document).on("mouseenter", ".user-page-configuration-preset", function(){ 
+      Page.setPrimaryColor('#222');
+      Page.setSecondaryColor('#432');
+      Page.setBackgroundColor('#342432');
+      Page.setTextColor('#f0f0f0');    
+    });
+    $(document).on("mouseleave", ".user-page-configuration-preset", function(){ 
+      var user = User.find($session.handle);
+      Page.setColors(user); 
+    });
+    $(document).on("click", ".menu-user-profile", function(event){
+      var handle = $(event.currentTarget).attr('data-user-handle').replace('/edit','').trim();
+      Search.byHandleEditMode(handle, true);
+      Navigation.setPageUrl(handle + '/edit');
+    });
+    $(document).on("click", ".user-page-configuration-edit", function(event){
+      var handle = $(event.currentTarget).attr('data-user-handle').replace('/edit','').trim();
+      Search.byHandleEditMode(handle, true);
+      Navigation.setPageUrl(handle + '/edit');
+    });
+    $(document).on("click", ".user-profile-navigation li", function(event){ User.changeSection(event) });
+    $(document).on("click", ".user-page-configuration-cancel", function(){ 
+      Search.byHandle($('.input-search').val().replace('/edit',''), true);
+    });
+    $(document).on("click", ".user-page-configuration-save", function(){ 
+      $(this).html('Saving...');
+      setTimeout(function() {
+        $('.user-page-configuration-save').html('Save changes');
+        new Notification("Changes saved. Your page has been updated");
+      }, 500);
+    });
     $(document).on("click", ".contract-vendor-name", function(event) { 
       event.stopPropagation();
       var guid = $(event.currentTarget).attr('data-vendor-guid');
@@ -51,6 +82,29 @@ window.Page = {
         $(this).html('Follow');
       }
     });
+    $('.user-page-configuration-primary-color').ColorPicker({
+      color: defaultPrimaryColor,
+      onChange: function (hsb, hex, rgb) {
+        Page.setPrimaryColor(hex);
+      } 
+    });
+    $('.user-page-configuration-secondary-color').ColorPicker({
+      color: defaultSecondaryColor,
+      onChange: function (hsb, hex, rgb) {
+        Page.setSecondaryColor(hex);
+      } 
+    });
+    $('.user-page-configuration-text-color').ColorPicker({
+      color: defaultTextColor,
+      onChange: function (hsb, hex, rgb) {
+        Page.setTextColor(hex);
+      } 
+    });
+    $('.user-page-configuration-background-color').ColorPicker({
+      onChange: function (hsb, hex, rgb) {
+        Page.setBackgroundColor(hex);
+      } 
+    });
   },
 
   hideSections: function hideSections(){  
@@ -74,9 +128,12 @@ window.Page = {
     $('.user-page-navigation ul li, .user-page-message, .user-page-navigation-store').attr('data-user-handle', user.handle);
     $('.user-page-name').html(user.name);
     $('.user-page-follow').attr('data-user-handle', user.handle);
-    $('.user-page .button-primary').attr('data-user-handle', user.handle);
+    $('.user-page .button-primary, .user-page-configuration-edit').attr('data-user-handle', user.handle);
     $('.user-page-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
     $('.user-page-details-email').html(user.email);
+    $('.input-user-configuration-website').val(user.website);
+    $('.input-user-configuration-email').val(user.email);
+    $('.input-user-configuration-about').val(user.description);
     $('.user-page-header').css('background', 'url(' + user.hero + ') 50% 50% / cover no-repeat');
     $('.user-page-avatar').css('background', 'url(' + user.avatar + ') 50% 50% / cover no-repeat');
     $('.user-page-about p').html(user.description);   
@@ -94,6 +151,7 @@ window.Page = {
         $('.user-page-navigation-store').hide();
         $('.user-page-navigation-about').addClass('user-page-navigation-selected');
         $('.user-page-details').show();
+        // Navigation.setPageUrl(user.handle + '/about');
         break;
       case "vendor":
         $('.user-page-contracts-grid').empty();
@@ -103,6 +161,7 @@ window.Page = {
         $('.user-page-navigation-store').show();
         $('.user-page-contracts').show();
         $('.user-page-navigation-store').addClass('user-page-navigation-selected');
+        // Navigation.setPageUrl(user.handle + '/store');
         break;
       case "moderator":
         break;
@@ -113,7 +172,7 @@ window.Page = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .user-page-details-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar').css('background-color', '#' + hex);
+    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .user-page-details-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar, .user-page-configuration-primary-color, .user-page input, .user-page textarea, .transactions-body, .settings-body').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $('.user-page-navigation ul li, .user-page-details-navigation ul li ').css('border-right-color', '#' + hex);
@@ -122,23 +181,23 @@ window.Page = {
 
   setSecondaryColor: function setSecondaryColor(hex){  
     hex = hex.replace('#','');
-    $('#header, .user-page-following-list .button-primary, .user-page-followers-list .button-primary, .user-page-footer, .user-page-navigation, .user-page-details-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill').css('background-color', '#' + hex);
+    $('#header, .user-page-following-list .button-primary, .user-page-followers-list .button-primary, .user-page-footer, .discover-footer, .user-page-navigation, .user-page-details-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill, .user-page-configuration-secondary-color').css('background-color', '#' + hex);
     $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
     $('.pod').css('border-right-color', '#' + hex);
-    $('.user-page-navigation, .user-page-details-navigation').css('border-color', '#' + hex);
-    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description, .list-input').css('border-color', '#' + hex);
+    $('.user-page-navigation, .user-page-details-navigation, .user-page input, .user-page textarea, .list-input-search').css('border-color', '#' + hex);
+    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description, .list-input, .list-view tr').css('border-color', '#' + hex);
     $store.colorsecondary = '#' + hex;
   },
 
   setBackgroundColor: function setBackgroundColor(hex){  
     hex = hex.replace('#','');
-    $('body').css('background-color', '#' + hex);
+    $('body, .user-page-configuration-background-color').css('background-color', '#' + hex);
   },
 
   setTextColor: function setTextColor(hex){  
     hex = hex.replace('#','');
-    $('.user-page-navigation, .user-page-details, .user-page-social, .user-page a, .user-page-following, .user-page-followers, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .contract-meta-data, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button').css('color',  '#' + hex);
-    $('.user-configuration-font-color').css('background-color', '#' + hex);
+    $('.user-page-navigation, .user-page-details, .user-page-social, .user-page a, .user-page-following, .user-page-followers, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .contract-meta-data, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button, .user-page input, .user-page textarea').css('color',  '#' + hex);
+    $('.user-configuration-font-color, .user-page-configuration-text-color').css('background-color', '#' + hex);
     $store.colortext = '#' + hex;
   },
 
@@ -163,30 +222,49 @@ window.Page = {
     $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
   },
 
-   view: function view(user, updatePageViews){
+   view: function view(user, updatePageViews, instant){
+    Helper.hideAll();
     if (updatePageViews){
       pageViews.push({"page": "user", "id": user.id, "handle": user.handle, "active": true});
       Navigation.unsetActivePage();
       Navigation.stripPageHistory();
       Navigation.setArrowOpacity();
     }
+
+    if($('.input-search').val().includes('/edit')){
+      $('.user-page-configuration-colors, .user-page-social .input, .user-page-about .textarea, .user-page-actions-configuration').show();
+      $('.user-page-actions-primary, .user-page-actions-self, .user-page-social .value, .user-page-about p').hide();
+    }else{
+      $('.user-page-actions-primary, .user-page-social .value, .user-page-about p').show();
+      $('.user-page-actions-configuration, .user-page-actions-self').hide();
+      if(user.handle === $session.handle){
+        $('.user-page-actions-self').show();
+        $('.user-page-actions-configuration, .user-page-actions-primary').hide();
+      }
+    }
     $('.chat').show();
-    Helper.hideAll();
+    Navigation.setPageUrl(user.handle);
     Page.hideSections();
     Page.setActiveTab(event);
     Page.setNavigation(user);
     Page.setColors(user);
     Page.setMetaData(user);
-    Navigation.setPageUrl(user.handle);
-    $('.user-page').fadeIn('slow');
+    if(instant){
+      $('.user-page').show();
+    }else{
+      $('.user-page').fadeIn('slow');
+    }
     $('.search-store').focus();
+    $('#main').scrollTop(0);
   }, 
 
   about: function about(user, event){
     Page.setActiveTab(event);
     Page.hideSections();
     Page.setColors(user)
+    Navigation.setPageUrl(user.handle + '/about');
     $('.user-page-details').show();
+    $('#main').scrollTop(0);
   },
 
   store: function store(user, event){
@@ -199,6 +277,7 @@ window.Page = {
     Page.setColors(user)
     $('.user-page-contracts').show();
     $('.search-store').focus();
+    Navigation.setPageUrl(user.handle + '/store');
   },
 
   contract: function contract(user, contract, updatePageViews){
@@ -227,7 +306,7 @@ window.Page = {
     Page.hideSections();
     $('.user-page-contract-detail').show();
     $('.user-page').fadeIn('slow');
-
+    $('#main').scrollTop(0);
   },
 
   followers: function followers(user, event){
@@ -241,6 +320,7 @@ window.Page = {
     Page.setColors(user)
     $('.user-page-followers').show();
     $('.search-followers').focus();
+    Navigation.setPageUrl(user.handle + '/followers');
   },
 
   following: function following(user, event){
@@ -254,6 +334,7 @@ window.Page = {
     Page.setColors(user)
     $('.user-page-following').show();
     $('.search-following').focus();
+    Navigation.setPageUrl(user.handle + '/following');
   },
   
   tradeBackToPayment: function tradeBackToPayment(){
@@ -269,7 +350,6 @@ window.Page = {
     $('.modal-qr-payment').hide();
     $('.modal-photo-shadow').show();
     $('.modal-contract-price').show();
-    console.log(image);
     $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
     $('.modal-trade-flow-summary').hide();
     $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();

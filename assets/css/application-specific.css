@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background: #012437;
+  background: #074161;
   color: #fff;
   cursor: default;
   overflow: hidden; 
@@ -15,6 +15,7 @@ body {
 }
 
 table {
+  border-collapse: collapse;
   font-family: "font-regular";
   font-size: 13px;
   width: 100%;
@@ -68,7 +69,8 @@ table thead tr td:last-child{
   border-bottom: 0 !important;
 }
 
-.transactions {
+.transactions,
+.settings {
   margin: auto;
   text-align: left;
   width: 950px;
@@ -78,8 +80,14 @@ table thead tr td:last-child{
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.transactions-purchases table td {
+.transactions-body,
+.settings-body {
+  min-height: 600px;
+}
+
+.transactions-purchases table td{
   border-bottom: solid 1px #327EB8; 
+  border-top: solid 1px #327EB8; 
 }
 
 .transactions-purchases table tr{
@@ -87,8 +95,27 @@ table thead tr td:last-child{
 }
 
 .transaction-detail {
+  -webkit-box-sizing:border-box;
   border-bottom: solid 1px #327eb8;
+  border-top: solid 1px #327eb8;
   cursor: pointer;
+}
+
+.active-table-row {
+  border-color: white;
+}
+
+.primary-color-background {
+  background: #086A9E;
+}
+
+.secondary-color-background {
+  background: #327eb8;
+}
+
+.transaction-detail .avatar {
+  width: 30px;
+  height: 30px;
 }
 
 .avatar {

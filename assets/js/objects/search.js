@@ -4,6 +4,9 @@ $(function() {
 
 window.Search = {
   initialize: function() {
+    $(document).on("focus", ".input-search", function(){ Search.convertToUrl() });
+    $(document).on("blur", ".input-search", function(){ Search.convertToHandle() });
+
   },
 
   find: function find(){
@@ -11,6 +14,8 @@ window.Search = {
       var handle = $('.input-search').val().split(" ")[0];
       var keyword = $('.input-search').val().split(" ")[1];
       Search.byHandleAndKeyword(handle,keyword);
+    }else if($('.input-search').val().includes('@') && $('.input-search').val().includes('?edit')){
+      Search.byHandleEditMode($('.input-search').val());
     }else if($('.input-search').val().includes('@')){
       Search.byHandle($('.input-search').val());
     }else if($('.input-search').val() === ''){
@@ -21,11 +26,19 @@ window.Search = {
     }
   },
 
-  byHandle: function byHandle(handle){
-    var user = User.find(handle);
+  byHandle: function byHandle(handle, instant){
+    var user = User.find(handle.trim());
     if(user){
-      Page.view(user, true);
       Navigation.setPageUrl(user.handle);
+      Page.view(user, true, instant);
+    }
+  },
+
+  byHandleEditMode: function byHandleEditMode(handle, instant){
+    var user = User.find(handle.replace('/edit','').trim());
+    if(user){
+      Navigation.setPageUrl(user.handle + '/edit');
+      Page.view(user, true, instant);
     }
   },
 
@@ -51,5 +64,21 @@ window.Search = {
     setTimeout(function(){  
       Discover.contracts(false, false);
     }, delay);
+  },
+
+  convertToHandle: function convertToHandle(){
+    var url = $('.input-search').val();
+    if(url !== ""){
+      url = url.replace('ob://', '@');
+      $('.input-search').val(url);
+    }
+  },
+
+  convertToUrl: function convertToUrl(){
+    var url = $('.input-search').val();
+    if(url !== ""){
+      url = url.replace('@', 'ob://');
+      $('.input-search').val(url);
+    }
   }
 }
