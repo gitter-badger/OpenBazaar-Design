@@ -305,3 +305,21 @@
   float: left;
 }
 
+#button-user-page-header {
+  background: #000; 
+  border: 0; 
+  color: #fff;
+  font-family: "font-medium";
+  font-size: 20px;
+  height:100%; 
+  outline: none;
+  position: absolute; 
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  width: 100%; 
+  z-index: 10; 
+}
+
+#button-user-page-header.active {
+  cursor: pointer;
+}
+

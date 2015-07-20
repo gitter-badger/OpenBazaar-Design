@@ -7,6 +7,30 @@ window.Page = {
     $(document).on("click", ".trade-back-to-payment", function(){ Page.tradeBackToPayment() });
     $(document).on("click", ".trade-back-to-address", function(){ Page.tradeBackToAddress() });
     $(document).on("click", ".modal-qr-code", function(){ Page.tradeConfirmed() });
+    $(document).on("change", ".input-user-page-header", function(){ 
+      var input = this;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.user-page-header').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+      }
+      reader.readAsDataURL(input.files[0]);
+    });
+    $(document).on("mouseenter", ".user-page-header", function(){ 
+      if($('.input-search').val().includes('/edit')){
+        $('#button-user-page-header').fadeTo(100, .80);
+      }
+    });
+    $(document).on("mouseleave", ".user-page-header", function(){ 
+      if($('.input-search').val().includes('/edit')){
+        $('#button-user-page-header').fadeTo(100, 0);
+      }
+    });
+    $(document).on("click", "#button-user-page-header", function(){ 
+      if($('.input-search').val().includes('/edit')){
+        $('.input-user-page-header').click();
+        $('#button-user-page-header').fadeTo(100, .80);
+      }
+    });
     $(document).on("click", ".trade-done", function(){ Page.tradeDone() });
     $(document).on("mouseenter", ".user-page-configuration-preset", function(){ 
       Page.setPrimaryColor('#222');
@@ -234,9 +258,11 @@ window.Page = {
     if($('.input-search').val().includes('/edit')){
       $('.user-page-configuration-colors, .user-page-social .input, .user-page-about .textarea, .user-page-actions-configuration').show();
       $('.user-page-actions-primary, .user-page-actions-self, .user-page-social .value, .user-page-about p').hide();
+      $('#button-user-page-header').addClass('active');
     }else{
       $('.user-page-actions-primary, .user-page-social .value, .user-page-about p').show();
       $('.user-page-actions-configuration, .user-page-actions-self').hide();
+      $('#button-user-page-header').fadeTo(0).removeClass('active');
       if(user.handle === $session.handle){
         $('.user-page-actions-self').show();
         $('.user-page-actions-configuration, .user-page-actions-primary').hide();
