@@ -170,7 +170,6 @@ window.Page = {
     $('.user-page').fadeIn('slow');
     $('.search-store').focus();
   }, 
-
   about: function about(user, event){
     Page.setActiveTab(event);
     Page.hideSections();
