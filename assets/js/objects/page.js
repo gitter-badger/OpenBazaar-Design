@@ -20,7 +20,6 @@ window.Page = {
         $('#button-user-page-header').fadeTo(100, .80);
       }
     });
-    
     $(document).on("mouseleave", ".user-page-header", function(){ 
       if($('.input-search').val().includes('/edit')){
         $('#button-user-page-header').fadeTo(100, 0);
@@ -59,9 +58,13 @@ window.Page = {
     });
     $(document).on("click", ".user-page-configuration-save", function(){ 
       $(this).html('Saving...');
+      var user = User.find($(this).attr('data-user-handle'));
+      Page.save(user);
       setTimeout(function() {
         $('.user-page-configuration-save').html('Save changes');
         new Notification("Changes saved. Your page has been updated");
+        Navigation.setPageUrl(user.handle);
+        Page.view(user, false, true);
       }, 500);
     });
     $(document).on("click", ".contract-vendor-name", function(event) { 
@@ -136,6 +139,25 @@ window.Page = {
     $('.user-page-details, .user-page-contracts, .user-page-services, .user-page-following, .user-page-followers, .user-page-contract-detail').hide();
   },
 
+  save: function save(user){
+    for (var i = 0, l = window.preloadData.users.length; i < l; i++) {
+      if (window.preloadData.users[i].handle === user.handle) {
+        var row = window.preloadData.users[i];
+        row.colorprimary = Helper.colorToHex($('.user-page-configuration-primary-color').css('background-color'));
+        row.colorsecondary = Helper.colorToHex($('.user-page-configuration-secondary-color').css('background-color'));
+        row.colorbackground = Helper.colorToHex($('.user-page-configuration-background-color').css('background-color'));
+        row.colortext = Helper.colorToHex($('.user-page-configuration-text-color').css('background-color'));
+        row.description = $('.input-user-configuration-about').val();
+        row.website = $('.input-user-configuration-website').val();
+        row.email = $('.input-user-configuration-email').val();
+        row.facebook = $('.input-user-configuration-facebook').val();
+        row.twitter = $('.input-user-configuration-twitter').val();
+        row.instagram = $('.input-user-configuration-instagram').val();
+        break;
+      }
+    }
+  },
+
   setActiveTab: function setActiveTab(event){
     $('.user-page-navigation ul li').removeClass('user-page-navigation-selected');
     $('.user-page-navigation ul li').css('background-color', 'transparent');
@@ -155,9 +177,16 @@ window.Page = {
     $('.user-page-follow').attr('data-user-handle', user.handle);
     $('.user-page .button-primary, .user-page-configuration-edit').attr('data-user-handle', user.handle);
     $('.user-page-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
-    $('.user-page-details-email').html(user.email);
+    if (user.email){ $('.user-page-details-email').html(user.email); }else{ $('.user-page-details-email').html('not provided'); }
+    if (user.facebook){ $('.user-page-details-facebook').html(user.facebook); }else{ $('.user-page-details-facebook').html('not provided'); }
+    if (user.twitter){ $('.user-page-details-twitter').html(user.twitter); }else{ $('.user-page-details-twitter').html('not provided'); }
+    if (user.instagram){ $('.user-page-details-instagram').html(user.instagram); }else{ $('.user-page-details-instagram').html('not provided'); }
+    if (user.website){ $('.user-page-details-website').html(user.website); }else{ $('.user-page-details-website').html('not provided'); }
     $('.input-user-configuration-website').val(user.website);
     $('.input-user-configuration-email').val(user.email);
+    $('.input-user-configuration-twitter').val(user.twitter);
+    $('.input-user-configuration-facebook').val(user.facebook);
+    $('.input-user-configuration-instagram').val(user.instagram);
     $('.input-user-configuration-about').val(user.description);
     $('.user-page-header').css('background', 'url(' + user.hero + ') 50% 50% / cover no-repeat');
     $('.user-page-avatar').css('background', 'url(' + user.avatar + ') 50% 50% / cover no-repeat');
@@ -272,7 +301,7 @@ window.Page = {
     $('.chat').show();
     Navigation.setPageUrl(user.handle);
     Page.hideSections();
-    Page.setActiveTab(event);
+    // Page.setActiveTab(event);
     Page.setNavigation(user);
     Page.setColors(user);
     Page.setMetaData(user);

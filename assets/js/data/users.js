@@ -16,7 +16,10 @@ window.preloadData.users = [
     "name": "Mike Wolf",
     "roles": [],
     "contracts": [],
-    "website": "http://wolf.com"
+    "website": "http://wolf.com",
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
   },
   {
     "id": 2,
@@ -33,7 +36,12 @@ window.preloadData.users = [
     "hero": "http://saimg-a.akamaihd.net/saatchi/162257/art/1843354/982423-8.jpg",
     "name": "Mike",
     "roles": [],
-    "contracts": []
+    "contracts": [],
+    "website": "",
+    "email": "",
+    "facebook": "",
+    "instagram": "",
+    "twitter": ""
   },
   {
     "id": 3,
@@ -50,7 +58,12 @@ window.preloadData.users = [
     "hero": "http://d38we5ntdyxyje.cloudfront.net/496469/art/2250328/1325556-8.jpg",
     "name": "Matt",
     "roles": [],
-    "contracts": []
+    "contracts": [],
+    "website": "",
+    "email": "",
+    "facebook": "",
+    "instagram": "",
+    "twitter": ""
   },
   {
     "id": 4,
@@ -66,7 +79,12 @@ window.preloadData.users = [
     "hero": "http://d38we5ntdyxyje.cloudfront.net/496469/art/2250328/1325556-8.jpg",
     "name": "Jack",
     "roles": [],
-    "contracts": []
+    "contracts": [],
+    "website": "",
+    "email": "",
+    "facebook": "",
+    "instagram": "",
+    "twitter": ""
   },
   {
     "id": 5,
@@ -85,6 +103,9 @@ window.preloadData.users = [
     "website": "http://rhythmandpoetry.com",
     "hero": "http://d38we5ntdyxyje.cloudfront.net/652/art/2221520/1296782-8.jpg",
     "roles": ['vendor'],
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
     "contracts": [
       {
         "id": 1,
