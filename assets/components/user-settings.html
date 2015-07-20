@@ -1,0 +1,25 @@
+<dom-module id="user-settings">
+
+  <template>
+    <div class="settings">
+      <div class="user-page-navigation" style="border: 0">
+        <div style="width: 950px; margin: auto">
+          <ul class="position-float-left">
+            <li class="settings-navigation-general user-page-navigation-selected" data-section="general">General</li>
+            <li class="settings-navigation-advanced" data-section="advanced">Advanced</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="settings-body">
+      </div>
+      <div class="discover-footer"></div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'user-settings'});
+  </script>
+  <script src="../js/objects/settings.js"></script>
+
+</dom-module>

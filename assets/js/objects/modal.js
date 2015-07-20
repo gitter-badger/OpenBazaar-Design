@@ -15,9 +15,9 @@ window.Modal = {
   close: function close(){
     $('.modal-pretty, .modal').fadeTo(150, 0, function(){
       $('#main, .vendor-header, .vendor-header-2, .chat').removeClass('blur');
-      $('.modal-pretty, .modal').hide();
+      $('.modal-pretty, .modal, .modal-qr-payment').hide();
       $('.overlay').hide();
-      $('.chat').show();
+      $('.chat, .modal-contract-price, .modal-photo-shadow').show();
     });    
   },
 

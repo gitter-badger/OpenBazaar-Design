@@ -79,7 +79,7 @@ window.Chat = {
     var newMessage = {
       "from": "@wolf",
       "message": $('.input-chat-new-message').val(),
-      "avatar": "https://lh4.googleusercontent.com/--248Dl6ElQU/AAAAAAAAAAI/AAAAAAAAAAA/BX_O_7Ha0fI/s128-c-k/photo.jpg"
+      "avatar": "https://pbs.twimg.com/profile_images/451017489065857024/vdpDUxoZ_400x400.jpeg"
     }
     chat.conversation.push(newMessage);
     $('.input-chat-new-message').val('');

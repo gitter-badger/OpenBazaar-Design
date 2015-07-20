@@ -2,51 +2,29 @@
 
   <template>
     <div class="transactions">
-      <h1 class="position-float-left position-margin-top-10px transactions-h1">Purchases</h1>
-      <select class="select position-float-right position-margin-bottom-15px position-width-130px transactions-select">
-        <option value="purchases">Purchases</option>
-        <option value="sales">Sales</option>
-        <option value="cases">Cases</option>
-      </select>
-      <table class="list-view position-margin-top-15px transactions-purchases">
-        <thead>
-          <tr>
-            <td>Item</td>
-            <td>Date</td>
-            <td>Seller</td>
-            <td>Total</td>
-            <td>Status</td>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-      <table class="list-view position-margin-top-15px transactions-sales">
-        <thead>
-          <tr>
-            <td>Id</td>
-            <td>Date</td>
-            <td>Buyer</td>
-            <td>Total</td>
-            <td>Status</td>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-      <table class="list-view position-margin-top-15px transactions-cases">
-        <thead>
-          <tr>
-            <td>Id</td>
-            <td>Date</td>
-            <td>Buyer</td>
-            <td>Seller</td>
-            <td>Status</td>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
+      <div class="user-page-navigation" style="border: 0">
+        <div style="width: 950px; margin: auto">
+          <ul class="position-float-left">
+            <li class="transactions-navigation-purchases user-page-navigation-selected" data-section="purchases">Purchases</li>
+            <li class="transactions-navigation-sales" data-section="sales">Sales <span class="pill">$1.7k</span></li>
+            <li class="transactions-navigation-cases" data-section="cases">Cases</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="transactions-body">
+        <input class="list-input list-input-search transactions-order-search" type="text" placeholder="Search for an order..." style="border-bottom: 0">
+        <table class="list-view transactions-purchases">
+          <tbody></tbody>
+        </table>
+        <table class="list-view transactions-sales">
+          <tbody></tbody>
+        </table>
+        <table class="list-view transactions-cases">
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="discover-footer"></div>
     </div>
   </template>
 

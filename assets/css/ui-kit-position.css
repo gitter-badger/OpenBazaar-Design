@@ -67,6 +67,10 @@
   width: 80%;
 }
 
+.position-width-90 {
+  width: 90%;
+}
+
 .position-height-160px{
   height: 160px;
 }
@@ -173,6 +177,12 @@
 
 .position-margin-top-6px {
   margin-top: 6px;
+}
+.position-margin-top-7px {
+  margin-top: 7px;
+}
+.position-margin-top-8px {
+  margin-top: 8px;
 }
 
 .position-margin-top-9px {

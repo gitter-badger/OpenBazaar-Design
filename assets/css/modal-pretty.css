@@ -113,3 +113,43 @@
 .modal-purchase-detail-settings tr{
   height: 60px;
 }
+
+.modal-qr-payment {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.modal-qr-cost {
+  text-align: center;
+  width: 100%;
+  color: #252525;
+  font-size: 22px;
+  font-family: "font-medium";
+  top: 20px;
+  position: absolute;
+}
+
+.modal-qr-code {
+  background: #fff url(../img/qr.png) 100% 100% / cover no-repeat;  
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -77px;
+  margin-top: -79px;
+  height: 154px;
+  width: 154px;
+}
+
+.modal-qr-input {
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  bottom: 11px;
+  width: 300px;
+  margin-left: -150px;
+  color: #252525 !important;
+  text-align: center;
+  font-size: 13px;
+  padding: 7px;
+}

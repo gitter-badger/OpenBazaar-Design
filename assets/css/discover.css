@@ -1,5 +1,5 @@
 .discover {
-  min-height: 400px;
+  min-height: 600px;
   width: 950px;
   background: #086A9E;
   margin: auto;
@@ -23,7 +23,7 @@
 }
 
 .discover-vendors {
-  min-height: 400px;
+  min-height: 600px;
 }
 
 .discover-contracts .contract {

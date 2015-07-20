@@ -6,20 +6,19 @@ window.Navigation = {
   initialize: function(){
     $(document).on("click", ".navigation-controls-back", function(){  Navigation.stepBack() });
     $(document).on("click", ".navigation-controls-forward", function(){  Navigation.stepForward() });
-    $(document).on("click", ".menu-transaction", function(){ Purchase.display() });
+    $(document).on("click", ".menu-purchases", function(){ Purchase.display() });
+    $(document).on("click", ".menu-sales", function(){ Sale.display() });
+    $(document).on("click", ".menu-cases", function(){ Case.display() });
     $(document).on("click", ".control-panel-user", function(event){ Navigation.toggleUserSettings(event) });
     $(document).on("click", ".window-minimize", function(event) { 
-      console.log('a');
        var window = remote.getCurrentWindow();
        window.minimize();
     });
     $(document).on("click", ".window-maximize", function(event) { 
-      console.log('a');
        var window = remote.getCurrentWindow();
        window.maximize(); 
     });  
     $(document).on("click", ".window-close", function(event) { 
-      console.log('a');
        var window = remote.getCurrentWindow();
        window.close(); 
     });
@@ -69,7 +68,7 @@ window.Navigation = {
   setPageUrl: function setPageUrl(params){
     var input = $('.input-search');
     if (params){
-      input.val(params);
+      input.val(params.trim());
     }else{
       input.val('');
     }

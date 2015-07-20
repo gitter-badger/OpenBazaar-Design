@@ -4,9 +4,47 @@
 
   <template>
     <div class="user-page visibility-hidden">
+      <div class="user-page-configuration-colors visibility-hidden">
+<!--         <div class="user-page-configuration-color user-page-configuration-preset">
+          <div></div>
+          <div style="background: pink"></div>
+          <div style="background: blue"></div>
+          <div style="background: teal"></div>
+        </div>
+        <div class="user-page-configuration-color user-page-configuration-preset">
+          <div></div>
+          <div style="background: pink"></div>
+          <div style="background: blue"></div>
+          <div style="background: teal"></div>
+        </div>
+        <div class="user-page-configuration-color user-page-configuration-preset">
+          <div></div>
+          <div style="background: pink"></div>
+          <div style="background: blue"></div>
+          <div style="background: teal"></div>
+        </div>
+        <div class="user-page-configuration-color user-page-configuration-preset">
+          <div></div>
+          <div style="background: pink"></div>
+          <div style="background: blue"></div>
+          <div style="background: teal"></div>
+        </div>
+        <div class="user-page-configuration-color user-page-configuration-preset">
+          <div></div>
+          <div style="background: pink"></div>
+          <div style="background: blue"></div>
+          <div style="background: teal"></div>
+        </div> -->
+        <div class="user-page-configuration-color user-page-configuration-primary-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-secondary-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-background-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-text-color"></div>
+      </div>
 
       <div class="user-page-header">
         <div style="width: 950px; margin: auto">
+          <input type="file" class="input-user-page-header" style="position: absolute; left: -1000px"  />
+          <button id="button-user-page-header" class="opacity-0">Upload a photo (950px by 400px)</button>
           <div class="user-page-avatar position-float-left"></div>
           <h1 class="user-page-name"></h1>
           <h2 class="user-page-handle"></h2>
@@ -18,13 +56,22 @@
         <div style="width: 950px; margin: auto">
           <ul class="position-float-left">
             <li class="user-page-navigation-about" data-section="user-page-about">About</li>
-            <li class="user-page-navigation-followers" data-section="user-page-followers">Followers <span class="pill user-page-followers-count"></span></li>
-            <li class="user-page-navigation-following" data-section="user-page-following">Following <span class="pill user-page-following-count"></span></li>
-            <li class="user-page-navigation-store" data-section="user-page-store">Store <span class="pill user-page-contracts-count"></span></li>
+            <li class="user-page-navigation-followers" data-section="user-page-followers"><span class="pill user-page-followers-count"></span> Followers</li>
+            <li class="user-page-navigation-following" data-section="user-page-following"><span class="pill user-page-following-count"></span> Following</li>
+            <li class="user-page-navigation-store" data-section="user-page-store"><span class="pill user-page-contracts-count"></span> Store</li>
           </ul>
           <div class="user-page-actions position-float-right position-margin-right-10px position-margin-top--2px">
-            <button class="button-primary user-page-link">Follow</button>
-            <button class="button-primary user-page-message">Message</button>
+            <div class="user-page-actions-configuration visibility-hidden">
+              <button class="button-primary user-page-configuration-save">Save changes</button>
+              <button class="button-primary user-page-configuration-cancel">Cancel</button>
+            </div>
+            <div class="user-page-actions-self visibility-hidden position-margin-top-8px">
+              <button class="button-primary user-page-configuration-edit">Edit</button>
+            </div>
+            <div class="user-page-actions-primary">
+              <button class="button-primary user-page-link">Follow</button>
+              <button class="button-primary user-page-message">Message</button>
+            </div>
           </div>
         </div>
       </div>
@@ -32,6 +79,7 @@
       <div class="user-page-details visibility-hidden">
         <div class="pod user-page-about position-inline-block position-width-600px">
           <p class="position-margin-top-10px type-opacity type-line-height-16px"></p>
+          <textarea class="textarea input-user-configuration-about visibility-hidden" /></textarea> 
         </div>
         <div class="pod user-page-social position-inline-block position-width-308px" style="border: 0; padding: 0; margin-left: -4px">
           <table>
@@ -39,30 +87,35 @@
               <td>
                 <div class="label">Website</div>
                 <div class="value user-page-details-website type-opacity">not provided</div>
+                <input class="input input-large input-user-configuration-website visibility-hidden" />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Email</div>
                 <div class="value user-page-details-email type-opacity">not provided</div>
+                <input class="input input-large input-user-configuration-email visibility-hidden" />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Facebook</div>
                 <div class="value user-page-details-facebook type-opacity">not provided</div>
+                <input class="input input-large input-user-configuration-facebook visibility-hidden" />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Twitter</div>
                 <div class="value user-page-details-twitter type-opacity">not provided</div>
+                <input class="input input-large input-user-configuration-twitter visibility-hidden"  />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Instagram</div>
-                <div class="value user-page-details-twitter type-opacity">not provided</div>
+                <div class="value user-page-details-instagram type-opacity">not provided</div>
+                <input class="input input-large input-user-configuration-instagram visibility-hidden" />
               </td>
             </tr>
           </table>
