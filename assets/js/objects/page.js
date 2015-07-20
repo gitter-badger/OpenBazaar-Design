@@ -20,6 +20,7 @@ window.Page = {
         $('#button-user-page-header').fadeTo(100, .80);
       }
     });
+    
     $(document).on("mouseleave", ".user-page-header", function(){ 
       if($('.input-search').val().includes('/edit')){
         $('#button-user-page-header').fadeTo(100, 0);
