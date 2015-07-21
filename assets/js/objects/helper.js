@@ -38,6 +38,11 @@ window.Helper = {
     }
   },
 
+  resizeWindow: function resizeWindow() {
+    var height = $(window).height() - $('#header').outerHeight();
+    $('#main').css('height', height);
+  },
+
   setDefualtColors: function setDefualtColors(instant){
     if (instant){
       $('body').css('background', '#074161');

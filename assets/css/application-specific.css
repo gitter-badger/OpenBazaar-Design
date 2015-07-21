@@ -127,7 +127,7 @@ table thead tr td:last-child{
 
 #main {
   clear: both;
-  height: 94%;
+  height: 93%;
   overflow-y: auto;
   top: 50px;
   position: relative;
@@ -136,7 +136,6 @@ table thead tr td:last-child{
 .edit-mode {
   border: dashed 4px white;
   box-sizing: border-box;
-  height: 100%;
   width: 100%;
   position: fixed;
   z-index: 100;

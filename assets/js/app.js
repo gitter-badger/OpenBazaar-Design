@@ -60,15 +60,21 @@ $(function() {
   }
 
   // events
+  $(window).on("resize", resize);
   $(document).on("keyup", keypress);
   $(document).on("keydown", keydown);
   // $('#main').on("scroll", scroll);
 
   // functions
 	function start(){
+    Helper.resizeWindow();
     Chat.loadMessages();
     Onboarding.show();
 	}
+
+  function resize(){
+    Helper.resizeWindow();
+  }
 
   function keydown(e){
     if($('.input-search').is(":focus") && event.which == 67 && (event.ctrlKey||event.metaKey)){ 

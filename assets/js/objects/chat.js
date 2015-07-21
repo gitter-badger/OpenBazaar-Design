@@ -57,8 +57,8 @@ window.Chat = {
   },
 
   openPanel: function openPanel(vendor){
-      $('.user-page').css('left', '-100px');
-      $('.chat').css('right', '-10px');
+      $('.user-page').css('left', '-110px');
+      $('.chat').css('right', '-10px').css('background','#252525');
       $('.chat-message').show();
   },
 
