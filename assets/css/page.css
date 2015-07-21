@@ -4,6 +4,8 @@
   margin-bottom: 75px;
   margin-top: 25px;
   min-height: 650px;
+  transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+  position: relative;
   height: auto;
   text-align: left;
   width: 950px;
@@ -164,15 +166,17 @@
   z-index: 50;
 }
 
-.user-page-name {
+.user-page-name-holder {
   bottom: 40px;
-  font-size: 18px;
   margin-left: 110px;
   position: absolute;
   z-index: 50;
 }
+.user-page-name-holder span {
+  font-size: 18px;
+}
 
-.user-page-name:hover {
+.user-page-name-holder:hover {
   cursor: pointer;
   text-decoration: underline;
 }

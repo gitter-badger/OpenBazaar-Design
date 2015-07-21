@@ -37,6 +37,9 @@ span {
 .type-opacity-half {
   opacity: .50;
 }
+.type-opacity-75 {
+  opacity: .75;
+}
 
 .type-align-right {
   text-align: right;

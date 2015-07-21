@@ -115,7 +115,7 @@
 }
 
 .control-panel-user {
-  border-radius: 15px !important;
+  border-radius: 3px !important;
   margin-right: 0 !important;
 }
 
@@ -131,8 +131,8 @@
   right: 10px;
   top: 44px;
   position: absolute;
-  width: 200px;
-  z-index: 1250;
+  width: 230px;
+  z-index: 1550;
 }
 
 .user-menu-group {

@@ -61,6 +61,7 @@ $(function() {
 
   // events
   $(document).on("keyup", keypress);
+  $(document).on("keydown", keydown);
   // $('#main').on("scroll", scroll);
 
   // functions
@@ -69,6 +70,15 @@ $(function() {
     Onboarding.show();
 	}
 
+  function keydown(e){
+    if($('.input-search').is(":focus") && event.which == 67 && (event.ctrlKey||event.metaKey)){ 
+      e.preventDefault();
+      var clipboard = require('clipboard');
+      var text = $('.input-search').val().replace('@', 'ob://');
+      clipboard.writeText(text);
+    }
+  }
+  
   function keypress(e){
     e.stopPropagation();
     if($('input, select').not(":focus") && e.which == 27){ Modal.close(); }

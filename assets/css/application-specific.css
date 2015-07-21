@@ -120,9 +120,9 @@ table thead tr td:last-child{
 
 .avatar {
   background: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
 }
 
 #main {
@@ -131,6 +131,15 @@ table thead tr td:last-child{
   overflow-y: auto;
   top: 50px;
   position: relative;
+}
+
+.edit-mode {
+  border: dashed 4px white;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
 }
 
 .body-shadow {

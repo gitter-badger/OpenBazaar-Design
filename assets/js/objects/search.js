@@ -4,9 +4,6 @@ $(function() {
 
 window.Search = {
   initialize: function() {
-    $(document).on("focus", ".input-search", function(){ Search.convertToUrl() });
-    $(document).on("blur", ".input-search", function(){ Search.convertToHandle() });
-
   },
 
   find: function find(){
@@ -66,19 +63,11 @@ window.Search = {
     }, delay);
   },
 
-  convertToHandle: function convertToHandle(){
-    var url = $('.input-search').val();
-    if(url !== ""){
-      url = url.replace('ob://', '@');
-      $('.input-search').val(url);
-    }
+  convertToHandle: function convertToHandle(text){
+    return text.replace('ob://', '@');
   },
 
-  convertToUrl: function convertToUrl(){
-    var url = $('.input-search').val();
-    if(url !== ""){
-      url = url.replace('@', 'ob://');
-      $('.input-search').val(url);
-    }
+  convertToUrl: function convertToUrl(text){
+    return text.replace('@', 'ob://');
   }
 }

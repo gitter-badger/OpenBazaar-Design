@@ -104,7 +104,7 @@ window.Page = {
     $(document).on("click", ".follow-user", function(event){ 
       if($(this).html() === "Follow"){
         new Notification('You\'re now following ' + $(event.currentTarget).attr('data-user-handle'));
-        $(this).html('Unfollow');
+        $(this).html('Following');
       }else{
         new Notification('You\'re no longer following ' + $(event.currentTarget).attr('data-user-handle'));
         $(this).html('Follow');
@@ -153,6 +153,7 @@ window.Page = {
         row.facebook = $('.input-user-configuration-facebook').val();
         row.twitter = $('.input-user-configuration-twitter').val();
         row.instagram = $('.input-user-configuration-instagram').val();
+        row.hero = $('.user-page-header').css('background-image').replace('url(','').replace(')','');
         break;
       }
     }
@@ -174,6 +175,7 @@ window.Page = {
   setMetaData: function setMetaData(user){
     $('.user-page-navigation ul li, .user-page-message, .user-page-navigation-store').attr('data-user-handle', user.handle);
     $('.user-page-name').html(user.name);
+    $('.user-page-handle').html(' ' + user.handle);
     $('.user-page-follow').attr('data-user-handle', user.handle);
     $('.user-page .button-primary, .user-page-configuration-edit').attr('data-user-handle', user.handle);
     $('.user-page-details-website').html('<a href="' + user.website + '" target="_blank">' + user.website + '</a>');
@@ -287,18 +289,20 @@ window.Page = {
 
     if($('.input-search').val().includes('/edit')){
       $('.user-page-configuration-colors, .user-page-social .input, .user-page-about .textarea, .user-page-actions-configuration').show();
-      $('.user-page-actions-primary, .user-page-actions-self, .user-page-social .value, .user-page-about p').hide();
+      $('.user-page-actions-primary, .user-page-actions-self, .user-page-social .value, .user-page-about p, .chat').hide();
+      $('#main').addClass('edit-mode');
       $('#button-user-page-header').addClass('active');
     }else{
-      $('.user-page-actions-primary, .user-page-social .value, .user-page-about p').show();
+      $('.user-page-actions-primary, .user-page-social .value, .user-page-about p, .chat').show();
       $('.user-page-actions-configuration, .user-page-actions-self').hide();
       $('#button-user-page-header').fadeTo(0).removeClass('active');
+      $('#main').removeClass('edit-mode');
       if(user.handle === $session.handle){
         $('.user-page-actions-self').show();
         $('.user-page-actions-configuration, .user-page-actions-primary').hide();
       }
     }
-    $('.chat').show();
+
     Navigation.setPageUrl(user.handle);
     Page.hideSections();
     // Page.setActiveTab(event);
@@ -319,7 +323,6 @@ window.Page = {
     Page.setColors(user)
     Navigation.setPageUrl(user.handle + '/about');
     $('.user-page-details').show();
-    $('#main').scrollTop(0);
   },
 
   store: function store(user, event){
