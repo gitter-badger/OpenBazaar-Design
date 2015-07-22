@@ -8,7 +8,7 @@ window.Helper = {
 
   hideAll: function hideAll(){
     $('#main, .user-page-header, .chat').removeClass('blur');
-    $('.contracts, .discover, .onboarding, .user-page, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases, .modal, .modal-pretty, .settings').hide();
+    $('.contracts, .discover, .onboarding, .user-page, .vendor-navigation, .ob-icon, .contract-detail, .user-configuration, .vendor-header, .vendor-header-2, .vendor-footer, .button-try-again, .vendor-details, .transactions, .transactions-purchases, .transactions-sales, .transactions-cases, .modal, .modal-pretty, .settings, .user-page-add-contract').hide();
     $('.user-page-configuration-colors, .user-page-social .input, .user-page-about .textarea').hide();
   },
 
@@ -41,6 +41,10 @@ window.Helper = {
   resizeWindow: function resizeWindow() {
     var height = $(window).height() - $('#header').outerHeight();
     $('#main').css('height', height);
+  },
+
+  stringToSlug: function stringToSlug(text) {
+    return text.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
   },
 
   setDefualtColors: function setDefualtColors(instant){

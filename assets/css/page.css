@@ -75,7 +75,6 @@
 
 .user-page-navigation,
 .user-page-details-navigation {
-  border: solid 1px red;
   border-bottom: 0;
   height: 46px;
   font-family: "font-medium";
@@ -317,7 +316,7 @@
   color: #fff;
   font-family: "font-medium";
   font-size: 20px;
-  height:100%; 
+  height: 100%; 
   outline: none;
   position: absolute; 
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
@@ -327,5 +326,36 @@
 
 #button-user-page-header.active {
   cursor: pointer;
+}
+
+.user-page-add-contract input,
+.user-page-add-contract textarea,
+.user-page-add-contract select {
+  border: 0;
+}
+
+.user-page-add-contract td label {
+  opacity: .8;
+}
+
+.user-page-add-contract-detail-image {
+  margin: 15px;
+}
+
+.user-page-add-contract tr {
+  border-bottom: solid 1px;
+}
+
+.user-page-add-contract tr td {
+}
+
+.user-page-add-contract .label-cell {
+  padding-left: 15px;
+  width: 70px;
+}
+
+.user-page-add-contract .input-cell {
+  padding: 0;
+  width: 100%;
 }
 

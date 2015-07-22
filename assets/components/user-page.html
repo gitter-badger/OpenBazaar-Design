@@ -3,7 +3,7 @@
   <link href="../css/page.css" rel="stylesheet">
 
   <template>
-    <div class="user-page visibility-hidden">
+    <div class="user-page primary-color visibility-hidden">
       <div class="user-page-configuration-colors visibility-hidden">
 <!--         <div class="user-page-configuration-color user-page-configuration-preset">
           <div></div>
@@ -35,10 +35,10 @@
           <div style="background: blue"></div>
           <div style="background: teal"></div>
         </div> -->
-        <div class="user-page-configuration-color user-page-configuration-primary-color"></div>
-        <div class="user-page-configuration-color user-page-configuration-secondary-color"></div>
-        <div class="user-page-configuration-color user-page-configuration-background-color"></div>
-        <div class="user-page-configuration-color user-page-configuration-text-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-primary-color primary-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-secondary-color secondary-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-background-color background-color"></div>
+        <div class="user-page-configuration-color user-page-configuration-text-color text-color"></div>
       </div>
 
       <div class="user-page-header">
@@ -51,70 +51,71 @@
         <div class="user-page-header-shadow"></div>
       </div>
 
-      <div class="user-page-navigation">
+      <div class="user-page-navigation secondary-color">
         <div style="width: 950px; margin: auto">
           <ul class="position-float-left">
-            <li class="user-page-navigation-about" data-section="user-page-about">About</li>
-            <li class="user-page-navigation-followers" data-section="user-page-followers"><span class="pill user-page-followers-count"></span> Followers</li>
-            <li class="user-page-navigation-following" data-section="user-page-following"><span class="pill user-page-following-count"></span> Following</li>
-            <li class="user-page-navigation-store" data-section="user-page-store"><span class="pill user-page-contracts-count"></span> Store</li>
+            <li class="secondary-color border-primary-color user-page-navigation-about" data-section="user-page-about">About</li>
+            <li class="secondary-color border-primary-color user-page-navigation-followers" data-section="user-page-followers"><span class="pill primary-color user-page-followers-count"></span> Followers</li>
+            <li class="secondary-color border-primary-color user-page-navigation-following" data-section="user-page-following"><span class="pill primary-color user-page-following-count"></span> Following</li>
+            <li class="secondary-color border-primary-color user-page-navigation-store" data-section="user-page-store"><span class="pill primary-color user-page-contracts-count"></span> Store</li>
           </ul>
           <div class="user-page-actions position-float-right position-margin-right-10px position-margin-top--2px">
             <div class="user-page-actions-configuration visibility-hidden">
-              <button class="button-primary user-page-configuration-save">Save changes</button>
-              <button class="button-primary user-page-configuration-cancel">Cancel</button>
+              <button class="button-primary primary-color user-page-configuration-save">Save changes</button>
+              <button class="button-primary primary-color user-page-configuration-cancel">Cancel</button>
             </div>
-            <div class="user-page-actions-self visibility-hidden position-margin-top-8px">
-              <button class="button-primary user-page-configuration-edit" style="">Edit</button>
+            <div class="user-page-actions-self visibility-hidden">
+              <button class="button-primary primary-color menu-user-add-item" style="">Sell item</button>
+              <button class="button-primary primary-color user-page-configuration-edit" style="">Customize</button>
             </div>
             <div class="user-page-actions-primary">
-              <button class="button-primary user-page-link">Follow</button>
-              <button class="button-primary user-page-message">Message</button>
+              <button class="button-primary primary-color user-page-link">Follow</button>
+              <button class="button-primary primary-color user-page-message">Message</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="user-page-details visibility-hidden">
-        <div class="pod user-page-about position-inline-block position-width-600px">
+      <div class="user-page-details primary-color visibility-hidden">
+        <div class="pod primary-color user-page-about position-inline-block position-width-600px">
           <p class="position-margin-top-10px type-opacity type-line-height-16px"></p>
-          <textarea class="textarea input-user-configuration-about visibility-hidden" /></textarea> 
+          <textarea class="textarea input-user-configuration-about primary-color visibility-hidden" /></textarea> 
         </div>
-        <div class="pod user-page-social position-inline-block position-width-308px" style="border: 0; padding: 0; margin-left: -4px">
+        <div class="pod primary-color user-page-social position-inline-block position-width-308px" style="border: 0; padding: 0; margin-left: -4px">
           <table>
             <tr>
               <td>
                 <div class="label">Website</div>
                 <div class="value user-page-details-website type-opacity">not provided</div>
-                <input class="input input-large input-user-configuration-website visibility-hidden" />
+                <input class="input input-large primary-color border-secondary-color input-user-configuration-website visibility-hidden" />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Email</div>
                 <div class="value user-page-details-email type-opacity">not provided</div>
-                <input class="input input-large input-user-configuration-email visibility-hidden" />
+                <input class="input input-large primary-color border-secondary-color input-user-configuration-email visibility-hidden" />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Facebook</div>
                 <div class="value user-page-details-facebook type-opacity">not provided</div>
-                <input class="input input-large input-user-configuration-facebook visibility-hidden" />
+                <input class="input input-large primary-color border-secondary-color input-user-configuration-facebook visibility-hidden" />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Twitter</div>
                 <div class="value user-page-details-twitter type-opacity">not provided</div>
-                <input class="input input-large input-user-configuration-twitter visibility-hidden"  />
+                <input class="input input-large primary-color border-secondary-color input-user-configuration-twitter visibility-hidden"  />
               </td>
             </tr>
             <tr>
               <td>
                 <div class="label">Instagram</div>
                 <div class="value user-page-details-instagram type-opacity">not provided</div>
-                <input class="input input-large input-user-configuration-instagram visibility-hidden" />
+                <input class="input input-large primary-color border-secondary-color input-user-configuration-instagram visibility-hidden" />
               </td>
             </tr>
           </table>
@@ -122,7 +123,7 @@
       </div>
 
       <div class="user-page-contracts visibility-hidden">
-        <input class="list-input list-input-search search-store" placeholder="" />
+        <input class="list-input list-input-search primary-color search-store" placeholder="" />
         <div class="user-page-contracts-grid"></div>
       </div>
 
@@ -132,8 +133,8 @@
         <div style="position-padding-20px">
           <!-- <h1 class="user-page-contract-detail-name position-padding-20px"></h1> -->
           <div class="user-page-contract-detail-image"></div>
-          <div class="pod user-page-contract-detail-meta">
-            <div class="user-page-contract-detail-pricing">
+          <div class="pod primary-color user-page-contract-detail-meta">
+            <div class="user-page-contract-detail-pricing secondary-color">
               <table>
                 <tr class="user-page-contract-detail-price-row">
                   <td>Price</td>
@@ -151,22 +152,18 @@
                   <td>Type</td>
                   <td class="user-page-contract-detail-type"></td>
                 </tr>
-                <tr>
-                  <td>Location</td>
-                  <td>California, United States</td>
-                </tr>
               </table>
               
               <div class="user-page-contract-detail-buttons position-padding-left-10px position-margin-top-4px">
-                <div class="user-page-contract-detail-quantity position-inline-block"><input type="number" class="input input-user-page-contract-detail-quantity input-quantity" value="1" min="1" style="padding: 0" /></div>
+                <div class="user-page-contract-detail-quantity position-inline-block"><input type="number" class="input input-user-page-contract-detail-quantity input-quantity" value="1" min="1" style="padding: 0; background: #fff !important; color:#252525 !important;" /></div>
                 <button class="button-primary user-page-contract-detail-buy position-inline-block">Buy</button>
                 <!-- <button class="button-primary user-page-contract-detail-sold-out visibility-hidden position-inline-block">Sold out</button> -->
               </div>
             </div>
-            <div class="user-page-details-navigation">
+            <div class="user-page-details-navigation secondary-color">
               <ul style="z-index: 100; position: relative;">
                 <li class="user-page-details-navigation-selected">Description</li>
-                <li>Reviews <span class="pill">4</span></li>
+                <li><span class="pill primary-color">4</span> Reviews</li>
               </ul>
             </div>
             <div class="user-page-contract-detail-description"></div>
@@ -179,16 +176,78 @@
       </div>
 
       <div class="user-page-following position-margin-0 visibility-hidden">
-        <input class="list-input list-input-search search-following" placeholder="" />
+        <input class="list-input list-input-search primary-color search-following" placeholder="" />
         <table class="user-page-following-list"></table>
       </div>
       
       <div class="user-page-followers position-margin-0 visibility-hidden">
-        <input class="list-input list-input-search search-followers" placeholder="" />
+        <input class="list-input list-input-search primary-color search-followers" placeholder="" />
         <table class="user-page-followers-list"></table>       
       </div>
 
-      <div class="user-page-footer"></div>
+      <div class="user-page-add-contract position-margin-0 visibility-hidden">
+        <input type="file" class="input-user-page-add-contract-photo" style="position: absolute; left: -1000px" />
+        <div class="user-page-breadcrumb"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name">Item name</span></div>
+        <div class="user-page-contract-detail-image" style="margin: 15px;"><button id="button-user-page-add-contract-photo">Upload a photo</button></div><div class="pod primary-color border-secondary-color user-page-contract-detail-meta" style="width: 499px; border-left: solid 1px;">
+          <table>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-name">Name</label></td>
+              <td class="input-cell"><input id="input-new-contract-name" type="text" class="list-input input-new-contract-name primary-color" /></td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-price">Price</label></td>
+              <td class="input-cell"><input id="input-new-contract-price" type="text" class="list-input input-new-contract-price primary-color" placeholder="USD ($)" /></td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-shipping">Shipping</label></td>
+              <td class="input-cell"><input id="input-new-contract-shipping" type="text" class="list-input input-new-contract-shipping primary-color" placeholder="USD ($)" /></td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-quantity">Quantity</label></td>
+              <td class="input-cell"><input id="input-new-contract-quantity" type="text" class="list-input input-new-contract-quantity primary-color" /></td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-nsfw">NSFW?</label></td>
+              <td class="input-cell">
+                <input type="radio" /><label></label>
+                <input type="radio" /><label></label>
+              </td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-type">Type</label></td>
+              <td class="input-cell">
+                <select id="input-new-contract-type" class="list-input input-new-contract-type primary-color">
+                  <option>--</option>
+                  <option>Digital</option>
+                  <option>Physical</option>
+                  <option>Service</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-condition">Condition</label></td>
+              <td class="input-cell">
+                <select id="input-new-contract-condition" class="list-input input-new-contract-condition primary-color">
+                  <option>--</option>
+                  <option>New</option>
+                  <option>Used</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td><label for="input-new-contract-description">Description</label></td>
+              <td><textarea id="input-new-contract-textarea" class="list-input input-new-contract-description primary-color" style="height: 150px"></textarea></td>
+            </tr>
+          </table>
+          
+          
+          
+          
+          
+        </div>
+      </div>
+
+      <div class="user-page-footer secondary-color"></div>
 
     </div>
   </template>

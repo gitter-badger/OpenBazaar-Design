@@ -3,11 +3,11 @@
   <link href="../css/navigation.css" rel="stylesheet">
 
   <template>
-    <section id="header">
+    <section id="header" class="secondary-color">
       <div class="window-control window-close"></div>
       <div class="window-control window-minimize"></div>
       <div class="window-control window-maximize"></div>
-      <div class="navigation-controls position-float-left">
+      <div class="navigation-controls primary-color position-float-left">
         <ul>
           <li class="navigation-controls-back"><svg viewBox="-75 0 260 108"><use xlink:href="#icon-back"></use></svg></li>
           <li class="navigation-controls-forward"><svg viewBox="-65 0 260 108"><use xlink:href="#icon-forward"></use></svg></li>
@@ -15,8 +15,8 @@
       </div>
       <input type="text" class="input input-search position-float-left" placeholder="Enter a handle or a keyword" />
       <ul class="control-panel position-float-left">
-        <li class="control-panel-discover">h</li>
-        <li class="control-panel-user" style="background: url(https://pbs.twimg.com/profile_images/451017489065857024/vdpDUxoZ_400x400.jpeg) 50% 50% / cover no-repeat"></li>
+        <li class="control-panel-discover primary-color">h</li>
+        <li class="control-panel-user primary-color" style="background: url(https://pbs.twimg.com/profile_images/451017489065857024/vdpDUxoZ_400x400.jpeg) 50% 50% / cover no-repeat"></li>
       </ul>
     </section>
 
@@ -24,8 +24,8 @@
       <ul>
         <div class="user-menu-group">
           <li class="user-page-link" data-user-handle="@wolf">My page</li>
-          <li class="menu-user-profile" data-user-handle="@wolf/edit">Edit my page</li>
-          <li class="menu-user-profile" data-user-handle="@wolf/edit">Sell items</li>
+          <li class="menu-user-profile" data-user-handle="@wolf/edit">Customize page</li>
+          <li class="menu-user-add-item" data-user-handle="@wolf/edit/store/add-item">Sell item</li>
         </div>
         <div class="user-menu-group">
           <li class="menu-purchases">Purchases</li>

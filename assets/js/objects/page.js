@@ -15,6 +15,14 @@ window.Page = {
       }
       reader.readAsDataURL(input.files[0]);
     });
+    $(document).on("change", ".input-user-page-add-contract-photo", function(){ 
+      var input = this;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.user-page-contract-detail-image').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+      }
+      reader.readAsDataURL(input.files[0]);
+    });
     $(document).on("mouseenter", ".user-page-header", function(){ 
       if($('.input-search').val().includes('/edit')){
         $('#button-user-page-header').fadeTo(100, .80);
@@ -30,6 +38,9 @@ window.Page = {
         $('.input-user-page-header').click();
         $('#button-user-page-header').fadeTo(100, .80);
       }
+    });
+    $(document).on("click", "#button-user-page-add-contract-photo", function(){ 
+      $('.input-user-page-add-contract-photo').click();
     });
     $(document).on("click", ".trade-done", function(){ Page.tradeDone() });
     $(document).on("mouseenter", ".user-page-configuration-preset", function(){ 
@@ -47,10 +58,14 @@ window.Page = {
       Search.byHandleEditMode(handle, true);
       Navigation.setPageUrl(handle + '/edit');
     });
+    $(document).on("click", ".menu-user-add-item", function(event){
+      var handle = $(event.currentTarget).attr('data-user-handle').replace('/edit/store/add-item','').trim();
+      var user = User.find(handle);
+      Page.activateStoreTab(user);
+    });
     $(document).on("click", ".user-page-configuration-edit", function(event){
       var handle = $(event.currentTarget).attr('data-user-handle').replace('/edit','').trim();
       Search.byHandleEditMode(handle, true);
-      Navigation.setPageUrl(handle + '/edit');
     });
     $(document).on("click", ".user-profile-navigation li", function(event){ User.changeSection(event) });
     $(document).on("click", ".user-page-configuration-cancel", function(){ 
@@ -62,9 +77,16 @@ window.Page = {
       Page.save(user);
       setTimeout(function() {
         $('.user-page-configuration-save').html('Save changes');
-        new Notification("Changes saved. Your page has been updated");
-        Navigation.setPageUrl(user.handle);
-        Page.view(user, false, true);
+        if($('.user-page-add-contract').is(':visible')){
+          new Notification("Changes saved. Your item has been added");
+          Page.saveContract(user); 
+          $('.user-page-add-contract input, .user-page-add-contract textarea, .user-page-add-contract select, .user-page-add-contract').val('');
+          Page.contract(user, user.contracts[user.contracts.length-1], true);
+        }else{
+          new Notification("Changes saved. Your page has been updated");
+          Navigation.setPageUrl(user.handle);
+          Page.view(user, false, true);
+        }
       }, 500);
     });
     $(document).on("click", ".contract-vendor-name", function(event) { 
@@ -159,15 +181,53 @@ window.Page = {
     }
   },
 
+  saveContract: function saveContract(user){
+    for (var i = 0, l = window.preloadData.users.length; i < l; i++) {
+      if (window.preloadData.users[i].handle === user.handle) {
+        var row = window.preloadData.users[i];
+        var contracts = row.contracts;
+        contracts.push({
+          'id': Date.now(),
+          'name': $('.input-new-contract-name').val(),
+          'price': $('.input-new-contract-price').val(),
+          'shipping': $('.input-new-contract-shipping').val(),
+          'type': $('.input-new-contract-type').val(),
+          'condition': $('.input-new-contract-condition').val(),
+          'quantity': $('.input-new-contract-quantity').val(),
+          'description': $('.input-new-contract-description').val(),
+          'photo1': $('.user-page-contract-detail-image').css('background-image').replace('url(','').replace(')','')
+        });
+        break;
+      }
+    }
+  },
+
   setActiveTab: function setActiveTab(event){
     $('.user-page-navigation ul li').removeClass('user-page-navigation-selected');
     $('.user-page-navigation ul li').css('background-color', 'transparent');
     $(event.currentTarget).addClass('user-page-navigation-selected');
   },
 
+  activateStoreTab: function activateStoreTab(user){
+    Navigation.setPageUrl(user.handle + '/edit/store/add-item');
+
+    for (var i = 0, l = window.preloadData.users.length; i < l; i++) {
+      if (window.preloadData.users[i].handle === user.handle) {
+        var row = window.preloadData.users[i];
+        row.roles = ['vendor'];
+        break;
+      }
+    }
+
+    Page.view(user, true, true); 
+    $('.user-page-contracts').hide();
+    $('.user-page-add-contract').show();
+    $('.input-new-contract-name').focus();
+  },
+
   setColors: function setColors(user){
-    Page.setPrimaryColor(user.colorprimary);
     Page.setSecondaryColor(user.colorsecondary);
+    Page.setPrimaryColor(user.colorprimary);
     Page.setBackgroundColor(user.colorbackground);
     Page.setTextColor(user.colortext);
   },
@@ -227,27 +287,25 @@ window.Page = {
   },
 
   setPrimaryColor: function setPrimaryColor(hex){  
-    hex = hex.replace('#','');
-    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .user-page-details-navigation-selected, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar, .user-page-configuration-primary-color, .user-page input, .user-page textarea, .transactions-body, .settings-body').css('background-color', '#' + hex);
-    $('.user-configuration-primary-color').css('background-color', '#' + hex);
-    $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
-    $('.user-page-navigation ul li, .user-page-details-navigation ul li ').css('border-right-color', '#' + hex);
-    $store.colorprimary = '#' + hex;
+    $('.border-primary-color').css('border-color', hex);
+    $('.primary-color, .user-page-navigation-selected, .user-page-details-navigation-selected').css('background-color', hex);
+    $store.colorprimary = hex;
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
-    hex = hex.replace('#','');
-    $('#header, .user-page-following-list .button-primary, .user-page-followers-list .button-primary, .user-page-footer, .discover-footer, .user-page-navigation, .user-page-details-navigation, .user-page-contract-detail-pricing, .transactions table thead tr, .modal-footer, .modal-footer button, .modal-header, .modal input, .modal select, .modal textarea, .user-page-navigation-selected .pill, .user-page-configuration-secondary-color').css('background-color', '#' + hex);
-    $('.modal-pretty table td').css('border-bottom-color', '#' + hex);
-    $('.pod').css('border-right-color', '#' + hex);
-    $('.user-page-navigation, .user-page-details-navigation, .user-page input, .user-page textarea, .list-input-search').css('border-color', '#' + hex);
-    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description, .list-input, .list-view tr').css('border-color', '#' + hex);
-    $store.colorsecondary = '#' + hex;
+    $('.border-secondary-color').css('border-color', hex);
+    $('.secondary-color').css('background', hex);
+    $store.colorsecondary = hex;
+    
+    $('.transactions table thead tr, .user-page-navigation-selected .pill, .user-page-configuration-secondary-color').css('background-color', hex);
+    $('.modal-pretty table td').css('border-bottom-color', hex);
+    $('.pod').css('border-right-color', hex);
+    $('.user-page-details-navigation, .user-page input, .user-page textarea, .list-input-search').css('border-color', hex);
+    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description, .list-input, .list-view tr').css('border-color', hex);
   },
 
   setBackgroundColor: function setBackgroundColor(hex){  
-    hex = hex.replace('#','');
-    $('body, .user-page-configuration-background-color').css('background-color', '#' + hex);
+    $('body, .user-page-configuration-background-color').css('background-color', hex);
   },
 
   setTextColor: function setTextColor(hex){  
@@ -366,6 +424,8 @@ window.Page = {
     $('.user-page-contract-detail').show();
     $('.user-page').fadeIn('slow');
     $('#main').scrollTop(0);
+    Navigation.setPageUrl(user.handle + '/store/' + Helper.stringToSlug(contract.name));
+
   },
 
   followers: function followers(user, event){
@@ -374,7 +434,7 @@ window.Page = {
     $('.user-page-followers-list').empty();
     _.each(user.followers, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
+      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary secondary-color position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-followers').show();
@@ -388,7 +448,7 @@ window.Page = {
     $('.user-page-following-list').empty();
     _.each(user.following, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
+      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary secondary-color position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-following').show();
