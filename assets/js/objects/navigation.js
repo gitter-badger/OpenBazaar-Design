@@ -48,16 +48,16 @@ window.Navigation = {
     var currentPageIndex = _.indexOf(pageViews, page);
 
     if (currentPageIndex === 0 && currentPageIndex === pageViewSize){
-      $('.navigation-controls-back span, .navigation-controls-forward span').fadeTo('fast', 0.3);
+      $('.navigation-controls-back svg, .navigation-controls-forward svg').fadeTo('fast', 0.3);
     }else if(currentPageIndex === 0 && currentPageIndex !== pageViewSize ){
-      $('.navigation-controls-back span').fadeTo('fast', 0.3);
-      $('.navigation-controls-forward span').fadeTo('fast', 1.0);
+      $('.navigation-controls-back svg').fadeTo('fast', 0.3);
+      $('.navigation-controls-forward svg').fadeTo('fast', 1.0);
     }else if(currentPageIndex > 0 && currentPageIndex !== pageViewSize){
-      $('.navigation-controls-back span').fadeTo('fast', 1.0);
-      $('.navigation-controls-forward span').fadeTo('fast', 1.0);     
+      $('.navigation-controls-back svg').fadeTo('fast', 1.0);
+      $('.navigation-controls-forward svg').fadeTo('fast', 1.0);     
     }else if(currentPageIndex > 0 && currentPageIndex === pageViewSize){
-      $('.navigation-controls-back span').fadeTo('fast', 1.0);
-      $('.navigation-controls-forward span').fadeTo('fast', 0.3);     
+      $('.navigation-controls-back svg').fadeTo('fast', 1.0);
+      $('.navigation-controls-forward svg').fadeTo('fast', 0.3);     
     }
   },
 

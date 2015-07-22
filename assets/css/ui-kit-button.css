@@ -1,7 +1,7 @@
 .button-primary {
   border: 0;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 1px;
+  border-radius: 2px;
   color: #ffffff;
   cursor: pointer;
   font-family: "font-medium";

@@ -228,7 +228,7 @@ window.Page = {
 
   setPrimaryColor: function setPrimaryColor(hex){  
     hex = hex.replace('#','');
-    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .user-page-details-navigation-selected, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar, .user-page-configuration-primary-color, .user-page input, .user-page textarea, .transactions-body, .settings-body').css('background-color', '#' + hex);
+    $('.user-page, .contract-detail, .navigation-controls, .pod, .pill, .user-page-navigation-selected, .user-page-details-navigation-selected, .control-panel li, .button-primary, .user-configuration-primary-color, .modal, .modal-pretty, .modal-body, .user-page-avatar, .user-page-configuration-primary-color, .user-page input, .user-page textarea, .transactions-body, .settings-body').css('background-color', '#' + hex);
     $('.user-configuration-primary-color').css('background-color', '#' + hex);
     $('.modal-pretty button.button-first').css('border-right-color', '#' + hex);
     $('.user-page-navigation ul li, .user-page-details-navigation ul li ').css('border-right-color', '#' + hex);
@@ -253,6 +253,7 @@ window.Page = {
   setTextColor: function setTextColor(hex){  
     hex = hex.replace('#','');
     $('.user-page-navigation, .user-page-details, .user-page-social, .user-page a, .user-page-following, .user-page-followers, .navigation-controls, .navigation-controls span, .control-panel li, .button-primary, .user-configuration-primary-color, .contract-meta-data, .modal input, .modal select, .modal textarea, .modal-pretty input, .modal-pretty select, .modal-pretty textarea, .modal-pretty button, .user-page input, .user-page textarea').css('color',  '#' + hex);
+    $('.navigation-controls svg').css('fill', '#' + hex);
     $('.user-configuration-font-color, .user-page-configuration-text-color').css('background-color', '#' + hex);
     $store.colortext = '#' + hex;
   },
@@ -373,7 +374,7 @@ window.Page = {
     $('.user-page-followers-list').empty();
     _.each(user.followers, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
+      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-followers').show();
@@ -387,7 +388,7 @@ window.Page = {
     $('.user-page-following-list').empty();
     _.each(user.following, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-19px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
+      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-following').show();

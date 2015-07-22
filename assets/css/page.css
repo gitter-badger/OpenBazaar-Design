@@ -21,6 +21,8 @@
 }
 
 .user-page-header {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   height: 400px; 
   opacity: .9;
   padding: 0;
@@ -154,13 +156,13 @@
 .user-page-avatar {
   background: #086A9E;
   background-size: cover;
-  border-radius: 40px;
-  bottom: 12px;
+  border-radius: 3px;
+  bottom: 16px;
   cursor: pointer;
   height: 80px;
   margin: auto;
   margin-right: 10px;
-  margin-left: 20px;
+  margin-left: 16px;
   position: absolute;
   width: 80px;
   z-index: 50;
@@ -168,7 +170,7 @@
 
 .user-page-name-holder {
   bottom: 40px;
-  margin-left: 110px;
+  margin-left: 105px;
   position: absolute;
   z-index: 50;
 }

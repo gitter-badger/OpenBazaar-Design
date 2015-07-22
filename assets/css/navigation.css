@@ -54,12 +54,8 @@
   width: 31px;
 }
 
-.navigation-controls li span {
-  font-family: "font-medium";
-  font-size: 16px;
-  height: 100%;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.55);
-  width: 100%;
+.navigation-controls li svg {
+  opacity: .3;
 }
 
 .window-control {
