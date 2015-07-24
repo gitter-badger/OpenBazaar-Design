@@ -4,7 +4,7 @@ This is a design prototype by @morebrownies for OpenBazaar.
 
 It is meant to be basic HTML only and is split into components using Polymer.
 
-[View the Demo](https://openbazaar.github.io/OpenBazaar-Design)
+[View the Demo](http://openbazaar-design.divshot.io/)
 
 ### Development
 

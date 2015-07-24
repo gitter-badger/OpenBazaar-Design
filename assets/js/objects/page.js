@@ -133,24 +133,25 @@ window.Page = {
       }
     });
     $('.user-page-configuration-primary-color').ColorPicker({
-      color: defaultPrimaryColor,
+      color: $session.colorprimary,
       onChange: function (hsb, hex, rgb) {
         Page.setPrimaryColor(hex);
       } 
     });
     $('.user-page-configuration-secondary-color').ColorPicker({
-      color: defaultSecondaryColor,
+      color: $session.colorsecondary,
       onChange: function (hsb, hex, rgb) {
         Page.setSecondaryColor(hex);
       } 
     });
     $('.user-page-configuration-text-color').ColorPicker({
-      color: defaultTextColor,
+      color: $session.colortext,
       onChange: function (hsb, hex, rgb) {
         Page.setTextColor(hex);
       } 
     });
     $('.user-page-configuration-background-color').ColorPicker({
+      color: $session.colorbackground,
       onChange: function (hsb, hex, rgb) {
         Page.setBackgroundColor(hex);
       } 
@@ -233,7 +234,7 @@ window.Page = {
     Page.setMetaData(user);
     $('#main').addClass('edit-mode');
     $('#button-user-page-header').addClass('active');
-    $('.user-page-actions-self, .user-page-actions-primary').hide();
+    $('.user-page-actions-self, .user-page-actions-primary, .chat').hide();
     $('.user-page-actions-configuration').show();
     $('.user-page').show();
   },
@@ -300,21 +301,17 @@ window.Page = {
   },
 
   setPrimaryColor: function setPrimaryColor(hex){  
+        console.log(hex);
+
     $('.border-primary-color').css('border-color', hex);
-    $('.primary-color, .user-page-navigation-selected, .user-page-details-navigation-selected').css('background-color', hex);
+    $('.primary-color, .user-page-navigation-selected, .user-page-details-navigation-selected, .modal-navigation-selected').css('background-color', hex);
     $store.colorprimary = hex;
   },
 
   setSecondaryColor: function setSecondaryColor(hex){  
     $('.border-secondary-color').css('border-color', hex);
-    $('.secondary-color').css('background', hex);
+    $('.secondary-color').css('background-color', hex);
     $store.colorsecondary = hex;
-    
-    $('.transactions table thead tr, .user-page-navigation-selected .pill, .user-page-configuration-secondary-color').css('background-color', hex);
-    $('.modal-pretty table td').css('border-bottom-color', hex);
-    $('.pod').css('border-right-color', hex);
-    $('.user-page-details-navigation, .user-page input, .user-page textarea, .list-input-search').css('border-color', hex);
-    $('.user-page td, .user-page-contracts .contract, .user-page-breadcrumb, .user-page-contract-detail-description, .list-input, .list-view tr').css('border-color', hex);
   },
 
   setBackgroundColor: function setBackgroundColor(hex){  
@@ -460,7 +457,7 @@ window.Page = {
     $('.user-page-followers-list').empty();
     _.each(user.followers, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-followers-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary secondary-color position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
+      $('.user-page-followers-list').append('<tr><td class="border-secondary-color"><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class="border-secondary-color"><button class="button-primary secondary-color position-float-right follow-user" data-user-handle="' + person.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-followers').show();
@@ -474,7 +471,7 @@ window.Page = {
     $('.user-page-following-list').empty();
     _.each(user.following, function(userId, index){
       var person = User.findById(userId);
-      $('.user-page-following-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class=""><button class="button-primary secondary-color position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
+      $('.user-page-following-list').append('<tr><td class="border-secondary-color"><div class="avatar position-float-left position-margin-right-10px" style="background: url(' + person.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-13px user-page-link" data-user-handle="' + person.handle + '">' + person.handle + '</div></td><td class="border-secondary-color"><button class="button-primary secondary-color position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
     });
     Page.setColors(user)
     $('.user-page-following').show();
