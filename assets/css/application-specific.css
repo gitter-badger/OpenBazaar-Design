@@ -90,6 +90,15 @@ table thead tr td:last-child{
   border-top: solid 1px #327EB8; 
 }
 
+.settings-general table td,
+.settings-advanced table td,
+.settings-keys table td,
+.settings-shipping table td{
+  border-bottom: solid 1px #327EB8; 
+  padding: 15px;
+  height: 58px;
+}
+
 .transactions-purchases table tr{
   cursor: pointer; 
 }

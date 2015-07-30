@@ -9,8 +9,10 @@ window.Contract = {
     $(document).on("click", ".contract-trade-payment-type-next", function(event){ Contract.displayTradeFlowAddress() });
     $(document).on("click", ".contract-trade-address-next", function(event){ Contract.displayTradeFlowSummary() });
     $(document).on("click", ".new-product-save", function(){ Contract.create() });
-    $(document).on("mouseover", ".item", function(event){ Contract.hover(event) });
-    $(document).on("mouseleave", ".item", function(event){ Contract.unhover(event) });
+    $(document).on("click", ".contract-delete, .user-page-contract-delete", function(event){ Contract.deleteConfirm(event) });
+    $(document).on("click", ".contract-edit, .user-page-contract-edit", function(event){ Contract.edit(event) });
+    $(document).on("mouseover", ".contract-image", function(event){ Contract.hover(event) });
+    $(document).on("mouseleave", ".contract-image", function(event){ Contract.unhover(event) });
   },
 
   create: function create(){
@@ -46,6 +48,49 @@ window.Contract = {
     $('.settings-item-image').css('opacity', 100);
   },
 
+  remove: function remove(event){
+  },
+
+  edit: function edit(event){
+    var user = User.find($session.handle);
+    var contract = _.find(user.contracts, function(contract){ return contract.id == $(event.currentTarget).attr('data-contract-id') });
+    Helper.hideAll();
+    Page.hideSections();
+    Navigation.setPageUrl(user.handle + '/store/edit/' + Helper.stringToSlug(contract.name));
+    Page.setColors(user);
+    Page.setMetaData(user);
+    $('.input-new-contract-name').val(contract.name);
+    $('.input-new-contract-price').val(contract.price);
+    $('.input-new-contract-shipping').val(contract.shipping);
+    $('.input-new-contract-available').val(contract.available);
+    $('.input-new-contract-keywords').val(contract.keywords);
+    $('.input-new-contract-type').val(contract.type);
+    $('.input-new-contract-condition').val(contract.condition);
+    $('.input-new-contract-nsfw').val(contract.nsfw);
+    $('.input-new-contract-description').val(contract.description);
+    // $('.input-user-page-add-contract-photo').val(contract.photo1);
+    $('.user-page-contract-detail-image').css('background', 'url(' + contract.photo1 + ') 50% 50% / cover no-repeat');
+
+
+    $('.user-page-contracts, .user-contract-actions').hide();
+    $('.user-page-add-contract, .user-page-actions-configuration').show();
+    $('.input-new-contract-name').focus();
+    $('#main').addClass('edit-mode');
+    $('#button-user-page-header').addClass('active');
+    $('.user-page-actions-self, .user-page-actions-primary, .chat').hide();
+    $('.user-page').show();
+
+  },
+
+  deleteConfirm: function deleteConfirm(event){
+    event.stopPropagation();
+    var user = User.find($(event.currentTarget).attr('data-vendor-handle'));
+    if (confirm("Are you sure you want to delete this item?") == true) {
+      new Notification('Item deleted');     
+      $(event.currentTarget).parent().parent().remove();
+    }
+  },
+
   displayCheckout: function displayCheckout(){  
     $('.modal-purchase-detail, .modal-trade-flow-address, .modal-trade-flow-summary').hide();
     $('.modal-trade-flow-payment-type').show();
@@ -68,6 +113,7 @@ window.Contract = {
 
   displayDetails: function displayDetails(event){  
     event.stopPropagation();
+    event.preventDefault();
     var guid = $(event.currentTarget).attr('data-vendor-guid');
     var contractId = $(event.currentTarget).attr('data-contract-id');
     var user = User.findByGuid(guid);
@@ -119,12 +165,15 @@ window.Contract = {
   },
 
   hover: function hover(event){
-    $(event.currentTarget).css('background-color', 'transparent');
-    $(event.currentTarget).find('.contract-image').animate({top: '2px'}, 200, 'easeOutQuad');
+    var user = User.find($(event.currentTarget).attr('data-vendor-handle'));
+    if(user.handle === $session.handle){
+      $(event.currentTarget).find('.contract-delete').show();
+      Page.setPrimaryColor(user.colorprimary);
+    }
   },
 
   unhover: function unhover(event){
-    $(event.currentTarget).find('.contract-image').animate({top: 0}, 200, 'easeOutQuad');
+    $('.contract-delete').hide();
   },
 
   renderGridContract: function renderGridContract(vendor, contract, div){
@@ -135,7 +184,7 @@ window.Contract = {
     }
 
     var randomNum = Math.ceil(Math.random() * 500) + 75;
-    var output = '<div class="contract border-secondary-color" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'"><div class="contract-image opacity-0" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-user-handle="' + vendor.handle +'"></div><div><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">$23.52 (' + contract.price + ' btc)</div></div>';
+    var output = '<div class="contract border-secondary-color" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'"><div class="contract-image opacity-0" data-vendor-handle="' + vendor.handle + '"  data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><button data-vendor-handle="' + vendor.handle + '"  data-contract-id="' + contract.id +'" class="button-primary contract-delete primary-color">Delete</button><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-user-handle="' + vendor.handle +'"></div><div><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">$23.52 (' + contract.price + ' btc)</div></div>';
 
     if (div === '.discover-contracts'){
       // output += '<div class="contract-vendor" data-contract-id="' + contract.id +'"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-contract-id="' + contract.id +'"></div><div class="contract-vendor-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + name + '</div></div>';

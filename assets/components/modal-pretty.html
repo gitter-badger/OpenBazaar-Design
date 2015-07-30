@@ -3,8 +3,83 @@
   <link href="../css/modal-pretty.css" rel="stylesheet">
 
   <template>
-
     <div class="modal-pretty primary-color visibility-hidden">
+
+      <div class="modal-address visibility-hidden">
+        <div class="modal-photo">
+          <iframe width="525" height="250" id="google-map" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=North+America&key=AIzaSyCEFvQuq6vJM7w6CLg_xyQwTIDg_EFjihM" allowfullscreen></iframe>
+          <!-- <div class="modal-photo-shadow" style="top: 0"></div> -->
+        </div>  
+        <div class="modal-navigation secondary-color" style="padding: 10px 15px">Edit address</div>
+        <div class="modal-body primary-color">
+          <table class="modal-new-address position-margin-0 visibility-hidden">
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Name</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-name" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Address 1</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-address" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Address 2</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-address2" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">City</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-city" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">State</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-state" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Postal code</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-postal-code" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Country</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-address-country" /></td>
+            </tr>
+          </table>
+
+          <table class="modal-edit-address position-margin-0 visibility-hidden">
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Name</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-edit-address-name" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Address 1</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-edit-address-address" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Address 2</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-edit-address-address2" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">City</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-edit-address-city" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">State</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-edit-address-state" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Postal code</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-edit-address-postal-code" /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color">Country</td>
+              <td class="border-secondary-color"><input type="text" class="input input-large primary-color" /></td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer secondary-color">
+          <button class="button-first modal-close secondary-color border-primary-color">Cancel</button>
+          <button class="modal-update-address secondary-color border-primary-color">Save</button>
+        </div>
+      </div>
+
       <div class="modal-purchase-detail visibility-hidden">
         <div class="modal-photo"><div class="modal-photo-shadow"></div><div class="modal-transaction-id modal-contract-price-style position-float-left position-left-12px"></div><div class="modal-transaction-price modal-contract-price-style"></div></div>
         <div class="modal-navigation secondary-color">
@@ -117,7 +192,7 @@
         <div class="modal-photo"><div class="modal-qr-payment visibility-hidden"><div class="modal-qr-cost">Send .00286 btc to</div><div class="modal-qr-code"></div><input class="modal-qr-input" value="16RpcL7QAYZi1LaiW5NwRVABXaezvBCd73" /></div><div class="modal-photo-shadow"></div><div class="modal-contract-price modal-contract-price-style"></div></div>
         <div class="modal-header secondary-color">Payment type</div>
         <div class="modal-trade-flow-payment-type">
-          <div class="modal-body">
+          <div class="modal-body primary-color">
             <table>
               <tr>
                 <td colspan="3" class="type-line-height-16px type-opacity type-weight-medium border-secondary-color" style="padding: 0 16px 16px 16px">There are two payment options: moderated and direct. Using a moderator ensures both parties fulfill their end of the agreement prior to the funds transfering.</td>
@@ -141,13 +216,13 @@
             </table>
           </div>
           <div class="modal-footer secondary-color">
-            <button class="button-first trade-close border-primary-color">Cancel</button>
-            <button class="contract-trade-payment-type-next">Next</button>
+            <button class="button-first trade-close border-primary-color secondary-color">Cancel</button>
+            <button class="contract-trade-payment-type-next secondary-color">Next</button>
           </div>
         </div>
 
         <div class="modal-trade-flow-address visibility-hidden">
-          <div class="modal-body">
+          <div class="modal-body primary-color">
             <table style="margin: 0">
               <tr class="position-height-72px">
                 <td class="position-width-42px border-secondary-color"><input type="radio" class="position-margin-left-16px " checked /></td>
@@ -159,13 +234,13 @@
             </table>
           </div>
           <div class="modal-footer secondary-color">
-            <button class="button-first trade-back-to-payment border-primary-color">Back</button>
-            <button class="contract-trade-address-next">Next</button>
+            <button class="button-first trade-back-to-payment border-primary-color secondary-color">Back</button>
+            <button class="contract-trade-address-next secondary-color">Next</button>
           </div>
         </div>
 
         <div class="modal-trade-flow-summary visibility-hidden">
-          <div class="modal-body">
+          <div class="modal-body primary-color">
             <table style="margin: 0">
               <tr class="position-height-72px">
                 <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
@@ -203,9 +278,9 @@
             </table>
           </div>
           <div class="modal-footer secondary-color">
-            <button class="button-first trade-back-to-address border-primary-color">Back</button>
-            <button class="trade-pending type-opacity-half">Payment pending</button>
-            <button class="trade-done">Done</button>
+            <button class="button-first trade-back-to-address border-primary-color secondary-color">Back</button>
+            <button class="trade-pending type-opacity-half secondary-color">Payment pending</button>
+            <button class="trade-done secondary-color">Done</button>
           </div>
         </div>
       </div>

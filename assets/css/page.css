@@ -352,22 +352,46 @@
 .user-page-add-contract .label-cell {
   padding-left: 15px;
   width: 70px;
+  vertical-align: top;
+  padding-top: 19px;
+}
 }
 
+.user-page-add-contract .label-cell label {
+  margin: 0;
+}
 .user-page-add-contract .input-cell {
   padding: 0;
   width: 100%;
 }
 
-#button-user-page-add-contract-photo {
+.user-page-additional-photo {
+  width: 95px;
+  height: 95px;
+  border: solid 1px;
+  margin-right: 10px;
+}
+
+#button-user-page-add-contract-photo,
+#button-user-page-add-contract-photo-2,
+#button-user-page-add-contract-photo-3,
+#button-user-page-add-contract-photo-4,
+#button-user-page-add-contract-photo-5{
   background-color: transparent;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    font-size: 16px;
-    opacity: .8;
-    outline: none;
+  border: solid 1px;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  opacity: .8;
+  outline: none;
+}
+
+#button-user-page-add-contract-photo-2,
+#button-user-page-add-contract-photo-3,
+#button-user-page-add-contract-photo-4,
+#button-user-page-add-contract-photo-5{
+  border: 0;
 }
 

@@ -20,6 +20,43 @@ window.Page = {
       var reader = new FileReader();
       reader.onload = function (e) {
         $('.user-page-contract-detail-image').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+        $('#button-user-page-add-contract-photo').html('');
+      }
+      reader.readAsDataURL(input.files[0]);
+    });
+    $(document).on("change", ".input-user-page-add-contract-photo-2", function(){ 
+      var input = this;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.user-page-contract-detail-image-2').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+        $('#button-user-page-add-contract-photo-2').html('');
+      }
+      reader.readAsDataURL(input.files[0]);
+    });
+    $(document).on("change", ".input-user-page-add-contract-photo-3", function(){ 
+      var input = this;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.user-page-contract-detail-image-3').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+        $('#button-user-page-add-contract-photo-3').html('');
+      }
+      reader.readAsDataURL(input.files[0]);
+    });
+    $(document).on("change", ".input-user-page-add-contract-photo-4", function(){ 
+      var input = this;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.user-page-contract-detail-image-4').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+        $('#button-user-page-add-contract-photo-4').html('');
+      }
+      reader.readAsDataURL(input.files[0]);
+    });
+    $(document).on("change", ".input-user-page-add-contract-photo-5", function(){ 
+      var input = this;
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.user-page-contract-detail-image-5').css('background', 'url(' + e.target.result + ') 50% 50% / cover no-repeat');
+        $('#button-user-page-add-contract-photo-5').html('');
       }
       reader.readAsDataURL(input.files[0]);
     });
@@ -41,6 +78,18 @@ window.Page = {
     });
     $(document).on("click", "#button-user-page-add-contract-photo", function(){ 
       $('.input-user-page-add-contract-photo').click();
+    });
+    $(document).on("click", "#button-user-page-add-contract-photo-2", function(){ 
+      $('.input-user-page-add-contract-photo-2').click();
+    });
+    $(document).on("click", "#button-user-page-add-contract-photo-3", function(){ 
+      $('.input-user-page-add-contract-photo-3').click();
+    });
+    $(document).on("click", "#button-user-page-add-contract-photo-4", function(){ 
+      $('.input-user-page-add-contract-photo-4').click();
+    });
+    $(document).on("click", "#button-user-page-add-contract-photo-5", function(){ 
+      $('.input-user-page-add-contract-photo-5').click();
     });
     $(document).on("click", ".trade-done", function(){ Page.tradeDone() });
     $(document).on("mouseenter", ".user-page-configuration-preset", function(){ 
@@ -196,7 +245,11 @@ window.Page = {
           'condition': $('.input-new-contract-condition').val(),
           'quantity': $('.input-new-contract-quantity').val(),
           'description': $('.input-new-contract-description').val(),
-          'photo1': $('.user-page-contract-detail-image').css('background-image').replace('url(','').replace(')','')
+          'photo1': $('.user-page-contract-detail-image').css('background-image').replace('url(','').replace(')',''),
+          'photo2': $('.user-page-contract-detail-image-2').css('background-image').replace('url(','').replace(')',''),
+          'photo3': $('.user-page-contract-detail-image-3').css('background-image').replace('url(','').replace(')',''),
+          'photo4': $('.user-page-contract-detail-image-4').css('background-image').replace('url(','').replace(')',''),
+          'photo5': $('.user-page-contract-detail-image-5').css('background-image').replace('url(','').replace(')','')
         });
         break;
       }
@@ -301,8 +354,6 @@ window.Page = {
   },
 
   setPrimaryColor: function setPrimaryColor(hex){  
-        console.log(hex);
-
     $('.border-primary-color').css('border-color', hex);
     $('.primary-color, .user-page-navigation-selected, .user-page-details-navigation-selected, .modal-navigation-selected').css('background-color', hex);
     $store.colorprimary = hex;
@@ -347,7 +398,7 @@ window.Page = {
     $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
   },
 
-   view: function view(user, updatePageViews, instant){
+  view: function view(user, updatePageViews, instant){
     Helper.hideAll();
     if (updatePageViews){
       pageViews.push({"page": "user", "id": user.id, "handle": user.handle, "active": true});
@@ -426,8 +477,12 @@ window.Page = {
       Navigation.stripPageHistory();
       Navigation.setArrowOpacity();
     }
+    $('.user-page-actions-configuration, .user-page-actions-self, .user-page-actions-primary').hide();
+    $('.user-contract-actions').show();
     $('.user-page-navigation ul li').removeClass('user-page-navigation-selected');
     $('.user-page-navigation ul li').css('background-color', 'transparent');
+    $('.user-page .button-primary, .user-page-configuration-edit').attr('data-contract-id', contract.id);
+
     $('.user-page-contract-detail-name').html(contract.name);
     $('.user-page-contract-detail-image').css('background', 'url(' + contract.photo1 + ') 50% 50% / cover no-repeat');
     $('.user-page-contract-detail-price').html('$23.52 (' + contract.price + ' btc)');

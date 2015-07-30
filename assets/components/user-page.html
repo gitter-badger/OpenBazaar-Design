@@ -64,6 +64,10 @@
               <button class="button-primary primary-color user-page-configuration-save">Save changes</button>
               <button class="button-primary primary-color user-page-configuration-cancel">Cancel</button>
             </div>
+            <div class="user-contract-actions visibility-hidden">
+              <button class="button-primary primary-color user-page-contract-edit">Edit</button>
+              <button class="button-primary primary-color user-page-contract-delete">Delete</button>
+            </div>
             <div class="user-page-actions-self visibility-hidden">
               <button class="button-primary primary-color menu-user-add-item" style="">Sell item</button>
               <button class="button-primary primary-color user-page-configuration-edit" style="">Customize</button>
@@ -188,7 +192,15 @@
       <div class="user-page-add-contract position-margin-0 visibility-hidden">
         <input type="file" class="input-user-page-add-contract-photo" style="position: absolute; left: -1000px" />
         <div class="user-page-breadcrumb border-secondary-color"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name">Item name</span></div>
-        <div class="user-page-contract-detail-image" style="margin: 15px;"><button id="button-user-page-add-contract-photo">Upload a photo</button></div><div class="pod primary-color border-secondary-color user-page-contract-detail-meta" style="width: 499px; border-left: solid 1px;">
+        <div class="position-float-left">
+          <div class="user-page-contract-detail-image" style="margin: 15px;"><button id="button-user-page-add-contract-photo" class="border-secondary-color">Primary photo</button></div>
+          <div class="position-clear-both position-margin-left-15px">
+            <div class="user-page-contract-detail-image-2 user-page-additional-photo position-float-left border-secondary-color"><input type="file" class="input-user-page-add-contract-photo-2" style="position: absolute; left: -1000px" /><button id="button-user-page-add-contract-photo-2" class="border-secondary-color">Photo 2</button></div>
+            <div class="user-page-contract-detail-image-3 user-page-additional-photo position-float-left border-secondary-color"><input type="file" class="input-user-page-add-contract-photo-3" style="position: absolute; left: -1000px" /><button id="button-user-page-add-contract-photo-3" class="border-secondary-color">Photo 3</button></div>
+            <div class="user-page-contract-detail-image-4 user-page-additional-photo position-float-left border-secondary-color"><input type="file" class="input-user-page-add-contract-photo-4" style="position: absolute; left: -1000px" /><button id="button-user-page-add-contract-photo-4" class="border-secondary-color">Photo 4</button></div>
+            <div class="user-page-contract-detail-image-5 user-page-additional-photo position-float-left border-secondary-color"><input type="file" class="input-user-page-add-contract-photo-5" style="position: absolute; left: -1000px" /><button id="button-user-page-add-contract-photo-5" class="border-secondary-color">Photo 5</button></div>
+          </div>
+        </div><div class="pod primary-color border-secondary-color user-page-contract-detail-meta" style="width: 499px; border-left: solid 1px;">
           <table>
             <tr class="border-secondary-color">
               <td class="label-cell"><label for="input-new-contract-name">Name</label></td>
@@ -196,26 +208,19 @@
             </tr>
             <tr class="border-secondary-color">
               <td class="label-cell"><label for="input-new-contract-price">Price</label></td>
-              <td class="input-cell"><input id="input-new-contract-price" type="text" class="list-input input-new-contract-price primary-color" placeholder="USD ($)" /></td>
+              <td class="input-cell"><input id="input-new-contract-price" type="text" class="list-input input-new-contract-price primary-color" value="$0.00" /></td>
             </tr>
             <tr class="border-secondary-color">
               <td class="label-cell"><label for="input-new-contract-shipping">Shipping</label></td>
-              <td class="input-cell"><input id="input-new-contract-shipping" type="text" class="list-input input-new-contract-shipping primary-color" placeholder="USD ($)" /></td>
+              <td class="input-cell"><input id="input-new-contract-shipping" value="$0.00" type="text" class="list-input input-new-contract-shipping primary-color" placeholder="" /></td>
             </tr>
             <tr class="border-secondary-color">
-              <td class="label-cell"><label for="input-new-contract-quantity">Stock</label></td>
+              <td class="label-cell"><label for="input-new-contract-quantity">Available</label></td>
               <td class="input-cell"><input id="input-new-contract-quantity" type="text" class="list-input input-new-contract-quantity primary-color" value="1" /></td>
             </tr>
             <tr class="border-secondary-color">
-              <td class="label-cell"><label for="input-new-contract-shipping">Moderator</label></td>
-              <td class="input-cell"><button class="button-primary secondary-color">Choose</button></td>
-            </tr>
-            <tr class="border-secondary-color">
-              <td class="label-cell"><label for="input-new-contract-nsfw">NSFW?</label></td>
-              <td class="input-cell">
-                <input type="radio" /><label></label>
-                <input type="radio" /><label></label>
-              </td>
+              <td class="label-cell"><label for="input-new-contract-keywords">Keywords</label></td>
+              <td class="input-cell"><input id="input-new-contract-keywords" type="text" class="list-input input-new-contract-keywords primary-color" /></td>
             </tr>
             <tr class="border-secondary-color">
               <td class="label-cell"><label for="input-new-contract-type">Type</label></td>
@@ -234,12 +239,37 @@
                 <select id="input-new-contract-condition" class="list-input input-new-contract-condition primary-color">
                   <option>--</option>
                   <option>New</option>
-                  <option>Used</option>
+                  <option>Used - excellent</option>
+                  <option>Used - good</option>
+                  <option>Used - poor</option>
+                  <option>Refurbished</option>
                 </select>
               </td>
             </tr>
             <tr class="border-secondary-color">
-              <td><label for="input-new-contract-description">Description</label></td>
+              <td class="label-cell"><label for="input-new-contract-nsfw">NSFW?</label></td>
+              <td class="input-cell">
+                <select id="input-new-contract-nsfw" class="list-input input-new-contract-nsfw primary-color">
+                  <option>No</option>
+                  <option>Yes</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-shipping">Moderator</label></td>
+              <td class="input-cell">
+                <table>
+                  <tr>
+                    <td><input type="radio" /> ob1 - The first OpenBazaar company helping make trade free for everyone, everywhere</td>
+                  </tr>
+                  <tr>
+                    <td><input type="radio" /> ob2</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="border-secondary-color">
+              <td class="label-cell"><label for="input-new-contract-description">Description</label></td>
               <td><textarea id="input-new-contract-textarea" class="list-input input-new-contract-description primary-color" style="height: 150px"></textarea></td>
             </tr>
           </table>

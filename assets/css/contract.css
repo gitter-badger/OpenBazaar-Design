@@ -142,3 +142,12 @@
   margin-right: 6px;
   width: 30px;
 }
+
+.contract-delete {
+  display: none;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  margin-left: -42px;
+  z-index: 100;
+}

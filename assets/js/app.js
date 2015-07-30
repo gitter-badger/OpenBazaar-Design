@@ -5,7 +5,7 @@ var defaultTextColor = "#ffffff";
 var delay = 1900; //3000
 var fade = 500;
 $store = {'avatar': '', 'name': '', 'description': '', 'colorprimary': '', 'colorsecondary': '', 'colortext': '', 'website': '', 'email': '', 'guid': '', 'handle': '', 'items': []};
-$session = {'handle':'@wolf', 'colorprimary':'#4A4848', 'colorsecondary':'#575656', 'colorbackground':'#2a2a2a', 'colortext':'#ffffff'};
+$session = {'name':'Mike Wolf', 'handle':'@wolf', 'colorprimary':'#4A4848', 'colorsecondary':'#575656', 'colorbackground':'#2a2a2a', 'colortext':'#ffffff'};
 
 jQuery.expr[':'].Contains = function(a, i, m) {
   return jQuery(a).text().toUpperCase()

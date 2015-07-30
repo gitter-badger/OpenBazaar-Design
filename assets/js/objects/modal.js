@@ -4,7 +4,7 @@ $(function() {
 
 window.Modal = {
   initialize: function() {
-    $(document).on("click", ".overlay, .close-modal, .trade-close", function(){ Modal.close() });
+    $(document).on("click", ".overlay, .close-modal, .trade-close, .modal-close", function(){ Modal.close() });
     $(document).on("click", ".modal-navigation li", function(event){ Modal.setActiveTab(event) });
   },
 
