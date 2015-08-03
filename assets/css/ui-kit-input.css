@@ -13,6 +13,11 @@
   width: 100px;
 }
 
+input:read-only,
+textarea:read-only{
+  cursor: not-allowed;
+}
+
 .textarea {
   background: #fff;
   border-radius: 1px;
@@ -100,7 +105,12 @@ label {
   border-bottom: solid 1px #327EB8;
   height: 45px;
   text-indent: 25px;
+}
 
+.chat-search {
+  background-position: left 13px top 16px !important;
+  font-size: 12px !important;
+  border-bottom: solid 1px #424242 !important;
 }
 
 .input-search {

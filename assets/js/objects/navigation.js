@@ -33,7 +33,7 @@ window.Navigation = {
       Discover.contracts(true, false);
       Navigation.setPageUrl();
     });
-    $('html').click(function(e) { $('.menu, .user-menu').fadeOut(100); });
+    $('html').click(function(e) { $('.menu, .user-menu, .chat-conversation-detail-menu').fadeOut(100); });
   },
 
   getActivePageType: function getActivePageType(){

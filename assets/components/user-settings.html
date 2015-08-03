@@ -27,7 +27,7 @@
         <div class="settings-general">
           <table class="list-view">
             <tr>
-              <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Name</td>
+              <td style="border-right: solid 1px; width: 190px" class="border-secondary-color type-opacity">Name</td>
               <td class="border-secondary-color"><input class="input primary-color input-settings-name" style="color: #fff; width: 100%; padding: 0" type="text"  /></td>
             <tr>
               <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Avatar</td>
@@ -39,11 +39,11 @@
               <td class="border-secondary-color">
                 <div class="handle-new-registration visibility-hidden">
                   <input class="list-input onename-handle-input position-margin-bottom-10px border-secondary-color" type="text" placeholder="Choose a handle" />
-                  <a href="#" class="connect-to-onename type-color-ffffff">Connect exisiting passcard</a>
+                  <a href="#" class="connect-to-onename type-color-ffffff">Connect exisiting Blockchain ID</a>
                 </div>
                 <div class="onboarding-handle-buttons">
-                  <button class="button-primary register-new-onename secondary-color">Register new passcard</button>
-                  <button class="button-primary connect-to-onename secondary-color">Connect existing passcard</button>
+                  <button class="button-primary register-new-onename secondary-color">Register new Blockchain ID</button>
+                  <button class="button-primary connect-to-onename secondary-color">Connect existing Blockchain ID</button>
                 </div>                               
               </td>
             </tr>
@@ -81,8 +81,47 @@
         <div class="settings-keys visibility-hidden">
           <table class="list-view">
             <tr>
-              <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Bitcoin public key</td>
-              <td class="border-secondary-color"><input class="input primary-color input-settings-bitcoin-public-key" style="color: #fff; width: 100%; padding: 0" type="text" value="0475d54db3cede8ef4ce195c3c3657d7ae4716f75c9a39aa934b918c50a44adae92cf10fa607ea80646109adfead03cf283df3eeaa3d38b2d675a7cdedc8dbbc0e"  /></td>
+              <td style="border-right: solid 1px; width: 190px" class="border-secondary-color type-opacity">Bitcoin public key</td>
+              <td class="border-secondary-color"><input class="input primary-color input-settings-bitcoin-public-key" style="color: #fff; width: 100%; padding: 0" type="text" value="0475d54db3cede8ef4ce195c3c3657d7ae4716f75c9a39aa934b918c50a44adae92cf10fa607ea80646109adfead03cf283df3eeaa3d38b2d675a7cdedc8dbbc0e" readonly /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color type-opacity">BIP32 Seed</td>
+              <td class="border-secondary-color"><input class="input primary-color input-settings-bip32-seed" style="color: #fff; width: 100%; padding: 0" type="text" value="52023375835877783890095657171109728525161228691975871930944891842381964675779" readonly=""  /></td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px; vertical-align: top" class="border-secondary-color type-opacity">PGP Public key</td>
+              <td class="border-secondary-color">
+                <textarea class="input primary-color input-settings-pgp-public-key" style="color: #fff; width: 100%; padding: 0; height: 270px;" readonly>-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1
+
+mQINBFVHs7IBEADJOOjs7OFDNowHWIJSsecQwJb/NZCI3l4pJ97jrKzlj/V/6LdT
+2YaaenF/RScrZoO3Q7I+sGQoJUxSYY2zk9a6Jwh2c1pmBL5DQ/hJcz1FJHS/Hyrg
+y0LxSQJ0z5O+HTaXS/0EAMvobY6U67g+RNeahesmqqtj1xPP/738PoFxCcqqh+BI
+EOaOWpJ3YNzyHmroAY+JWxtSI4jAhEYvS5V5pZmRQ0G9xCxwXp2mBWlIr2f/L092
+5bM59SGmjNGEhEaHl3F77/F/ivzLpQXVLwJgZFoKKGWU8U4rUxUe10gfri2QrggR
+bCQ3zBqJL8tei7GvycceeRoL4D2/2NvExbi3mrETOoaV1OvrhRhTY2mt6HEir3mD
+jUW2D8g2S+fXbUUMdIawmFPwvWtu+6+H0Qf6dJoWRHTkCwUnXwgonm/03nL9oP6N
+2IG7buHzY+0b4kEkT/1u+tkJhLnyYhDCMIBBEN1QeDz39kol/ygYh5yJEi2ZK46d
+ZsJNm4PgR2NetscsOEAImt/8phh8D8OsMdM51CX7ZPX9yZdfN8pGkHq7imNJFyoC
+5BDs1RULK6OuqUmiFGwS//G6gZA5awgMAG9GGwTm+Zs6t7gdoZYIdYDQV12bV9sG
+zc9vccpjD4YNoqIqzTuIIuyd/SiKkJKe6pv++dA/kNm2t+ztawO0avhRTQARAQAB
+tEVBdXRvZ2VuZXJhdGVkIEtleSAoQXV0b2dlbmVyYXRlZCBieSBPcGVuIEJhemFh
+cikgPHBncEBvcGVuYmF6YWFyLm9yZz6JAjgEEwECACIFAlVHs7ICGy8GCwkIBwMC
+BhUIAgkKCwQWAgMBAh4BAheAAAoJEI/xzfQSEWxty5IQAKm2zXXjVcy9DzJCCyDP
+WaV0DZzCwSpQTdBGvIMEFUS7nq8Ox84TdXpRXmYvqHIVeT+VlLmMg/BV2zyw2VNF
+ax6/IdyLw0ry9bGK7bPhPU7oDZH8+T3ZsnqJBvQZ3r0/PH8s1+qxM3MNBszpT6md
+gNBxo481IWVg09n3g93r0sUm2Ffov6kootlpuX6GAh8DpyRJoOH7psiHpqvjHWEg
+zSfY33tAI1fb60MNNhU5Mo7VsB3WS5rNOKVFktfz7HbKRx/e5yC/ryBvk4335Rkb
+9Fz7cuyLJlndu+LBVQBWPnK48uulEhYx69aHgSgg9yMH90qCCl++zgfnPCRXKSCg
+x1Pro2eXO5yaVW81ZnyH7FAU4QFLTLpkEfgAuOM+X0GYWoMxIjwxKuJADkw0Lmzp
+F/0Gj9InO8m8TI6yn31L9s4Yfn8IefA1UbuhngQ7QFIusKKCEbWk9oyqgMudrKQw
+HYguUEXdiubZndwtdqGsYCEu1WTah8xCc1FdZQ4jMIAOAO+v2/x2xdcM/9oLkSJy
+pa/vxX5SRYgAYyY3pho7Zq5pNEn4vSezy5nFvJ3PwiMHtPQqZHqLUxjKadjTU5cP
+XV5NsGNUVUQIzcV/ZsoGXzvqtjzclsDK/Tmj9wgMYYly52YzM5rO5uUC03JCrNBM
+D2wCQa+taaqsNhl7ijp84F5i
+=O9nS
+-----END PGP PUBLIC KEY BLOCK-----</textarea>
+              </td>
             </tr>
           </table>
         </div>
@@ -108,15 +147,15 @@
               <td colspan="2" class="border-secondary-color type-opacity">Warning: changing advanced settings may make your node unconnectable</td>
             </tr>
             <tr>
-              <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Obelisk Server</td>
+              <td style="border-right: solid 1px; width: 190px" class="border-secondary-color type-opacity">Obelisk Server</td>
               <td class="border-secondary-color"><input class="input primary-color input-settings-obelisk-server" style="color: #fff; width: 100%; padding: 0" type="text" value="obelisk-baltic.airbitz.co:9091"  /></td>
             </tr>
             <tr>
               <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Developer Tools</td>
               <td class="border-secondary-color">
-                <button class="button-primary secondary-color">Clear cache</button>
-                <button class="button-primary secondary-color">Clear peers</button>
-                <button class="button-primary secondary-color">Stop server</button>
+                <button class="button-primary secondary-color clear-cache">Clear cache</button>
+                <button class="button-primary secondary-color clear-peers">Clear peers</button>
+                <button class="button-primary secondary-color stop-server">Stop server</button>
               </td>
             </tr>
             <tr>

@@ -102,6 +102,10 @@ $(function() {
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
     }    
+    if($('.chat-search').is(':focus') ){
+      $('.chat-conversations table tr').hide();
+      $('.chat-conversations table tr').filter(":Contains('" + $('.chat-search').val() + "')").show();
+    }
     if($('.search-store').is(':focus') ){
       var search = $('.search-store').val();
       if ($('.input-search').val().indexOf(" ") > 0){

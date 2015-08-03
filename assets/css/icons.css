@@ -4,3 +4,8 @@ svg {
   fill: #fff;
   vertical-align: bottom;
 }
+
+.icon-down {
+  cursor: pointer;
+  transform: rotate(-90deg);
+}

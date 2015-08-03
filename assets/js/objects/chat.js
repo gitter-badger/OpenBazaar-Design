@@ -5,14 +5,17 @@ $(function() {
 window.Chat = {
   initialize: function() {
     this.chats = JSON.parse(JSON.stringify(preloadData.chats));
+    $(document).on('click', '.chat-icon-down', function(event){ Chat.conversationMenu(event) });
+    $(document).on('click', '.chat-close', function(event){ Chat.closePanel(event) });
+    $(document).on('click', '.chat-block-user', function(event){ Chat.block($(event.currentTarget).attr('data-user-id')) });
+    $(document).on('click', '.chat-conversation-detail-delete', function(event){ Chat.deleteThread($(event.currentTarget).attr('data-chat-id')) });
+    $(document).on('click', '.chat-search, .chat-new', function(event){ Chat.openPanel(event) });
     $(document).on('click', '.chat-condensed, .chat-condensed-title, .chat-close, .chat-header', function(){ Chat.toggle(event) });
-    $(document).on('click', '.chat-view-all', function(){ Chat.viewAll() });
     $(document).on('click', '.chat-message', function(event){
-      var id = $(event.currentTarget).parent().parent().data('id');
-      Chat.viewDetails(id);
+      Chat.viewDetails($(event.currentTarget).attr('data-id'));
     });
     $(document).on("click", ".chat-avatar", function(event){
-      Chat.openPanel();
+      Chat.viewDetails($(event.currentTarget).attr('data-id'));
     });
     $(document).on("click", ".vendor-message", function(event){
       event.stopPropagation();
@@ -37,11 +40,24 @@ window.Chat = {
     return _.find(this.chats, function(chat){ return chat.id == id })
   },
 
-  loadMessages: function loadMessages(){
-    $('.chat-expanded-conversations ul').empty();
-    $('.chat-expanded').css('overflow-y','scroll');
+  block: function block(id){
+    if (confirm("Are you sure you want to block this user?") == true) {
+      new Notification('User blocked');  
+    }
+  },
 
-    _.each(this.chats.reverse(), function(chat){
+  closePanel: function close(){
+    $('.user-page, .transactions, .settings, .discover').css('left', 0);
+    $('.chat table tr').css('border-bottom-width', 0);
+    $('.chat').css('right', '-181px');
+    $('.chat-conversation-detail ').hide();
+    $('.chat-view-details').removeClass('chat-active');
+  },
+
+  loadMessages: function loadMessages(){
+    $('.chat-conversations table').empty();
+
+    _.each(window.preloadData.chats.reverse(), function(chat){
       var conversation = chat.conversation;
       var lastMessage = _.last(conversation);
       if(chat.read){
@@ -51,15 +67,25 @@ window.Chat = {
       }
 
       if(lastMessage){
-        $('.chat-conversations table').append('<tr class="chat-view-details ' + read + '" data-id="' + chat.id + '"><td><div class="chat-avatar" style="background: url(' + lastMessage.avatar + ') 100% 100% / cover no-repeat"></div></td><td class="chat-message visibility-hidden"><div class="chat-name">' + lastMessage.from +  '</div><div>' + lastMessage.message + '</div></td></tr>');
+        $('.chat-conversations table').append('<tr class="chat-view-details ' + read + '" data-id="' + chat.id + '"><td style="width: 30px"><div class="chat-avatar" data-id="' + chat.id + '" style="background: url(' + lastMessage.avatar + ') 100% 100% / cover no-repeat"></div></td><td class="chat-message" data-id="' + chat.id + '"><div class="chat-name" data-id="' + chat.id + '">' + lastMessage.from +  '</div><div data-id="' + chat.id + '">' + lastMessage.message + '</div></td></tr>');
       }
     });
   },
 
+  deleteThread: function deleteThread(id){
+    if (confirm("Are you sure you want to delete this conversation?") == true) {
+      window.preloadData.chats = _.without(window.preloadData.chats, _.findWhere(window.preloadData.chats, {id: parseInt(id)}));
+      $('.chat-conversation-detail').hide();
+    $('.chat-view-details[data-id=' + id + ']').remove();
+      new Notification('Conversation deleted');  
+    }
+  },
+
   openPanel: function openPanel(vendor){
-      $('.user-page').css('left', '-110px');
-      $('.chat').css('right', '-10px').css('background','#252525');
-      $('.chat-message').show();
+    $('.user-page, .transactions, .settings, .discover').css('left', '-110px');
+    $('.chat table tr').css('border-bottom-width', '1px');
+    $('.chat').css('right', 0);
+    $('.chat-conversation-detail ').show();
   },
 
   newConversation: function newConversation(vendor){
@@ -72,8 +98,16 @@ window.Chat = {
       "date": "",
       "conversation": []
     };
-    this.chats.push(chat);
+    window.preloadData.chats.push(chat);
     Chat.saveMessage();
+  },
+
+  conversationMenu: function conversationMenu(){
+    if ($('.chat-conversation-detail-menu').is(':visible')){
+      $('.chat-conversation-detail-menu').hide();
+    }else{
+      $('.chat-conversation-detail-menu').show();
+    }
   },
 
   saveMessage: function saveMessage(){
@@ -104,41 +138,23 @@ window.Chat = {
     $('.chat-message').hide();
     $('.chat-conversation-detail').show();
     $('.chat-conversation-detail-body').empty();
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left">Messages</div>');
-    $('.chat-conversation-detail-title').html(message.handle).attr('data-user-handle', message.handle);
     $('.chat-avatar').not('.chat-avatar:first').fadeTo(150, 0.15);
     $('.input-chat-new-message').focus();
   },
 
-  viewAll: function viewAll(){
-    $('.chat-message').show();
-    $('.chat-conversation-detail').hide();
-    $('.chat-avatar').fadeTo(0, 1);
-    $('.chat-conversations').css('overflow-y','scroll');
-    $('.chat-title').html('Messages');
-  },
-
   viewDetails: function viewDetails(id){
     var chat = Chat.find(id);
-    $('.chat-view-details[data-id=' + id + ']').addClass('chat-read');
+    Chat.openPanel();
+    $('.chat-view-details').removeClass('chat-active');
+    $('.chat-view-details[data-id=' + id + ']').addClass('chat-active');
     $('.chat-conversations').css('overflow','hidden');
-    $('.input-chat-new-message').val('');
-    $('.chat-message').hide();
-    $('.chat-conversation-detail').show();
-    $('.chat-view-details').not( '[data-id=' + id + ']').find('.chat-avatar').fadeTo(150, 0.15);
-    $('.chat-view-details[data-id=' + id + ']').find('.chat-avatar').fadeTo(150, 1);
-    $('.chat-view-details[data-id=' + id + ']').find('.chat-message-count').remove();
-    $('.input-chat-new-message').focus();
-    $('.input-chat-new-message').attr('data-id', id);
-    $('.chat-conversation-detail-title').html(chat.from).attr('data-user-handle', chat.from);
-    $('.chat-title').html('<div class="chat-view-all chat-back button-chat-control position-float-left"><</div><div class="chat-view-all position-float-left">Messages</div>');
-    $('.chat-count').html($('.chat-message-count').length);
-    if ($('.chat-count').length === 0){
-      $('.chat-count').hide();
-    }
-
+    $('.chat-conversation-detail-menu, .chat-conversation-detail-delete').attr('data-chat-id', id);
+    $('.chat-conversation-detail').show().css('right', '0');
+    $('.input-chat-new-message').val('').attr('data-id', id).focus()
     $('.chat-conversation-detail .chat-conversation-detail-body').empty();
+
     _.each(chat.conversation, function(message){
+      $('.chat-conversation-detail-title span').html(message.from);
       if (message.from === "@wolf"){
         var bodyClass = 'chat-conversation-detail-flip';
       }else{

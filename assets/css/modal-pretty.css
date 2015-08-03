@@ -153,3 +153,8 @@
   font-size: 13px;
   padding: 7px;
 }
+
+.modal-address input,
+.modal-address select {
+  padding: 0;
+}
