@@ -7,6 +7,7 @@ window.Chat = {
     this.chats = JSON.parse(JSON.stringify(preloadData.chats));
     $(document).on('click', '.chat-icon-down', function(event){ Chat.conversationMenu(event) });
     $(document).on('click', '.chat-close', function(event){ Chat.closePanel(event) });
+    $(document).on('click', '.chat-start-new-conversation', function(event){ Chat.startNewConversation(event) });
     $(document).on('click', '.chat-block-user', function(event){ Chat.block($(event.currentTarget).attr('data-user-id')) });
     $(document).on('click', '.chat-conversation-detail-delete', function(event){ Chat.deleteThread($(event.currentTarget).attr('data-chat-id')) });
     $(document).on('click', '.chat-search, .chat-new', function(event){ Chat.openPanel(event) });
@@ -20,18 +21,20 @@ window.Chat = {
     $(document).on("click", ".vendor-message", function(event){
       event.stopPropagation();
       var vendorGuid = $(event.currentTarget).attr('data-vendor-guid');
-      Chat.startNewChat(Vendor.find(vendorGuid));
+      Chat.startNewConversation(Vendor.find(vendorGuid));
     });
-    $(document).on("click", ".user-profile-message", function(event){
+    $(document).on("click", ".user-page-message", function(event){
       event.stopPropagation();
       var handle = $(event.currentTarget).attr('data-user-handle');
-      Chat.startNewChat(User.find(handle));
+      $('.chat-list-input-new').val(handle);
+      Chat.startNewConversation(User.find(handle));
+      $('.input-chat-new-message').focus();
     });
     $(document).on("click", ".modal-purchase-dispute", function(event){
       event.stopPropagation();
       var modGuid = $(event.currentTarget).attr('data-mod-guid');
       var mod = _.find(mods, function(mod){ return mod.guid == modGuid });
-      Chat.startNewChat(mod);
+      Chat.startNewConversation(mod);
       $('.input-chat-new-message').attr("placeholder","What are you disputing?");
     });
   },
@@ -46,11 +49,18 @@ window.Chat = {
     }
   },
 
+  startNewConversation: function startNewConversation() {
+    Chat.openPanel();
+    $('.chat-conversation-detail').hide();
+    $('.chat-new-conversation').show();
+    $('.chat-list-input-new').focus();
+  },
+
   closePanel: function close(){
     $('.user-page, .transactions, .settings, .discover').css('left', 0);
     $('.chat table tr').css('border-bottom-width', 0);
     $('.chat').css('right', '-181px');
-    $('.chat-conversation-detail ').hide();
+    $('.chat-conversation-detail, .chat-new-conversation').hide();
     $('.chat-view-details').removeClass('chat-active');
   },
 
@@ -81,7 +91,7 @@ window.Chat = {
     }
   },
 
-  openPanel: function openPanel(vendor){
+  openPanel: function openPanel(){
     $('.user-page, .transactions, .settings, .discover').css('left', '-110px');
     $('.chat table tr').css('border-bottom-width', '1px');
     $('.chat').css('right', 0);
@@ -135,8 +145,6 @@ window.Chat = {
     $('.chat-conversations ul').prepend('<li class="chat-view-details"><div class="chat-holder"><div class="chat-avatar" style="background: url(' + message.avatar + ') 100% 100% / cover no-repeat"></div><div class="chat-message"><div class="chat-name">' + message.handle +  '</div><div></div></div></div></li>');
     $('.chat-conversations').scrollTop(0);
     $('.chat-conversations').css('overflow','hidden');
-    $('.chat-message').hide();
-    $('.chat-conversation-detail').show();
     $('.chat-conversation-detail-body').empty();
     $('.chat-avatar').not('.chat-avatar:first').fadeTo(150, 0.15);
     $('.input-chat-new-message').focus();
@@ -150,7 +158,8 @@ window.Chat = {
     $('.chat-conversations').css('overflow','hidden');
     $('.chat-conversation-detail-menu, .chat-conversation-detail-delete').attr('data-chat-id', id);
     $('.chat-conversation-detail').show().css('right', '0');
-    $('.input-chat-new-message').val('').attr('data-id', id).focus()
+    $('.input-chat-new-message').val('').attr('data-id', id).focus();
+    $('.chat-new-conversation').hide();
     $('.chat-conversation-detail .chat-conversation-detail-body').empty();
 
     _.each(chat.conversation, function(message){

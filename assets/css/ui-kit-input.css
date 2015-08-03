@@ -141,12 +141,18 @@ label {
 }
 
 .input-chat-new-message {
-  background: #454545;
+  background: #252525;
   border-radius: 0;
+  border-bottom: 0;
+  border-top: solid 1px #424242;
   bottom: 0;
   color: #fff;
   height: 42px;
   line-height: 42px;
   position: absolute;
   width: 242px;
+}
+
+.input-chat-new-message::-webkit-input-placeholder {
+  color: #B3B3B3 !important;
 }

@@ -6,11 +6,16 @@
     <div class="chat visibility-hidden">
       <div class="chat-conversations">
         <div class="chat-new">
-          <svg viewBox="18 -50 80 200" style="height: 46px; width: 20px"><use xlink:href="#icon-plus"></use></svg> <span class="position-margin-left-5px" style="font-size: 13px">New</span class="position-margin-left-5px">
+          <svg viewBox="18 -50 80 200" style="height: 46px; width: 20px" class="chat-start-new-conversation"><use xlink:href="#icon-plus"></use></svg> <span class="position-margin-left-5px chat-start-new-conversation" style="font-size: 13px">New</span class="position-margin-left-5px">
           <svg viewBox="18 -50 80 200" style="height: 46px; width: 20px; transform: rotate(-45deg); float: right" class="chat-close"><use xlink:href="#icon-plus"></use></svg>
         </div>
         <input class="list-input list-input-search chat-search" type="text" style="border-bottom: 0" />
         <table></table>
+      </div>
+      <div class="chat-new-conversation visibility-hidden">
+        <div class="chat-new-conversation-title">New conversation</div>
+        <input type="text" class="list-input chat-list-input-new" placeholder="To..." />
+        <input class="input-chat-new-message list-input" placeholder="Enter message..." data-id="" />
       </div>
       <div class="chat-conversation-detail visibility-hidden">
         <div class="chat-conversation-detail-menu visibility-hidden">
@@ -24,7 +29,7 @@
           <svg viewBox="-60 0 280 108" class="icon-down chat-icon-down position-float-right position-margin-right-10px"><use xlink:href="#icon-back"></use></svg>
         </div>
         <div class="chat-conversation-detail-body"></div>
-        <input class="input input-chat-new-message" placeholder="Enter message..." data-id="" />
+        <input class="input-chat-new-message list-input" placeholder="Enter message..." data-id="" />
       </div>
     </div>
   </template>
