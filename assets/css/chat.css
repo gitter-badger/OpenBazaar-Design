@@ -38,10 +38,6 @@
   z-index: 105;
 }
 
-.chat-active {
-  background: #525252;
-}
-
 .chat-conversation-detail {
   bottom: 50px;
   background: #252525;
@@ -92,6 +88,10 @@
   width: 100%;
 }
 
+..chat-conversation-detail-title {
+  cursor: pointer;
+}
+
 .chat-conversation-detail-menu{
   background: #252525;
   border-bottom: solid 1px #424242;
@@ -103,7 +103,7 @@
   top: 40px;
   position: absolute;
   width: 200px;
-  height: 50px;
+  height: 74px;
   z-index: 1550;
 }
 
@@ -190,6 +190,22 @@
   color: #757575 !important;
   font-size: 12px;
   font-family: "font-medium";
+}
+
+.chat-active {
+  background: #525252 !important;
+  opacity: 1 !important;
+  color: #fff !important;
+}
+
+.chat-active div,
+.chat-active .chat-name {
+  opacity: 1 !important;
+  color: #fff !important;
+}
+
+.chat-active .chat-avatar {
+  opacity: 1 !important;
 }
 
 .chat-back {

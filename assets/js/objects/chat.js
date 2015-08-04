@@ -5,7 +5,10 @@ $(function() {
 window.Chat = {
   initialize: function() {
     this.chats = JSON.parse(JSON.stringify(preloadData.chats));
-    $(document).on('click', '.chat-icon-down', function(event){ Chat.conversationMenu(event) });
+    $(document).on('click', '.chat-icon-down, .chat-conversation-detail-title', function(event){ 
+      event.stopPropagation();
+      Chat.conversationMenu(event) });
+    $(document).on('click', '.chat-conversation-detail-close', function(event){ Chat.closeConversation(event) });
     $(document).on('click', '.chat-close', function(event){ Chat.closePanel(event) });
     $(document).on('click', '.chat-start-new-conversation', function(event){ Chat.startNewConversation(event) });
     $(document).on('click', '.chat-block-user', function(event){ Chat.block($(event.currentTarget).attr('data-user-id')) });
@@ -91,6 +94,11 @@ window.Chat = {
     }
   },
 
+  closeConversation: function closeConversation(){
+    $('.chat-conversation-detail ').hide();
+    $('.chat-view-details').removeClass('chat-active');
+  },
+
   openPanel: function openPanel(){
     $('.user-page, .transactions, .settings, .discover').css('left', '-110px');
     $('.chat table tr').css('border-bottom-width', '1px');
@@ -154,7 +162,7 @@ window.Chat = {
     var chat = Chat.find(id);
     Chat.openPanel();
     $('.chat-view-details').removeClass('chat-active');
-    $('.chat-view-details[data-id=' + id + ']').addClass('chat-active');
+    $('.chat-view-details[data-id=' + id + ']').addClass('chat-read').addClass('chat-active');
     $('.chat-conversations').css('overflow','hidden');
     $('.chat-conversation-detail-menu, .chat-conversation-detail-delete').attr('data-chat-id', id);
     $('.chat-conversation-detail').show().css('right', '0');
