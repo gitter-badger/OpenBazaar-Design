@@ -60,7 +60,7 @@ window.Chat = {
   },
 
   closePanel: function close(){
-    $('.user-page, .transactions, .settings, .discover').css('left', 0);
+    $('.user-page, .transactions, .settings, .discover, .notifications').css('left', 0);
     $('.chat table tr').css('border-bottom-width', 0);
     $('.chat').css('right', '-181px');
     $('.chat-conversation-detail, .chat-new-conversation').hide();
@@ -89,8 +89,7 @@ window.Chat = {
     if (confirm("Are you sure you want to delete this conversation?") == true) {
       window.preloadData.chats = _.without(window.preloadData.chats, _.findWhere(window.preloadData.chats, {id: parseInt(id)}));
       $('.chat-conversation-detail').hide();
-    $('.chat-view-details[data-id=' + id + ']').remove();
-      new Notification('Conversation deleted');  
+      $('.chat-view-details[data-id=' + id + ']').remove();
     }
   },
 
@@ -100,7 +99,7 @@ window.Chat = {
   },
 
   openPanel: function openPanel(){
-    $('.user-page, .transactions, .settings, .discover').css('left', '-110px');
+    $('.user-page, .transactions, .settings, .discover, .notifications').css('left', '-110px');
     $('.chat table tr').css('border-bottom-width', '1px');
     $('.chat').css('right', 0);
     $('.chat-conversation-detail ').show();
@@ -169,9 +168,9 @@ window.Chat = {
     $('.input-chat-new-message').val('').attr('data-id', id).focus();
     $('.chat-new-conversation').hide();
     $('.chat-conversation-detail .chat-conversation-detail-body').empty();
+    $('.chat-conversation-detail-title span').html(chat.from);
 
     _.each(chat.conversation, function(message){
-      $('.chat-conversation-detail-title span').html(message.from);
       if (message.from === "@wolf"){
         var bodyClass = 'chat-conversation-detail-flip';
       }else{

@@ -5,7 +5,6 @@ svg {
   vertical-align: bottom;
 }
 
-.icon-down {
+.icon-more {
   cursor: pointer;
-  transform: rotate(-90deg);
 }

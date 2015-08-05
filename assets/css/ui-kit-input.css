@@ -110,7 +110,7 @@ label {
 .chat-search {
   background-position: left 13px top 16px !important;
   font-size: 12px !important;
-  border-bottom: solid 1px #424242 !important;
+  border-bottom: solid 1px #313131 !important;
 }
 
 .input-search {
@@ -144,9 +144,10 @@ label {
   background: #252525;
   border-radius: 0;
   border-bottom: 0;
-  border-top: solid 1px #424242;
+  border-top: solid 1px #313131;
   bottom: 0;
   color: #fff;
+  font-size: 12px;
   height: 42px;
   line-height: 42px;
   position: absolute;

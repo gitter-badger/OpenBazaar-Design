@@ -1,6 +1,6 @@
 .chat {
   background: #252525;
-  border-left: solid 1px #424242;
+  border-left: solid 1px #313131;
   font-family: "font-medium";
   font-size: 13px;
   height: 100%;
@@ -15,11 +15,11 @@
 }
 
 .chat table tr {
-  border-bottom: solid 0px #424242;
+  border-bottom: solid 0px #313131;
 }
 
 .chat-new {
-  border-bottom: solid 1px #424242;
+  border-bottom: solid 1px #313131;
   height: 45px;
   cursor: pointer;
   line-height: 45px;
@@ -41,7 +41,6 @@
 .chat-conversation-detail {
   bottom: 50px;
   background: #252525;
-  border-top: solid 1px #424242;
   height: 309px;
   position: absolute;
   text-align: left;
@@ -63,11 +62,12 @@
 }
 
 .chat-list-input-new {
-  border-bottom: solid 1px #525252;
-  border-top: solid 1px #525252;
+  border-bottom: solid 1px #313131;
+  border-top: solid 1px #313131;
   bottom: 40px;
   height: 42px;
   position: absolute;
+  font-size: 12px;
 }
 
 .chat-list-input-new::-webkit-input-placeholder {
@@ -81,7 +81,7 @@
 
 .chat-conversation-detail-title,
 .chat-new-conversation-title {
-  background: #525252;
+  background: #888888;
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
@@ -94,7 +94,7 @@
 
 .chat-conversation-detail-menu{
   background: #252525;
-  border-bottom: solid 1px #424242;
+  border-bottom: solid 1px #313131;
   color: #fff;
   font-family: "font-medium";
   font-size: 13px;
@@ -109,8 +109,13 @@
 
 .chat-conversation-detail-menu li {
   cursor: pointer;
+  font-size: 12px;
   line-height: 25px;
   height: 25px;
+}
+
+.chat-conversation-detail-menu li:hover {
+  opacity: .75;
 }
 
 .chat-conversation-detail-flip .chat-conversation-detail-avatar {
@@ -193,7 +198,7 @@
 }
 
 .chat-active {
-  background: #525252 !important;
+  background: #313131 !important;
   opacity: 1 !important;
   color: #fff !important;
 }
@@ -216,4 +221,8 @@
 
 .chat.blur {
   -webkit-filter: blur(4px);
+}
+
+.chat-start-new-conversation:hover {
+  text-decoration: underline;
 }

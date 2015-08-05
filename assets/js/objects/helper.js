@@ -66,5 +66,7 @@ window.Helper = {
       $('.user-page-navigation-selected .pill').css('background', defaultSecondaryColor);
 
     }
+
+    $('.input-chat-new-message, .chat-list-input-new').css('border-color', '#424242');
   }
 }

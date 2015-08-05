@@ -70,7 +70,8 @@ table thead tr td:last-child{
 }
 
 .transactions,
-.settings {
+.settings,
+.notifications{
   margin: auto;
   text-align: left;
   width: 950px;
@@ -82,7 +83,8 @@ table thead tr td:last-child{
 }
 
 .transactions-body,
-.settings-body {
+.settings-body,
+.notifications-body{
   min-height: 600px;
 }
 
@@ -102,6 +104,12 @@ table thead tr td:last-child{
 
 .transactions-purchases table tr{
   cursor: pointer; 
+}
+
+.notifications table td{
+  border-bottom: solid 1px #327EB8; 
+  padding: 15px;
+  height: 58px;
 }
 
 .transaction-detail {

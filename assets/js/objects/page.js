@@ -290,6 +290,8 @@ window.Page = {
     $('.user-page-actions-self, .user-page-actions-primary, .chat').hide();
     $('.user-page-actions-configuration').show();
     $('.user-page').show();
+    $('#main').scrollTop(400);
+    $('#main').mCustomScrollbar("scrollTo",400);
   },
 
   setColors: function setColors(user){
