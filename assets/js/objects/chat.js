@@ -65,6 +65,7 @@ window.Chat = {
     $('.chat').css('right', '-181px');
     $('.chat-conversation-detail, .chat-new-conversation').hide();
     $('.chat-view-details').removeClass('chat-active');
+    $('.chat table tr').css('opacity','1');
   },
 
   loadMessages: function loadMessages(){
@@ -96,6 +97,7 @@ window.Chat = {
   closeConversation: function closeConversation(){
     $('.chat-conversation-detail ').hide();
     $('.chat-view-details').removeClass('chat-active');
+    $('.chat table tr').css('opacity','1');
   },
 
   openPanel: function openPanel(){
@@ -169,6 +171,7 @@ window.Chat = {
     $('.chat-new-conversation').hide();
     $('.chat-conversation-detail .chat-conversation-detail-body').empty();
     $('.chat-conversation-detail-title span').html(chat.from);
+    $('.chat table tr').css('opacity','.4');
 
     _.each(chat.conversation, function(message){
       if (message.from === "@wolf"){

@@ -151,6 +151,9 @@
 .user-page-link {
   cursor: pointer;
 }
+.user-page-link:hover {
+  text-decoration: underline;
+}
 
 .user-page-avatar {
   background: #086A9E;

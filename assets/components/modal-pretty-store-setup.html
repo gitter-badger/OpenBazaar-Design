@@ -1,0 +1,37 @@
+ <dom-module id="modal-pretty-store-setup">
+ 
+  <template>
+    <div class="modal-store-setup visibility-hidden" data-active-step="name">
+      <div class="modal-photo"><div class="modal-photo-shadow"></div></div>  
+      <div class="modal-header secondary-color" style="padding: 10px 15px">Store name</div>
+      <div class="modal-body primary-color">
+        <div class="modal-store-setup-name modal-store-setup-step">
+          <table class="position-margin-0">
+            <tr class="border-secondary-color">
+              <td class="border-bottom-0 position-padding-0 border-secondary-color">
+                <input class="list-input position-width-100 input-store-setup-name border-secondary-color" type="text" placeholder="Enter store name" />
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-store-setup-categories modal-store-setup-step visibility-hidden">
+          <input type="text" class="list-input list-input-search modal-store-setup-category-search border-secondary-color" />
+          <table class="modal-store-setup-category-list position-margin-0"></table>
+        </div>
+        <div class="modal-store-setup-moderators modal-store-setup-step visibility-hidden">
+          <input type="text" class="list-input list-input-search modal-store-setup-moderator-search border-secondary-color" />
+          <table class="modal-store-setup-moderators-list position-margin-0"></table>
+        </div>
+      </div>
+      <div class="modal-footer primary-color border-secondary-color">
+        <button class="button-first modal-store-setup-close secondary-color border-primary-color">Cancel</button>
+        <button class="button-first modal-store-setup-back secondary-color border-primary-color visibility-hidden">Back</button>
+        <button class="modal-store-setup-next secondary-color border-primary-color">Next</button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'modal-pretty-store-setup'});
+  </script>
+</dom-module>

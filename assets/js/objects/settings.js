@@ -132,21 +132,26 @@ window.Settings = {
   general: function general(){
     $('.settings-new').hide();
     $('.settings-general, .settings-save-changes').show();
+    Navigation.setPageUrl($session.handle + '/settings');
   },
 
   shipping: function shipping(){
     $('.settings-save-changes').hide();
     $('.settings-shipping, .settings-new').show();
+    Navigation.setPageUrl($session.handle + '/settings/shipping');
   },
 
   keys: function keys(){
     $('.settings-new, .settings-save-changes').hide();
     $('.settings-keys').show();
+    Navigation.setPageUrl($session.handle + '/settings/keys');
+
   },
 
   advanced: function advanced(){
     $('.settings-new').hide();
     $('.settings-advanced, .settings-save-changes').show();
+    Navigation.setPageUrl($session.handle + '/settings/advanced');
   },
 
   reloadMap: function reloadMap(address){

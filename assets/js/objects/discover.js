@@ -61,8 +61,9 @@ window.Discover = {
     $('.discover, .discover-contracts').show();
     _.each(_.shuffle(window.preloadData.users), function(user){
       _.each(_.shuffle(user.contracts), function(contract){
-        Contract.renderGridContract(user, contract, '.discover-contracts');
+        Contract.renderGridContract(user, contract, '.discover-contracts .discover-contracts-grid');
       });
     });
+    $('.discover-contracts-search').focus();
   }
 }

@@ -7,7 +7,8 @@
           <ul class="position-float-left">
             <li class="settings-navigation-general secondary-color border-primary-color user-page-navigation-selected" data-section="general">General</li>
             <li class="settings-navigation-shipping secondary-color border-primary-color" data-section="shipping">Shipping</li>
-            <li class="settings-navigation-keys secondary-color border-primary-color" data-section="keys">Keys</li>
+            <li class="settings-navigation-keys secondary-color border-primary-color" data-section="blocked">Blocked</li>
+            <!-- <li class="settings-navigation-keys secondary-color border-primary-color" data-section="keys">Keys</li> -->
             <li class="settings-navigation-advanced secondary-color border-primary-color" data-section="advanced">Advanced</li>
           </ul>
           <div class="settings-actions position-float-right position-margin-right-10px position-margin-top--2px">
@@ -72,6 +73,15 @@
               <td class="border-secondary-color">
                 <select class="input-settings-time-zone primary-color" style="border: 0; color: #fff; width: 100%;">
                   <option>--</option>
+                </select>                
+              </td>
+            </tr>
+            <tr>
+              <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Notifications</td>
+              <td class="border-secondary-color">
+                <select class="input-settings-notifications primary-color" style="border: 0; color: #fff; width: 100%;">
+                  <option>On</option>
+                  <option>Off</option>
                 </select>                
               </td>
             </tr>
@@ -151,7 +161,7 @@ D2wCQa+taaqsNhl7ijp84F5i
               <td class="border-secondary-color"><input class="input primary-color input-settings-obelisk-server" style="color: #fff; width: 100%; padding: 0" type="text" value="127.0.0.1:18465"  /></td>
             </tr>
             <tr>
-              <td style="border-right: solid 1px; width: 190px" class="border-secondary-color type-opacity">Obelisk Server</td>
+              <td style="border-right: solid 1px; width: 190px" class="border-secondary-color type-opacity">Libbitcoin Server</td>
               <td class="border-secondary-color"><input class="input primary-color input-settings-obelisk-server" style="color: #fff; width: 100%; padding: 0" type="text" value="obelisk-baltic.airbitz.co:9091"  /></td>
             </tr>
             <tr>
@@ -164,6 +174,10 @@ D2wCQa+taaqsNhl7ijp84F5i
               </td>
             </tr>
             <tr>
+              <td style="border-right: solid 1px; width: 190px" class="border-secondary-color type-opacity">Seed phrase</td>
+              <td class="border-secondary-color"><input class="input primary-color input-settings-seed-phrase" style="color: #fff; width: 100%; padding: 0" type="text" value=""  /></td>
+            </tr>            
+<!--             <tr>
               <td style="border-right: solid 1px" class="border-secondary-color type-opacity">Developer Tools</td>
               <td class="border-secondary-color">
                 <button class="button-primary secondary-color clear-cache">Clear cache</button>
@@ -176,7 +190,7 @@ D2wCQa+taaqsNhl7ijp84F5i
               <td class="border-secondary-color">
                 <button class="button-primary secondary-color">Create backup</button>
               </td>
-            </tr>
+            </tr> -->
           </table>
 
         </div>

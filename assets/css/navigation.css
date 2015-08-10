@@ -113,6 +113,7 @@
 .control-panel-user {
   border-radius: 3px !important;
   margin-right: 0 !important;
+  position: relative;
 }
 
 
@@ -168,5 +169,14 @@
 .user-menu li:hover {
   opacity: .75;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
+}
 
+.notification-count {
+  width: 20px;
+  height: 20px;
+  background: orange;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 11px;
 }

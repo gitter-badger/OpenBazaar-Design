@@ -33,30 +33,25 @@
 
 .modal-navigation {
   background: #327eb8;
-  height: 30px;
+  height: 50px;
   font-family: "font-medium";
   font-size: 14px;
-  line-height: 30px;
-  padding: 10px 0;
+  line-height: 50px;
   width: 100%;
 }
 
 .modal-navigation ul li {
   float: left;
-  margin-right: 16px;
   min-width: 50px;
-  padding: 0 15px;
+  padding: 0 18px;
   text-align: center;
   cursor: pointer;
   opacity: .75;
-  padding-top: 4px;
 }
 
 .modal-navigation ul li.modal-navigation-selected {
   background: #086BA0;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  height: 36px;
+  height: 50px;
   opacity: 1;
 }
 

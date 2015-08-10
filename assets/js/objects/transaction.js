@@ -4,6 +4,12 @@ $(function() {
 
 window.Transaction = {
   initialize: function() {
+    $(document).on("click", ".order-page-link", function(event){ 
+      var id = $(event.currentTarget).attr('data-sale-id');
+      Helper.hideAll();
+      Sale.display();
+      Transaction.renderDetails(id, "sale");
+    });
     $(document).on("click", ".transactions li", function(event){ Transaction.changeType(event) });
     $(document).on("click", ".transaction-detail", function(event){ 
       Transaction.renderDetails($(event.currentTarget).data('id'), $(event.currentTarget).data('transactionType'));
@@ -64,26 +70,8 @@ window.Transaction = {
 
     $('.modal-navigation ul li').removeClass('modal-navigation-selected');
     $('.modal-navigation ul li:first').addClass('modal-navigation-selected');
-    $('.modal-purchase-detail-summary, .modal-purchase-detail-shipping, .modal-purchase-detail-payment, .modal-purchase-detail-settings').hide();
+    $('.modal-purchase-detail-summary, .modal-purchase-detail-shipping, .modal-purchase-detail-payment, .modal-purchase-detail-settings, .modal-purchase-detail-dispute').hide();
     $('.modal-purchase-detail-summary').show();
-
-    switch(type){
-      case "purchase":
-        $('.modal-purchase-release-funds').show();
-        $('.modal-purchase-request-funds').hide();
-        $('.modal-navigation ul li:nth-child(4)').hide();
-        break;
-      case "sale":
-        $('.modal-purchase-release-funds').hide();
-        $('.modal-purchase-request-funds').show();
-        $('.modal-navigation ul li:nth-child(4)').show();
-        break;
-      case "case":
-        $('.modal-purchase-dispute, .modal-purchase-request-funds').hide();
-        $('.modal-purchase-release-funds-to-buyer, .modal-purchase-release-funds-to-seller').show();
-        $('.modal-navigation ul li:nth-child(4)').show();
-        break;
-    }
 
     $('#main, .vendor-header').addClass('blur');
     $('.modal-trade-flow').hide();
@@ -105,5 +93,26 @@ window.Transaction = {
     $('.modal-purchase-detail .modal-photo').css('background', 'url(' + purchase['contract-image'] + ') 50% 50% / cover no-repeat');
     $('.overlay, .modal-purchase-detail').show();
     $('.modal-pretty').fadeTo(100, 100);
+
+    switch(type){
+      case "purchase":
+        $('.modal-purchase-release-funds').show();
+        $('.modal-purchase-request-funds').hide();
+        $('.modal-navigation ul li:nth-child(4)').hide();
+        break;
+      case "sale":
+        $('.modal-purchase-release-funds').hide();
+        $('.modal-purchase-request-funds').show();
+        $('.modal-navigation ul li:nth-child(4)').show();
+        break;
+      case "case":
+        $('.modal-purchase-dispute, .modal-purchase-request-funds').hide();
+        $('.modal-purchase-release-funds-to-buyer, .modal-purchase-release-funds-to-seller').show();
+        $('.modal-navigation ul li:nth-child(4)').show();
+        Case.loadDispute(id);
+        break;
+    }
+
+    Page.setColors(User.find($session.handle));   
   }
 }

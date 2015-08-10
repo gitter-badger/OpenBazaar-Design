@@ -1,0 +1,105 @@
+ <dom-module id="modal-pretty-trade-flow">
+ 
+  <template>
+    <div class="modal-trade-flow visibility-hidden">
+      <div class="modal-photo"><div class="modal-qr-payment visibility-hidden"><div class="modal-qr-cost">Send .00286 btc to</div><div class="modal-qr-code"></div><input class="modal-qr-input" value="16RpcL7QAYZi1LaiW5NwRVABXaezvBCd73" /></div><div class="modal-photo-shadow"></div><div class="modal-contract-price modal-contract-price-style"></div></div>
+      <div class="modal-header secondary-color">Payment type</div>
+      <div class="modal-trade-flow-payment-type">
+        <div class="modal-body primary-color">
+          <table>
+            <tr>
+              <td colspan="3" class="type-line-height-16px type-opacity type-weight-medium border-secondary-color" style="padding: 0 16px 16px 16px">There are two payment options: moderated and direct. Using a moderator ensures both parties fulfill their end of the agreement prior to the funds transfering.</td>
+            </tr>
+            <tr>
+              <td class="position-padding-left-16px position-padding-right-9px border-secondary-color"><input type="radio" checked /></td>
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar"></div></td>
+              <td class="border-secondary-color">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px ">Moderated (1% tip will be included)</div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><span class="modal-vendor-name"></span> uses @ob1 as their trusted moderator to safely transfer the funds between you and them.</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="position-padding-left-16px position-padding-right-9px border-secondary-color"><input type="radio" /></td>
+              <td class="position-padding-top-12px position-padding-bottom-12px border-secondary-color position-padding-right-9px"><div class="avatar direct-avatar"></div></td>
+              <td class="border-secondary-color">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Direct</div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium">Send funds directly to <span class="modal-vendor-name"></span></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer primary-color border-secondary-color">
+          <button class="button-first trade-close border-primary-color secondary-color">Cancel</button>
+          <button class="contract-trade-payment-type-next secondary-color">Next</button>
+        </div>
+      </div>
+
+      <div class="modal-trade-flow-address visibility-hidden">
+        <div class="modal-body primary-color">
+          <table style="margin: 0">
+            <tr class="position-height-72px">
+              <td class="position-width-42px border-secondary-color"><input type="radio" class="position-margin-left-16px " checked /></td>
+              <td class=" border-secondary-color">
+                <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                <div class="type-weight-medium type-opacity">8458 Belmont Road Chicago, IL 60654</div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer primary-color border-secondary-color">
+          <button class="button-first trade-back-to-payment border-primary-color secondary-color">Back</button>
+          <button class="contract-trade-address-next secondary-color">Next</button>
+        </div>
+      </div>
+
+      <div class="modal-trade-flow-summary visibility-hidden">
+        <div class="modal-body primary-color">
+          <table style="margin: 0">
+            <tr class="position-height-72px">
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
+              <td class="position-width-100 border-secondary-color">
+                <div class="modal-contract-avatar position-float-left"></div>
+                <div class="position-float-left type-weight-medium position-margin-bottom-3px">
+                  <div class="modal-item position-margin-bottom-3px"></div>
+                  <div class="type-weight-medium type-opacity">Sold by <span class="modal-vendor-name"></span></div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px"><span class="modal-contract-price"></span></div>
+              </td>
+            </tr>
+            <tr class="position-height-72px">
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
+              <td class="position-width-100 border-secondary-color">
+                <div class="modal-contract-avatar position-float-left"></div>
+                <div class="position-float-left type-weight-medium position-margin-bottom-3px">
+                  <div class="position-margin-bottom-3px">Delivery</div>
+                  <div class="type-weight-medium type-opacity">Service by <span class="modal-vendor-name"></span></div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px">.0002 btc ($5 USD)</div>
+              </td>
+            </tr>
+            <tr class="position-height-72px">
+              <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar position-margin-left-16px"></div></td>
+              <td class="position-width-100 border-secondary-color">
+                <div class="modal-contract-avatar position-float-left"></div>
+                <div class="position-float-left type-weight-medium position-margin-bottom-3px">
+                  <div class="position-margin-bottom-3px">Secure transaction</div>
+                  <div class="type-weight-medium type-opacity">Service by @ob1</div>
+                </div>
+                <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px">.00016 btc ($3 USD)</div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer primary-color border-secondary-color">
+          <button class="button-first trade-back-to-address border-primary-color secondary-color">Back</button>
+          <button class="trade-pending type-opacity-half secondary-color">Payment pending</button>
+          <button class="trade-done secondary-color">Done</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'modal-pretty-trade-flow'});
+  </script>
+</dom-module>

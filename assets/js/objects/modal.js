@@ -26,7 +26,14 @@ window.Modal = {
     var section = target.data('section');
     $('.modal-navigation ul li').removeClass('modal-navigation-selected');
     target.addClass('modal-navigation-selected');
-    $('.modal-purchase-detail .modal-body table').hide();
+    $('.modal-purchase-detail .modal-body table, .modal-purchase-detail-dispute').hide();
+    switch (section){
+      case "modal-purchase-detail-dispute":
+        Case.loadDispute($('.modal-transaction-id').html().replace('ID: ', ''));
+        $('.input-dispute-message').focus();
+        break;
+    }
+    Page.setColors(User.find($session.handle));    
     $('.' + section).show();
   },
 
@@ -35,6 +42,7 @@ window.Modal = {
   },
 
   show: function show(type){
+    $('.overlay').show();
     if (type === "basic"){
       $('.modal').fadeTo(100, 100); 
     }else{

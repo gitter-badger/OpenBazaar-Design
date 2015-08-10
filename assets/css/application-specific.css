@@ -106,6 +106,13 @@ table thead tr td:last-child{
   cursor: pointer; 
 }
 
+.case-message {
+  width: 100%;
+  display: block;
+  clear: both;
+  
+}
+
 .notifications table td{
   border-bottom: solid 1px #327EB8; 
   padding: 15px;

@@ -166,7 +166,7 @@ window.Contract = {
 
   hover: function hover(event){
     var user = User.find($(event.currentTarget).attr('data-vendor-handle'));
-    if(user.handle === $session.handle){
+    if(user.handle === $session.handle && $('.discover').not(':visibile')){
       $(event.currentTarget).find('.contract-delete').show();
       Page.setPrimaryColor(user.colorprimary);
     }

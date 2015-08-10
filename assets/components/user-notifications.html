@@ -1,28 +1,20 @@
 <dom-module id="user-notifications">
+  
+  <link href="../css/notification.css" rel="stylesheet">
 
   <template>
     <div class="notifications">
+      <div class="user-page-navigation secondary-color" style="border: 0">
+        <div style="width: 950px; margin: auto">
+          <ul class="position-float-left">
+            <li class="settings-navigation-general secondary-color border-primary-color user-page-navigation-selected" data-section="notifications">Notifications</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="notifications-body primary-color">
-        <table style="width: 100%">
-          <tr>
-            <td class="border-secondary-color">d</td>
-          </tr>
-          <tr>
-            <td class="border-secondary-color">d</td>
-          </tr>
-          <tr>
-            <td class="border-secondary-color">d</td>
-          </tr>
-          <tr>
-            <td class="border-secondary-color">d</td>
-          </tr>
-          <tr>
-            <td class="border-secondary-color">d</td>
-          </tr>
-          <tr>
-            <td class="border-secondary-color">d</td>
-          </tr>
-        </table>
+        <input class="list-input list-input-search notification-search border-secondary-color" type="text" />
+        <table style="width: 100%"></table>
       </div>
     </div>
   </template>

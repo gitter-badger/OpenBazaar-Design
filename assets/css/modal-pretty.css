@@ -40,6 +40,7 @@
 
 .modal-pretty .modal-footer {
   background: #327eb8;
+  border-top: solid 1px;
   height: 50px;
   padding: 0;
   text-align: right;
@@ -75,9 +76,9 @@
 
 .modal-pretty .avatar {
   background: #fff;
-  height: 48px;
-  width: 48px;
-  border-radius: 24px;
+  height: 40px;
+  width: 40px;
+  border-radius: 3px;
   background: #fff url(../img/ob1-logo.png) 35% 50% / cover no-repeat;
   background-size: 80%;
 }
@@ -101,8 +102,8 @@
   width: 100%;
   margin: 16px 0;
 }
-.modal-pretty table td {
-  border-bottom: solid 1px #327EB8;
+.modal-pretty table tr {
+  border-bottom: solid 1px;
   vertical-align: middle;
 }
 
@@ -157,4 +158,26 @@
 .modal-address input,
 .modal-address select {
   padding: 0;
+}
+
+.modal-purchase-detail-dispute td {
+  vertical-align: top;
+  font-family: "font-regular";
+  line-height: 16px;
+}
+
+.modal-store-setup table tr td {
+  padding: 15px;
+}
+
+.modal-store-setup input[type='checkbox'],
+.modal-store-setup input[type='radio'] {
+  float: left;
+}
+
+.modal-store-setup label {
+  clear: none;
+  float: left;
+  margin-left: 4px;
+  margin-top: 2px;
 }

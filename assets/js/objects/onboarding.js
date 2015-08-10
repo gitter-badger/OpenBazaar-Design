@@ -50,18 +50,18 @@ window.Onboarding = {
       case "timezone":
         Onboarding.renderCurrency();
         break;
-      // case "user-role":
-      //   Onboarding.renderTimeZone();
-      //   break;
-      case "bitcoin-address":
-        Onboarding.renderCurrency();
-        break;
       case "handle":
-        Onboarding.renderBitcoinAddress();
+        Onboarding.renderTimeZone();
         break;
       case "avatar":
         Onboarding.renderHandle();
         break;
+      // case "bitcoin-address":
+      //   Onboarding.renderCurrency();
+      //   break;
+      // case "user-role":
+      //   Onboarding.renderTimeZone();
+      //   break;
       // case "final":
       //   Onboarding.renderAvatar();
       //   break;
@@ -83,17 +83,17 @@ window.Onboarding = {
         Onboarding.renderTimeZone();
         break;
       case "timezone":
-        Onboarding.renderBitcoinAddress();
-        break;
-      // case "user-role":
-      //   Onboarding.renderBitcoinAddress();
-      //   break;
-      case "bitcoin-address":
         Onboarding.renderHandle();
         break;
       case "handle":
         Onboarding.renderAvatar();
         break;
+      // case "user-role":
+      //   Onboarding.renderBitcoinAddress();
+      //   break;
+      // case "bitcoin-address":
+      //   Onboarding.renderHandle();
+      //   break;
       // case "avatar":
       //   Onboarding.renderFinal();
       //   break;
@@ -112,7 +112,7 @@ window.Onboarding = {
 
   renderLocation: function renderLocation(){
     $('.onboarding-location-list').empty();
-    Onboarding.setTitle('Country');
+    Onboarding.setTitle('Your country');
     _.each(preloadData.countries, function(country, index){
       $('.onboarding-location-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + country + '" name="country" /> <label class="position-margin-left-12px" for="' + country + '">' + country + '</td></tr>');
     });
@@ -127,7 +127,8 @@ window.Onboarding = {
     _.each(preloadData.currencies, function(currency, index){
       $('.onboarding-currency-list').append('<tr><td class="position-padding-15px"><input type="radio" id="' + currency + '" name="currency" /> <label class="position-margin-left-12px" for="' + currency + '">' + currency + '</td></tr>');
     });
-    $('.onboarding-currency, .onboarding-button-back, .onboarding-button-next').show();
+    $('.onboarding-button-next').hide();
+    $('.onboarding-currency, .onboarding-button-back, .onboarding-button-skip').show();
     $('.onboarding').attr('data-active-step', 'currency');
     $('.onboarding-currency-search').focus();
 

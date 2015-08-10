@@ -81,6 +81,14 @@ span {
   white-space: nowrap;
 }
 
+.type-size-12px {
+  font-size: 12px;
+}
+
+.type-size-13px {
+  font-size: 13px;
+}
+
 .type-size-14px {
   font-size: 14px;
 }

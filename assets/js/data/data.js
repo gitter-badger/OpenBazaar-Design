@@ -773,7 +773,34 @@ window.preloadData = {
 			"mod": "@ob1",
 			"mod-guid": "6FD3BD9120A04C58B303BEE6C6F457D9",
 			"mod-avatar": "http://i.imgur.com/XJvbCcV.png",
-			"mod-fee": ".02 btc ($3 USD)"
+			"mod-fee": ".02 btc ($3 USD)",
+	    "dispute": [
+		    {
+		    	"user": "@wolf",
+		    	"date": "Aug 6th 4:22pm",
+		    	"message": "I'm opening a dispute regarding @mike never sending my items. I placed the order about 12 days ago and have been messaging him and have not heard anything back. I'd really like to know the status on the order and if it has actually been sent out or not."
+		    },
+		    {
+		    	"user": "@mike",
+		    	"date": "Aug 6th 4:28pm",
+		    	"message": "Screw you, I shipped it. It's not my fault, contact UPS."
+		    },
+		    {
+		    	"user": "@ob1",
+		    	"date": "Aug 6th 6:19pm",
+		    	"message": "Alright children, let me take a look at all of the details. From what I see, it does look like the package was actually shipped. However, there was an issue with the delivery address and it appears to be back on its way to @mike. @wolf how would you like to proceed? I can refund the order, or @mike can try shipping it again."
+		    },
+		    {
+		    	"user": "@mike",
+		    	"date": "Aug 6th 6:28pm",
+		    	"message": "If @wolf would like to be refuned, I'd expect him to cover the shipping expenses since he put in his wrong address."
+		    },
+		    {
+		    	"user": "@wolf",
+		    	"date": "Aug 6th 6:30pm",
+		    	"message": "Yeah, just refund it. My mistake and I'm fine paying for the shipping."
+		    },
+	    ]
 		},
 		{
 			"id": "449250",

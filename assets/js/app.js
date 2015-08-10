@@ -5,7 +5,7 @@ var defaultTextColor = "#ffffff";
 var delay = 1900; //3000
 var fade = 500;
 $store = {'avatar': '', 'name': '', 'description': '', 'colorprimary': '', 'colorsecondary': '', 'colortext': '', 'website': '', 'email': '', 'guid': '', 'handle': '', 'items': []};
-$session = {'name':'Mike Wolf', 'handle':'@wolf', 'colorprimary':'#4A4848', 'colorsecondary':'#575656', 'colorbackground':'#2a2a2a', 'colortext':'#ffffff'};
+$session = {'name':'Mike Wolf', 'handle':'@wolf', 'colorprimary':'#4A4848', 'colorsecondary':'#575656', 'colorbackground':'#2a2a2a', 'colortext':'#ffffff', 'avatar':'https://pbs.twimg.com/profile_images/451017489065857024/vdpDUxoZ_400x400.jpeg', "hero":"http://d38we5ntdyxyje.cloudfront.net/496469/art/2250328/1325556-8.jpg"};
 
 jQuery.expr[':'].Contains = function(a, i, m) {
   return jQuery(a).text().toUpperCase()
@@ -80,7 +80,7 @@ $(function() {
     if($('.input-search').is(":focus") && event.which == 67 && (event.ctrlKey||event.metaKey)){ 
       e.preventDefault();
       var clipboard = require('clipboard');
-      var text = $('.input-search').val().replace('@', 'ob://');
+      var text = $('.input-search').val().replace('@', 'ob://@');
       clipboard.writeText(text);
     }
   }
@@ -89,14 +89,27 @@ $(function() {
     e.stopPropagation();
     if($('input, select').not(":focus") && e.which == 27){ Modal.close(); }
     if($('.input-search').is(":focus") && e.which == 13){ Search.find(); }
+    if($('.input-dispute-message').is(":focus") && e.which == 13){ Case.disputeMessage(e); }
     if($('.input-chat-new-message').is(":focus") && e.which == 13) { Chat.saveMessage(); }
     if($('.bitcoin-address').is(":focus")){ $('.onboarding-button-skip').hide(); $('.onboarding-button-next').show(); }
     if($('.vendor-meta-name').is(':focus') && $('.vendor-meta-name').val() !== ""){ $('.vendor-header-2 .vendor-name').html($('.vendor-meta-name').val()); }
     if($('.vendor-meta-description').is(':focus') && $('.vendor-meta-description').val() !== ""){ $('.vendor-header-2 .vendor-description').html($('.vendor-meta-description').val()); }
     if($('.vendor-meta-avatar').is(':focus') && $('.vendor-meta-avatar').val() !== ""){ $('.vendor-header-2 .vendor-avatar').css('background', 'url(' + $('.vendor-meta-avatar').val() + ') 50% 50% / cover no-repeat'); }
     if($('.discover-vendor-search').is(':focus') ){
-      var locations = $(".discover-vendors-list").find("tr").hide();
-      locations.filter(":Contains('" + $('.discover-vendor-search').val() + "')").show();
+      var vendors = $(".discover-vendors-list").find("tr").hide();
+      vendors.filter(":Contains('" + $('.discover-vendor-search').val() + "')").show();
+    }       
+    if($('.modal-store-setup-category-search').is(':focus') ){
+      var contracts = $(".modal-store-setup-category-list").find("tr").hide();
+      contracts.filter(":Contains('" + $('.modal-store-setup-category-search').val() + "')").show();
+    }       
+    if($('.modal-store-setup-moderator-search').is(':focus') ){
+      var contracts = $(".modal-store-setup-moderators").find("tr").hide();
+      contracts.filter(":Contains('" + $('.modal-store-setup-moderator-search').val() + "')").show();
+    }        
+    if($('.discover-contracts-search').is(':focus') ){
+      var contracts = $(".discover-contracts-grid").find(".contract").hide();
+      contracts.filter(":Contains('" + $('.discover-contracts-search').val() + "')").show();
     }    
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
@@ -171,16 +184,20 @@ $(function() {
     }
 
     if($('.search-followers').is(':focus') ){
-      var locations = $(".user-page-followers-list").find("tr").hide();
-      locations.filter(":Contains('" + $('.search-followers').val() + "')").show();
+      var followers = $(".user-page-followers-list").find("tr").hide();
+      followers.filter(":Contains('" + $('.search-followers').val() + "')").show();
     }
     if($('.onboarding-currency-search').is(':focus') ){
-      var locations = $(".onboarding-currency-list").find("tr").hide();
-      locations.filter(":Contains('" + $('.onboarding-currency-search').val() + "')").show();
+      var currency = $(".onboarding-currency-list").find("tr").hide();
+      currency.filter(":Contains('" + $('.onboarding-currency-search').val() + "')").show();
+    }
+    if($('.notification-search').is(':focus') ){
+      var notifications = $(".notifications-body table").find("tr").hide();
+      notifications.filter(":Contains('" + $('.notification-search').val() + "')").show();
     }
     if($('.onboarding-timezone-search').is(':focus') ){
-      var locations = $(".onboarding-timezone-list").find("tr").hide();
-      locations.filter(":Contains('" + $('.onboarding-timezone-search').val() + "')").show();
+      var timezone = $(".onboarding-timezone-list").find("tr").hide();
+      timezone.filter(":Contains('" + $('.onboarding-timezone-search').val() + "')").show();
     }
   }
 

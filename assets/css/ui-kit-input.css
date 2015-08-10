@@ -144,14 +144,14 @@ label {
   background: #252525;
   border-radius: 0;
   border-bottom: 0;
-  border-top: solid 1px #313131;
+  border-top: solid 1px #888888;
   bottom: 0;
   color: #fff;
   font-size: 12px;
   height: 42px;
   line-height: 42px;
   position: absolute;
-  width: 242px;
+  width: 100%;
 }
 
 .input-chat-new-message::-webkit-input-placeholder {

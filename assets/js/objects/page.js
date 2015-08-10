@@ -4,6 +4,9 @@ $(function() {
 
 window.Page = {
   initialize: function() {
+    $(document).on("click", ".modal-store-setup-next", function(){ Page.storeSetupNext() });
+    $(document).on("click", ".modal-store-setup-back", function(){ Page.storeSetupBack() });
+    $(document).on("click", ".modal-store-setup-close", function(){ Modal.close() });
     $(document).on("click", ".trade-back-to-payment", function(){ Page.tradeBackToPayment() });
     $(document).on("click", ".trade-back-to-address", function(){ Page.tradeBackToAddress() });
     $(document).on("click", ".modal-qr-code", function(){ Page.tradeConfirmed() });
@@ -111,6 +114,7 @@ window.Page = {
       var handle = $(event.currentTarget).attr('data-user-handle').replace('/edit/add-item','').trim();
       var user = User.find(handle);
       Page.activateStoreTab(user);
+      Page.storeSetup();
     });
     $(document).on("click", ".user-page-configuration-edit", function(event){
       var handle = $(event.currentTarget).attr('data-user-handle').replace('/edit','').trim();
@@ -364,6 +368,8 @@ window.Page = {
   setSecondaryColor: function setSecondaryColor(hex){  
     $('.border-secondary-color').css('border-color', hex);
     $('.secondary-color').css('background-color', hex);
+    $('#inputStyle').remove();
+    $('body').prepend("<style id='inputStyle'>.list-input::-webkit-input-placeholder{color:"+hex+";}</style>");
     $store.colorsecondary = hex;
   },
 
@@ -459,6 +465,69 @@ window.Page = {
     }  
   },
 
+  storeSetup: function storeSetup(){
+    Modal.show();
+    $('.modal-store-setup').show();    
+    Page.setColors(User.find($session.handle));
+    $('.modal-photo').css('background', 'url(' + $session.hero + ') 50% 50% / cover no-repeat');
+    $('.input-store-setup-name').focus();
+  },
+
+  storeSetupBack: function storeSetupBack(){
+    var step = $('.modal-store-setup').attr('data-active-step');
+    $('.modal-store-setup-step, .modal-store-setup-next, .modal-store-setup-back, .modal-store-setup-close').hide();
+    $('.modal-body').scrollTop(0);
+    switch(step){
+      case "categories":
+        Page.renderStoreSetupName();
+        break;      
+      case "moderators":
+        Page.renderStoreSetupCategories();
+        break;
+    }
+  },
+
+  storeSetupNext: function storeSetupNext(){
+    var step = $('.modal-store-setup').attr('data-active-step');
+    $('.modal-store-setup-step, .modal-store-setup-next, .modal-store-setup-back, .modal-store-setup-close').hide();
+    $('.modal-body').scrollTop(0);
+    switch(step){
+      case "name":
+        Page.renderStoreSetupCategories();
+        break;
+      case "categories":
+        Page.renderStoreSetupModerators();
+        break;
+    }
+  },
+
+  renderStoreSetupName: function renderStoreSetupName(){
+    Modal.setTitle("Store name");
+    $('.modal-store-setup').attr('data-active-step', 'name');
+    $('.modal-store-setup-name, .modal-store-setup-next, .modal-store-setup-close').show();
+    $('.input-store-setup-name').focus();    
+  },
+
+  renderStoreSetupCategories: function renderStoreSetupCategories(){
+    Modal.setTitle("Store type (select up to 3)");
+    _.each(window.preloadData.categories, function(category, index){
+      $('.modal-store-setup-category-list').append('<tr class="border-secondary-color"><td><input type="checkbox" id="category-' + index + '" /> <label for="category-' + index + '">' + category + '</label></td></tr>');
+    });   
+    Page.setColors(User.find($session.handle)); 
+    $('.modal-store-setup').attr('data-active-step', 'categories');
+    $('.modal-store-setup-categories, .modal-store-setup-next, .modal-store-setup-back').show();
+  },
+
+  renderStoreSetupModerators: function renderStoreSetupModerators(){
+    Modal.setTitle("Select store moderator(s)");
+    _.each(window.preloadData.moderators, function(moderator, index){
+      $('.modal-store-setup-moderators-list').append('<tr class="border-secondary-color"><td><input type="checkbox" id="category-' + index + '" /> <label for="category-' + index + '"><div class="type-weight-medium position-margin-bottom-3px type-size-14px">' + moderator.name + '</div> <div class="type-line-height-16px type-opacity type-weight-medium">' + moderator.description + '</div></label></td></tr>');
+    });   
+    Page.setColors(User.find($session.handle)); 
+    $('.modal-store-setup').attr('data-active-step', 'moderators');
+    $('.modal-store-setup-moderators, .modal-store-setup-back, .modal-store-setup-next').show();
+  },
+
   store: function store(user, event){
     Page.setNavigation(user);
     Page.hideSections();
@@ -466,7 +535,7 @@ window.Page = {
     _.each(user.contracts, function(contract, index){
       Contract.renderGridContract(user, contract, '.user-page-contracts-grid');
     });    
-    Page.setColors(user)
+    Page.setColors(user);
     $('.user-page-contracts').show();
     $('.search-store').focus();
     Navigation.setPageUrl(user.handle + '/store');
@@ -498,7 +567,7 @@ window.Page = {
     $('.user-page-contract-detail-description').html(contract.description);
     Page.setMetaData(user);
     Page.setNavigation(user);
-    Page.setColors(user);
+    Page.setColors(User.find($session.handle));   
     Page.hideSections();
     $('#main').removeClass('edit-mode');
     $('.user-page-contract-detail').show();

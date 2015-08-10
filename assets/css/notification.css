@@ -1,0 +1,13 @@
+.notifications .user-page-link:hover,
+.notifications .order-page-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.notification-viewed {
+  opacity: .4;
+}
+
+.notification-body tr:hover {
+  opacity: 1;
+}

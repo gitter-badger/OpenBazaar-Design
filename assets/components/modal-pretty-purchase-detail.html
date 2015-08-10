@@ -1,0 +1,129 @@
+ <dom-module id="modal-pretty-purchase-detail">
+ 
+  <template>
+    <div class="modal-purchase-detail visibility-hidden">
+      <div class="modal-photo"><div class="modal-photo-shadow"></div><div class="modal-transaction-id modal-contract-price-style position-float-left position-left-12px"></div><div class="modal-transaction-price modal-contract-price-style"></div></div>
+      <div class="modal-navigation secondary-color">
+        <ul>
+          <li class="secondary-color modal-navigation-selected" data-section="modal-purchase-detail-summary">Summary</li>
+          <li class="secondary-color" data-section="modal-purchase-detail-shipping">Shipping</li>
+          <li class="secondary-color" data-section="modal-purchase-detail-payment">Payment</li>
+          <li class="secondary-color" data-section="modal-purchase-detail-settings">Settings</li>
+          <li class="secondary-color" data-section="modal-purchase-detail-dispute">Dispute</li>
+        </ul>
+      </div>
+
+      <div class="modal-body primary-color" style="height: 290px">
+        <table class="modal-purchase-detail-summary position-margin-0">
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px border-secondary-color"><div class="avatar modal-vendor-avatar"></div></td>
+            <td class="position-padding-0 border-secondary-color">
+              <div class="position-float-left type-no-wrap">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px modal-contract-name"></div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium ">Sold by <span class="modal-vendor-name"></span></div>
+              </div>
+              <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-contract-price"></div>
+            </td>
+          </tr>
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px border-secondary-color"><div class="avatar modal-vendor-avatar"></div></td>
+            <td class="position-padding-0 border-secondary-color">
+              <div class="position-float-left type-no-wrap">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Shipping</div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-vendor-name"></span></div>
+              </div>
+              <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-shipping-price"></div>
+            </td>
+          </tr>
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px border-secondary-color"><div class="avatar modal-mod-avatar"></div></td>
+            <td class="position-padding-0 border-secondary-color">
+              <div class="position-float-left type-no-wrap">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Protected transaction</div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium ">Service by <span class="modal-mod-name"></span></div>
+              </div>
+              <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-mod-price"></div>
+            </td>
+          </tr>
+        </table>
+
+        <table class="modal-purchase-detail-shipping position-margin-0 visibility-hidden">
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px border-secondary-color"><div class="avatar modal-buyer-avatar"></div></td>
+            <td class="position-padding-0 border-secondary-color">
+              <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Ship to</div>
+              <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><div class="modal-buyer-address"></div></div>
+            </td>
+          </tr>
+        </table>
+
+        <table class="modal-purchase-detail-payment position-margin-0 visibility-hidden">
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-42px border-secondary-color"><div class="avatar"></div></td>
+            <td class="position-padding-0 border-secondary-color">
+              <div class="position-float-left type-no-wrap">
+                <div class="type-weight-medium position-margin-bottom-3px type-size-14px">Payment sent to <span class="modal-mod-name"></span></div>
+                <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><span class="modal-puchase-date"></span></div>
+              </div>
+              <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px modal-contract-price"></div>
+            </td>
+          </tr>
+        </table>
+
+        <div class="modal-purchase-detail-dispute position-margin-0 visibility-hidden">
+          <div style="height: 230px; overflow-y: scroll; display: block">
+            <div class="modal-purchase-detail-dispute-empty" style="width: 100%; text-align: center; margin-top: 100px;">Enter message to start dispute with <span class="user-page-link" data-user-handle="@ob1">@ob1</span> and <span class="user-page-link" data-user-handle="@mike">@mike</span></div>
+            <table class="position-margin-0" style="height: 230px; overflow-y: scroll; display: block"></table>
+          </div>
+          <textarea class="primary-color border-secondary-color textarea input-dispute-message" style="width: 100%; height: 60px; border: 0; border-top: solid 1px" placeholder="Enter dispute message..."></textarea>
+        </div>
+
+        <table class="modal-purchase-detail-settings position-margin-0 visibility-hidden">
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px  border-secondary-color" style="border-right-style: solid; border-right-width: 1px;">Order status</td>
+            <td class="position-padding-0">
+              <select class="select primary-color" style="width: 100%; border: 0">
+                <option>Processing</option>
+                <option>Shipped</option>
+                <option>Delivered</option>
+                <option>Refunded</option>
+                <option>Complete</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px border-secondary-color" style="border-right-style: solid; border-right-width: 1px; ">Tracking #</td>
+            <td class="position-padding-0">
+              <input type="text" class="primary-color list-input" style="width: 100%; border: 0" />
+            </td>
+          </tr>
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px border-secondary-color" style="border-right-style: solid; border-right-width: 1px; vertical-align: top">Dispute summary</td>
+            <td class="position-padding-0">
+              <textarea class="textarea primary-color" style="width: 100%; border: 0; height: 100px"></textarea>
+            </td>
+          </tr>
+          <tr class="border-secondary-color">
+            <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px position-width-100px  border-secondary-color" style="border-right-style: solid; border-right-width: 1px;">Refund</td>
+            <td class="position-padding-0">
+              <input type="text" class="input release-funds-amount primary-color" style="width: 100%" placeholder="Enter btc amount" /> 
+            </td>
+          </tr>
+        </table>
+      </div>
+              
+    <!--         <div class="modal-footer primary-color border-secondary-color">
+        <textarea class="primary-color list-input" placeholder="Enter message..." /></textarea>
+        <button class="button-first modal-purchase-release-funds-to-buyer visibility-hidden secondary-color border-primary-color">Release funds to buyer</button>
+        <button class="button-first modal-purchase-release-funds-to-seller visibility-hidden secondary-color border-primary-color">Release funds to seller</button>
+        <button class="button-first modal-purchase-request-funds visibility-hidden secondary-color border-primary-color">Request funds from buyer</button>
+        <button class="modal-purchase-dispute secondary-color">Dispute transaction</button>
+      </div>  -->
+     
+    </div>
+  </template>
+
+  <script>
+    Polymer({is: 'modal-pretty-purchase-detail'});
+  </script>
+</dom-module>

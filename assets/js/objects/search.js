@@ -64,10 +64,10 @@ window.Search = {
   },
 
   convertToHandle: function convertToHandle(text){
-    return text.replace('ob://', '@');
+    return text.replace('ob://@', '@');
   },
 
   convertToUrl: function convertToUrl(text){
-    return text.replace('@', 'ob://');
+    return text.replace('@', 'ob://@');
   }
 }
