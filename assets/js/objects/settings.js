@@ -74,6 +74,9 @@ window.Settings = {
       case "advanced":
         Settings.advanced();
         break;
+      case "store":
+        Settings.store();
+        break;
     }
 
     $('.settings li').removeClass('user-page-navigation-selected');
@@ -126,7 +129,7 @@ window.Settings = {
   },
 
   hideAll: function hideAll(){
-    $('.settings-advanced, .settings-general, .settings-shipping, .settings-keys').hide();
+    $('.settings-advanced, .settings-general, .settings-shipping, .settings-keys, .settings-store').hide();
   },
 
   general: function general(){
@@ -139,6 +142,12 @@ window.Settings = {
     $('.settings-save-changes').hide();
     $('.settings-shipping, .settings-new').show();
     Navigation.setPageUrl($session.handle + '/settings/shipping');
+  },
+
+  store: function store(){
+    $('.settings-new').hide();
+    $('.settings-store, .settings-save-changes').show();
+    Navigation.setPageUrl($session.handle + '/settings/store');
   },
 
   keys: function keys(){

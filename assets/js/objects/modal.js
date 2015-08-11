@@ -38,7 +38,7 @@ window.Modal = {
   },
 
   setTitle: function setTitle(title){
-    $('.modal-pretty .modal-header').html(title);
+    $('.modal-pretty .modal-header .modal-title').html(title);
   },
 
   show: function show(type){

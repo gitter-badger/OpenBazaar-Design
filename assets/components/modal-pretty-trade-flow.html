@@ -2,15 +2,26 @@
  
   <template>
     <div class="modal-trade-flow visibility-hidden">
-      <div class="modal-photo"><div class="modal-qr-payment visibility-hidden"><div class="modal-qr-cost">Send .00286 btc to</div><div class="modal-qr-code"></div><input class="modal-qr-input" value="16RpcL7QAYZi1LaiW5NwRVABXaezvBCd73" /></div><div class="modal-photo-shadow"></div><div class="modal-contract-price modal-contract-price-style"></div></div>
-      <div class="modal-header secondary-color">Payment type</div>
+      <div class="modal-photo">
+        <div class="modal-qr-payment visibility-hidden">
+          <div class="modal-qr-cost">Send .00286 btc to</div>
+          <div class="modal-qr-code"></div>
+          <input class="modal-qr-input" value="16RpcL7QAYZi1LaiW5NwRVABXaezvBCd73" />
+        </div>
+        <div class="modal-photo-shadow"></div><div class="modal-contract-price modal-contract-price-style"></div>
+        <iframe width="525" height="250" id="google-map-address" frameborder="0" style="border:0; display: none" src="https://www.google.com/maps/embed/v1/place?q=North+America&key=AIzaSyCEFvQuq6vJM7w6CLg_xyQwTIDg_EFjihM" allowfullscreen></iframe>
+      </div>
+      <div class="modal-header secondary-color">
+        <div class="modal-title position-margin-left-15px position-float-left">Payment type</div>
+        <button class="button-primary modal-trade-flow-new-address position-float-right primary-color position-margin-right-15px visibility-hidden">New address</button>
+      </div>
       <div class="modal-trade-flow-payment-type">
         <div class="modal-body primary-color">
           <table>
-            <tr>
+            <tr class="border-secondary-color">
               <td colspan="3" class="type-line-height-16px type-opacity type-weight-medium border-secondary-color" style="padding: 0 16px 16px 16px">There are two payment options: moderated and direct. Using a moderator ensures both parties fulfill their end of the agreement prior to the funds transfering.</td>
             </tr>
-            <tr>
+            <tr class="border-secondary-color">
               <td class="position-padding-left-16px position-padding-right-9px border-secondary-color"><input type="radio" checked /></td>
               <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar"></div></td>
               <td class="border-secondary-color">
@@ -18,7 +29,7 @@
                 <div class="position-width-90 type-line-height-16px type-opacity type-weight-medium "><span class="modal-vendor-name"></span> uses @ob1 as their trusted moderator to safely transfer the funds between you and them.</div>
               </td>
             </tr>
-            <tr>
+            <tr class="border-secondary-color">
               <td class="position-padding-left-16px position-padding-right-9px border-secondary-color"><input type="radio" /></td>
               <td class="position-padding-top-12px position-padding-bottom-12px border-secondary-color position-padding-right-9px"><div class="avatar direct-avatar"></div></td>
               <td class="border-secondary-color">
@@ -37,12 +48,45 @@
       <div class="modal-trade-flow-address visibility-hidden">
         <div class="modal-body primary-color">
           <table style="margin: 0">
-            <tr class="position-height-72px">
-              <td class="position-width-42px border-secondary-color"><input type="radio" class="position-margin-left-16px " checked /></td>
+            <tr class="position-height-72px border-secondary-color">
+              <td class="position-width-42px border-secondary-color"><input id="shipping-address-1" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="8458 Belmont Road Chicago, IL 60654" /></td>
               <td class=" border-secondary-color">
-                <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
-                <div class="type-weight-medium type-opacity">8458 Belmont Road Chicago, IL 60654</div>
+                <label for="shipping-address-1">
+                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                  <div class="type-weight-medium type-opacity type-size-13px">8458 Belmont Road Chicago, IL 60654</div>
+                </label>
               </td>
+              <td class=" border-secondary-color" style="width: 100px">$5 (0.0003 btc)</td>
+            </tr>
+            <tr class="position-height-72px border-secondary-color">
+              <td class="position-width-42px border-secondary-color"><input id="shipping-address-2" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="4801 Garners Ferry Rd Columbia, SC 29209" /></td>
+              <td class=" border-secondary-color">
+                <label for="shipping-address-2">
+                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                  <div class="type-weight-medium type-opacity type-size-13px">4801 Garners Ferry Rd Columbia, SC 29209</div>
+                </label>
+              </td>
+              <td class=" border-secondary-color">$5 (0.0003 btc)</td>
+            </tr>
+            <tr class="position-height-72px border-secondary-color">
+              <td class="position-width-42px border-secondary-color"><input id="shipping-address-3" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="600 N Clark St Chicago, IL 60610" /></td>
+              <td class=" border-secondary-color">
+                <label for="shipping-address-3">
+                  <div class="type-weight-medium position-margin-bottom-3px">Local pickup</div>
+                  <div class="type-weight-medium type-opacity type-size-13px">600 N Clark St Chicago, IL 60610</div>
+                </label>
+              </td>
+              <td class=" border-secondary-color">Free</td>
+            </tr>
+            <tr class="position-height-72px border-secondary-color" style="opacity: .2">
+              <td class="position-width-42px border-secondary-color"><input id="shipping-address-4" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="Via Camporcioni 51016 Montecatini Terme PT Italy"  /></td>
+              <td class=" border-secondary-color">
+                <label for="shipping-address-4">
+                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                  <div class="type-weight-medium type-opacity type-size-13px">Via Camporcioni 51016 Montecatini Terme PT Italy</div>
+                </label>
+              </td>
+              <td class=" border-secondary-color">N/A</td>
             </tr>
           </table>
         </div>
@@ -55,7 +99,7 @@
       <div class="modal-trade-flow-summary visibility-hidden">
         <div class="modal-body primary-color">
           <table style="margin: 0">
-            <tr class="position-height-72px">
+            <tr class="position-height-72px border-secondary-color">
               <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
               <td class="position-width-100 border-secondary-color">
                 <div class="modal-contract-avatar position-float-left"></div>
@@ -66,7 +110,7 @@
                 <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px"><span class="modal-contract-price"></span></div>
               </td>
             </tr>
-            <tr class="position-height-72px">
+            <tr class="position-height-72px border-secondary-color">
               <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar direct-avatar position-margin-left-16px"></div></td>
               <td class="position-width-100 border-secondary-color">
                 <div class="modal-contract-avatar position-float-left"></div>
@@ -77,7 +121,7 @@
                 <div class="type-weight-medium position-float-right position-margin-right-16px position-margin-top-10px">.0002 btc ($5 USD)</div>
               </td>
             </tr>
-            <tr class="position-height-72px">
+            <tr class="position-height-72px border-secondary-color">
               <td class="position-padding-top-12px position-padding-bottom-12px position-padding-right-9px border-secondary-color"><div class="avatar position-margin-left-16px"></div></td>
               <td class="position-width-100 border-secondary-color">
                 <div class="modal-contract-avatar position-float-left"></div>

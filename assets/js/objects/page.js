@@ -5,8 +5,10 @@ $(function() {
 window.Page = {
   initialize: function() {
     $(document).on("click", ".modal-store-setup-next", function(){ Page.storeSetupNext() });
+    $(document).on("change", "input[name='shipping-address']:radio", function(event){ Page.addressSelected(event) });
     $(document).on("click", ".modal-store-setup-back", function(){ Page.storeSetupBack() });
     $(document).on("click", ".modal-store-setup-close", function(){ Modal.close() });
+    $(document).on("click", ".modal-store-setup-done", function(){ Page.storeSetupDone() });
     $(document).on("click", ".trade-back-to-payment", function(){ Page.tradeBackToPayment() });
     $(document).on("click", ".trade-back-to-address", function(){ Page.tradeBackToAddress() });
     $(document).on("click", ".modal-qr-code", function(){ Page.tradeConfirmed() });
@@ -298,6 +300,12 @@ window.Page = {
     $('#main').mCustomScrollbar("scrollTo",400);
   },
 
+  addressSelected: function addressSelected(){
+    var address = $(event.currentTarget).attr('data-address');
+    $('#google-map-address').attr('src', 'https://www.google.com/maps/embed/v1/place?q=' + address + '&key=AIzaSyCEFvQuq6vJM7w6CLg_xyQwTIDg_EFjihM');
+    $('#google-map-address').show();
+  },
+
   setColors: function setColors(user){
     Page.setSecondaryColor(user.colorsecondary);
     Page.setPrimaryColor(user.colorprimary);
@@ -388,11 +396,13 @@ window.Page = {
   tradeBackToPayment: function tradeBackToPayment(){
     Modal.setTitle('Payment type');
     $('.modal-trade-flow-address').hide();
+    $('.modal-trade-flow-new-address').hide();
     $('.modal-trade-flow-payment-type').show();
   },
 
   tradeConfirmed: function tradeConfirmed(){
     $('.trade-pending').hide();
+    $('.modal-trade-flow-new-address').hide();
     $('.trade-done').show();
     $('.modal-qr-cost').html('Payment received!');
     new Notification('Payment received');
@@ -401,6 +411,7 @@ window.Page = {
   tradeBackToAddress: function tradeBackToAddress(){
     var image = $('.item-detail-image').css('background-image');
     Modal.setTitle('Ship to');
+    $('.modal-trade-flow-new-address').show();
     $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
     $('.modal-trade-flow-summary').hide();
     $('.modal-item-price-style, .modal-photo-shadow, .modal-trade-flow-address').show();
@@ -466,11 +477,16 @@ window.Page = {
   },
 
   storeSetup: function storeSetup(){
+    $('.modal-store-setup-step, .modal-store-setup-next, .modal-store-setup-back, .modal-store-setup-close').hide();
     Modal.show();
-    $('.modal-store-setup').show();    
     Page.setColors(User.find($session.handle));
     $('.modal-photo').css('background', 'url(' + $session.hero + ') 50% 50% / cover no-repeat');
+    $('.modal-store-setup, .modal-store-setup-name, .modal-store-setup-next, .modal-store-setup-back').show();    
     $('.input-store-setup-name').focus();
+  },
+
+  storeSetupDone: function storeSetupDone(){
+    Modal.close();
   },
 
   storeSetupBack: function storeSetupBack(){
@@ -504,28 +520,32 @@ window.Page = {
   renderStoreSetupName: function renderStoreSetupName(){
     Modal.setTitle("Store name");
     $('.modal-store-setup').attr('data-active-step', 'name');
-    $('.modal-store-setup-name, .modal-store-setup-next, .modal-store-setup-close').show();
+    $('.modal-store-setup-name, .modal-store-setup-next, .modal-store-setup-close, .modal-store-setup-done').show();
     $('.input-store-setup-name').focus();    
   },
 
   renderStoreSetupCategories: function renderStoreSetupCategories(){
-    Modal.setTitle("Store type (select up to 3)");
+    Modal.setTitle("Store type");
+    $('.modal-store-setup-category-list').empty();
     _.each(window.preloadData.categories, function(category, index){
-      $('.modal-store-setup-category-list').append('<tr class="border-secondary-color"><td><input type="checkbox" id="category-' + index + '" /> <label for="category-' + index + '">' + category + '</label></td></tr>');
+      $('.modal-store-setup-category-list').append('<tr class="border-secondary-color"><td><input type="checkbox" id="category-' + index + '" /> <label for="category-' + index + '" class="type-weight-medium type-size-14px">' + category + '</label></td></tr>');
     });   
     Page.setColors(User.find($session.handle)); 
     $('.modal-store-setup').attr('data-active-step', 'categories');
     $('.modal-store-setup-categories, .modal-store-setup-next, .modal-store-setup-back').show();
+    $('.modal-store-setup-category-search').focus();
   },
 
   renderStoreSetupModerators: function renderStoreSetupModerators(){
-    Modal.setTitle("Select store moderator(s)");
+    Modal.setTitle("Store moderators (optional)");
+    $('.modal-store-setup-moderators-list').empty();
     _.each(window.preloadData.moderators, function(moderator, index){
-      $('.modal-store-setup-moderators-list').append('<tr class="border-secondary-color"><td><input type="checkbox" id="category-' + index + '" /> <label for="category-' + index + '"><div class="type-weight-medium position-margin-bottom-3px type-size-14px">' + moderator.name + '</div> <div class="type-line-height-16px type-opacity type-weight-medium">' + moderator.description + '</div></label></td></tr>');
+      $('.modal-store-setup-moderators-list').append('<tr class="border-secondary-color"><td><input type="checkbox" id="category-' + index + '" /> <label for="category-' + index + '"><div class="avatar position-float-left" style="background: url(' + moderator.avatar + ') 50% 50% / cover no-repeat"></div><div class="position-float-left" style="width: 420px; margin-left: 10px"><div class="type-weight-medium position-margin-bottom-3px type-size-14px">' + moderator.name + '</div> <div class="type-line-height-16px type-opacity type-weight-medium" style="width: 420px">' + moderator.description + '</div></div></label></td></tr>');
     });   
     Page.setColors(User.find($session.handle)); 
     $('.modal-store-setup').attr('data-active-step', 'moderators');
-    $('.modal-store-setup-moderators, .modal-store-setup-back, .modal-store-setup-next').show();
+    $('.modal-store-setup-moderators, .modal-store-setup-back, .modal-store-setup-done').show();
+    $('.modal-store-setup-moderator-search').focus();
   },
 
   store: function store(user, event){
@@ -615,6 +635,7 @@ window.Page = {
   tradeBackToAddress: function tradeBackToAddress(){
     var image = $('.user-page-contract-detail-image').css('background-image');
     Modal.setTitle('Ship to');
+    $('.modal-trade-flow-new-address').show();
     $('.modal-qr-payment').hide();
     $('.modal-photo-shadow').show();
     $('.modal-contract-price').show();

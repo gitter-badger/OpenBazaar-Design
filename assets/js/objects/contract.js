@@ -104,6 +104,8 @@ window.Contract = {
     $('.modal-pretty .direct-avatar').css('background', avatar + '100% 100% / cover no-repeat');
     $('.modal-pretty .modal-contract-price').html(price);
     $('.modal-pretty .modal-vendor-name').html(name);
+    $('.modal-trade-flow-new-address').hide();
+    $('#google-map-address').hide();
 
     $('#main, .vendor-header').addClass('blur');
     $('.modal-product, .modal-vendor-meta').hide();
@@ -148,6 +150,7 @@ window.Contract = {
     $('.modal-trade-flow-address').hide();
     $('.modal-trade-flow-summary').show();
     $('.modal-item-price-style, .modal-photo-shadow').hide();
+    $('.modal-trade-flow-new-address').hide();
     $('.modal-photo').css('background','#fff');
     Modal.setTitle('Summary');
   },
@@ -156,6 +159,7 @@ window.Contract = {
     $('.modal-qr-payment').hide();
     $('.modal-trade-flow-payment-type').hide();
     $('.modal-trade-flow-address').show();
+    $('.modal-trade-flow-new-address').show();
     $('.modal-contract-price').show();
     Modal.setTitle('Ship to');
   },
