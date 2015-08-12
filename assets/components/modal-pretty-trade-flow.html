@@ -47,48 +47,82 @@
 
       <div class="modal-trade-flow-address visibility-hidden">
         <div class="modal-body primary-color">
-          <table style="margin: 0">
-            <tr class="position-height-72px border-secondary-color">
-              <td class="position-width-42px border-secondary-color"><input id="shipping-address-1" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="8458 Belmont Road Chicago, IL 60654" /></td>
-              <td class=" border-secondary-color">
-                <label for="shipping-address-1">
-                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
-                  <div class="type-weight-medium type-opacity type-size-13px">8458 Belmont Road Chicago, IL 60654</div>
-                </label>
-              </td>
-              <td class=" border-secondary-color" style="width: 100px">$5 (0.0003 btc)</td>
-            </tr>
-            <tr class="position-height-72px border-secondary-color">
-              <td class="position-width-42px border-secondary-color"><input id="shipping-address-2" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="4801 Garners Ferry Rd Columbia, SC 29209" /></td>
-              <td class=" border-secondary-color">
-                <label for="shipping-address-2">
-                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
-                  <div class="type-weight-medium type-opacity type-size-13px">4801 Garners Ferry Rd Columbia, SC 29209</div>
-                </label>
-              </td>
-              <td class=" border-secondary-color">$5 (0.0003 btc)</td>
-            </tr>
-            <tr class="position-height-72px border-secondary-color">
-              <td class="position-width-42px border-secondary-color"><input id="shipping-address-3" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="600 N Clark St Chicago, IL 60610" /></td>
-              <td class=" border-secondary-color">
-                <label for="shipping-address-3">
-                  <div class="type-weight-medium position-margin-bottom-3px">Local pickup</div>
-                  <div class="type-weight-medium type-opacity type-size-13px">600 N Clark St Chicago, IL 60610</div>
-                </label>
-              </td>
-              <td class=" border-secondary-color">Free</td>
-            </tr>
-            <tr class="position-height-72px border-secondary-color" style="opacity: .2">
-              <td class="position-width-42px border-secondary-color"><input id="shipping-address-4" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="Via Camporcioni 51016 Montecatini Terme PT Italy"  /></td>
-              <td class=" border-secondary-color">
-                <label for="shipping-address-4">
-                  <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
-                  <div class="type-weight-medium type-opacity type-size-13px">Via Camporcioni 51016 Montecatini Terme PT Italy</div>
-                </label>
-              </td>
-              <td class=" border-secondary-color">N/A</td>
-            </tr>
-          </table>
+          <div class="modal-trade-flow-address-new visibility-hidden">
+            <table class="position-margin-0">
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">Name</td>
+                <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-shipping-address-name" /></td>
+              </tr>
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">Address 1</td>
+                <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-shipping-address-address" /></td>
+              </tr>
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">Address 2</td>
+                <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-shipping-address-address2" /></td>
+              </tr>
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">City</td>
+                <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-shipping-address-city" /></td>
+              </tr>
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">State</td>
+                <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-shipping-address-state" /></td>
+              </tr>
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">Postal code</td>
+                <td class="border-secondary-color"><input type="text" class="input input-large primary-color input-new-shipping-address-postal-code" /></td>
+              </tr>
+              <tr class="border-secondary-color">
+                <td style="border-right: solid 1px" class="border-secondary-color">Country</td>
+                <td class="border-secondary-color"><select class="input input-large primary-color input-new-shipping-address-country position-width-100"><option>--</option></select></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-trade-flow-address-existing">
+            <table style="margin: 0">
+              <tr class="position-height-72px border-secondary-color">
+                <td class="position-width-42px border-secondary-color"><input id="shipping-address-1" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="8458 Belmont Road Chicago, IL 60654" /></td>
+                <td class=" border-secondary-color">
+                  <label for="shipping-address-1">
+                    <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                    <div class="type-weight-medium type-opacity type-size-13px">8458 Belmont Road Chicago, IL 60654</div>
+                  </label>
+                </td>
+                <td class=" border-secondary-color" style="width: 100px">$5 (0.0003 btc)</td>
+              </tr>
+              <tr class="position-height-72px border-secondary-color">
+                <td class="position-width-42px border-secondary-color"><input id="shipping-address-2" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="4801 Garners Ferry Rd Columbia, SC 29209" /></td>
+                <td class=" border-secondary-color">
+                  <label for="shipping-address-2">
+                    <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                    <div class="type-weight-medium type-opacity type-size-13px">4801 Garners Ferry Rd Columbia, SC 29209</div>
+                  </label>
+                </td>
+                <td class=" border-secondary-color">$5 (0.0003 btc)</td>
+              </tr>
+              <tr class="position-height-72px border-secondary-color">
+                <td class="position-width-42px border-secondary-color"><input id="shipping-address-3" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="600 N Clark St Chicago, IL 60610" /></td>
+                <td class=" border-secondary-color">
+                  <label for="shipping-address-3">
+                    <div class="type-weight-medium position-margin-bottom-3px">Local pickup at</div>
+                    <div class="type-weight-medium type-opacity type-size-13px">600 N Clark St Chicago, IL 60610</div>
+                  </label>
+                </td>
+                <td class=" border-secondary-color">Free</td>
+              </tr>
+              <tr class="position-height-72px border-secondary-color" style="opacity: .2">
+                <td class="position-width-42px border-secondary-color"><input id="shipping-address-4" type="radio" name="shipping-address" class="position-margin-left-16px" data-address="Via Camporcioni 51016 Montecatini Terme PT Italy"  /></td>
+                <td class=" border-secondary-color">
+                  <label for="shipping-address-4">
+                    <div class="type-weight-medium position-margin-bottom-3px">Mike Wolf</div>
+                    <div class="type-weight-medium type-opacity type-size-13px">Via Camporcioni 51016 Montecatini Terme PT Italy</div>
+                  </label>
+                </td>
+                <td class=" border-secondary-color">N/A</td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="modal-footer primary-color border-secondary-color">
           <button class="button-first trade-back-to-payment border-primary-color secondary-color">Back</button>

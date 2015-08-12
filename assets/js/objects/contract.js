@@ -93,7 +93,8 @@ window.Contract = {
 
   displayCheckout: function displayCheckout(){  
     $('.modal-purchase-detail, .modal-trade-flow-address, .modal-trade-flow-summary').hide();
-    $('.modal-trade-flow-payment-type').show();
+    $('.modal-trade-flow-payment-type, .modal-trade-flow-address-existing').show();
+    $('.modal-trade-flow-address-new').hide();
 
     var image = $('.user-page-contract-detail-image').css('background-image');
     var avatar = $('.user-page-avatar').css('background-image');
@@ -144,9 +145,10 @@ window.Contract = {
   },
 
   displayTradeFlowSummary: function displayTradeFlowSummary(){
+    $('#google-map-address').hide();
     $('.modal-qr-payment').show();
-    $('.modal-contract-price').hide();
-    $('.modal-item').html($('.item-detail-name').html());
+    $('.modal-contract-price').show();
+    $('.modal-item').html($('.user-page-contract-detail-name').html());
     $('.modal-trade-flow-address').hide();
     $('.modal-trade-flow-summary').show();
     $('.modal-item-price-style, .modal-photo-shadow').hide();
@@ -157,8 +159,8 @@ window.Contract = {
 
   displayTradeFlowAddress: function displayTradeFlowAddress(){
     $('.modal-qr-payment').hide();
-    $('.modal-trade-flow-payment-type').hide();
-    $('.modal-trade-flow-address').show();
+    $('.modal-trade-flow-payment-type, .modal-trade-flow-address-new').hide();
+    $('.modal-trade-flow-address, .modal-trade-flow-address-existing').show();
     $('.modal-trade-flow-new-address').show();
     $('.modal-contract-price').show();
     Modal.setTitle('Ship to');

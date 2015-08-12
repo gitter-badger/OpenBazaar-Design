@@ -114,6 +114,10 @@ $(function() {
     if($('.onboarding-location-search').is(':focus') ){
       var locations = $(".onboarding-location-list").find("tr").hide();
       locations.filter(":Contains('" + $('.onboarding-location-search').val() + "')").show();
+    }        
+    if($('.search-blocked').is(':focus') ){
+      var locations = $(".settings-blocked-table").find("tr").hide();
+      locations.filter(":Contains('" + $('.search-blocked').val() + "')").show();
     }    
     if($('.chat-search').is(':focus') ){
       $('.chat-conversations table tr').hide();

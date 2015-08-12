@@ -4,14 +4,19 @@ $(function() {
 
 window.Page = {
   initialize: function() {
-    $(document).on("click", ".modal-store-setup-next", function(){ Page.storeSetupNext() });
+    $(document).on("click", ".modal-store-setup-next, .modal-store-setup-skip", function(){ Page.storeSetupNext() });
     $(document).on("change", "input[name='shipping-address']:radio", function(event){ Page.addressSelected(event) });
+    $(document).on("click", ".modal-trade-flow-new-address", function(){ Page.addressNew() });
     $(document).on("click", ".modal-store-setup-back", function(){ Page.storeSetupBack() });
     $(document).on("click", ".modal-store-setup-close", function(){ Modal.close() });
     $(document).on("click", ".modal-store-setup-done", function(){ Page.storeSetupDone() });
     $(document).on("click", ".trade-back-to-payment", function(){ Page.tradeBackToPayment() });
     $(document).on("click", ".trade-back-to-address", function(){ Page.tradeBackToAddress() });
     $(document).on("click", ".modal-qr-code", function(){ Page.tradeConfirmed() });
+    $(document).on("blur", ".input-new-shipping-address-city", function(event){ 
+      var address = $('.input-new-shipping-address-address').val() + ' ' + $('.input-new-shipping-address-city').val();
+      $('#google-map-address').attr('src', 'https://www.google.com/maps/embed/v1/place?q=' + address.replace(/ /g, '+') + '&key=AIzaSyCEFvQuq6vJM7w6CLg_xyQwTIDg_EFjihM').show();
+    });
     $(document).on("change", ".input-user-page-header", function(){ 
       var input = this;
       var reader = new FileReader();
@@ -237,6 +242,13 @@ window.Page = {
     }
   },
 
+  addressNew: function addressNew(user){
+    $('.modal-trade-flow-new-address').hide();
+    $('.modal-trade-flow-address-new').show();
+    $('.modal-trade-flow-address-existing').hide();
+    $('.input-new-shipping-address-name').focus();
+  },
+
   saveContract: function saveContract(user){
     for (var i = 0, l = window.preloadData.users.length; i < l; i++) {
       if (window.preloadData.users[i].handle === user.handle) {
@@ -300,8 +312,8 @@ window.Page = {
     $('#main').mCustomScrollbar("scrollTo",400);
   },
 
-  addressSelected: function addressSelected(){
-    var address = $(event.currentTarget).attr('data-address');
+  addressSelected: function addressSelected(event){
+    var address = $(event.currentTarget).attr('data-address').replace(/ /g, '+');
     $('#google-map-address').attr('src', 'https://www.google.com/maps/embed/v1/place?q=' + address + '&key=AIzaSyCEFvQuq6vJM7w6CLg_xyQwTIDg_EFjihM');
     $('#google-map-address').show();
   },
@@ -395,6 +407,7 @@ window.Page = {
 
   tradeBackToPayment: function tradeBackToPayment(){
     Modal.setTitle('Payment type');
+    $('#google-map-address').hide();
     $('.modal-trade-flow-address').hide();
     $('.modal-trade-flow-new-address').hide();
     $('.modal-trade-flow-payment-type').show();
@@ -411,6 +424,7 @@ window.Page = {
   tradeBackToAddress: function tradeBackToAddress(){
     var image = $('.item-detail-image').css('background-image');
     Modal.setTitle('Ship to');
+    $('#google-map-address').show();
     $('.modal-trade-flow-new-address').show();
     $('.modal-pretty .modal-photo').css('background', image + '50% 50% / cover no-repeat'); 
     $('.modal-trade-flow-summary').hide();
@@ -477,7 +491,7 @@ window.Page = {
   },
 
   storeSetup: function storeSetup(){
-    $('.modal-store-setup-step, .modal-store-setup-next, .modal-store-setup-back, .modal-store-setup-close').hide();
+    $('.modal-store-setup-step, .modal-store-setup-next, .modal-store-setup-back, .modal-store-setup-close, .modal-store-setup-skip').hide();
     Modal.show();
     Page.setColors(User.find($session.handle));
     $('.modal-photo').css('background', 'url(' + $session.hero + ') 50% 50% / cover no-repeat');
@@ -532,7 +546,7 @@ window.Page = {
     });   
     Page.setColors(User.find($session.handle)); 
     $('.modal-store-setup').attr('data-active-step', 'categories');
-    $('.modal-store-setup-categories, .modal-store-setup-next, .modal-store-setup-back').show();
+    $('.modal-store-setup-categories, .modal-store-setup-skip, .modal-store-setup-back').show();
     $('.modal-store-setup-category-search').focus();
   },
 
@@ -544,6 +558,7 @@ window.Page = {
     });   
     Page.setColors(User.find($session.handle)); 
     $('.modal-store-setup').attr('data-active-step', 'moderators');
+    $('.modal-store-setup-skip').hide();
     $('.modal-store-setup-moderators, .modal-store-setup-back, .modal-store-setup-done').show();
     $('.modal-store-setup-moderator-search').focus();
   },
@@ -635,6 +650,7 @@ window.Page = {
   tradeBackToAddress: function tradeBackToAddress(){
     var image = $('.user-page-contract-detail-image').css('background-image');
     Modal.setTitle('Ship to');
+    $('#google-map-address').show();
     $('.modal-trade-flow-new-address').show();
     $('.modal-qr-payment').hide();
     $('.modal-photo-shadow').show();

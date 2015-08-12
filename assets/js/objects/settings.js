@@ -4,6 +4,7 @@ $(function() {
 
 window.Settings = {
   initialize: function() {
+    $(document).on("click", ".user-unblock", function(event){ Settings.unblock(event) });
     $(document).on("click", ".clear-cache", function(event){ Settings.clearCache(event) });
     $(document).on("click", ".clear-peers", function(event){ Settings.clearPeers(event) });
     $(document).on("click", ".stop-server", function(event){ Settings.stopServer(event) });
@@ -74,6 +75,9 @@ window.Settings = {
       case "advanced":
         Settings.advanced();
         break;
+      case "blocked":
+        Settings.blocked();
+        break;
       case "store":
         Settings.store();
         break;
@@ -121,6 +125,11 @@ window.Settings = {
     Modal.close();
   },
 
+  unblock: function unblock(event){
+    // new Notification('User unblocked');
+    $(event.currentTarget).parent().parent().remove();
+  },
+
   saveAddress: function saveAddress(){
     Modal.close();
     var address = $('.input-new-address-address').val() + ' ' + $('.input-new-address-address2').val() + ' ' + $('.input-new-address-city').val() + ', ' + $('.input-new-address-state').val() + $('.input-new-address-postal-code').val() 
@@ -129,7 +138,7 @@ window.Settings = {
   },
 
   hideAll: function hideAll(){
-    $('.settings-advanced, .settings-general, .settings-shipping, .settings-keys, .settings-store').hide();
+    $('.settings-advanced, .settings-general, .settings-shipping, .settings-keys, .settings-store, .settings-blocked').hide();
   },
 
   general: function general(){
@@ -148,6 +157,13 @@ window.Settings = {
     $('.settings-new').hide();
     $('.settings-store, .settings-save-changes').show();
     Navigation.setPageUrl($session.handle + '/settings/store');
+  },
+
+  blocked: function blocked(){
+    $('.settings-new').hide();
+    $('.settings-blocked').show();
+    Navigation.setPageUrl($session.handle + '/settings/blocked');
+    $('.search-blocked').focus();
   },
 
   keys: function keys(){
