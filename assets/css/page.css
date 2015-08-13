@@ -66,11 +66,12 @@
 
 .user-page-contract-detail-pricing {
   margin: 20px 0 20px 0;
-  padding: 15px;
+  padding: 0;
 }
 .user-page-contract-detail-pricing table td {
   font-size: 14px;
-  padding: 8px 0 8px 10px;
+  padding: 18px;
+  border: solid 1px;
 }
 
 .user-page-navigation,
@@ -171,13 +172,23 @@
 }
 
 .user-page-name-holder {
-  bottom: 40px;
+  bottom: 48px;
   margin-left: 105px;
   position: absolute;
   z-index: 50;
 }
 .user-page-name-holder span {
   font-size: 18px;
+}
+
+.user-page-moderator {
+  bottom: 35px;
+  margin-left: 105px;
+  position: absolute;
+  z-index: 50;
+  font-size: 13px;
+  opacity: .75;
+  font-family: "font-regular";
 }
 
 .user-page-name-holder:hover {
@@ -210,6 +221,47 @@
   padding: 25px 33px;
   border-right: solid 1px #327eb8;
   border-bottom: solid 1px #327eb8;
+}
+
+.contract-menu {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  z-index: 100;
+}
+
+.contract-actions {
+  border-bottom: solid 1px;
+  display: none;
+  height: 75px;
+  width: 100%;
+  background: #252525;
+  position: absolute;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  z-index: 105;
+  font-family: "font-medium";
+  font-size: 14px;
+  opacity: .95;
+}
+
+.contract-actions ul {
+  margin: 20px;
+}
+
+.contract-actions li {
+  width: 100%;
+  height: 22px;
+  cursor: pointer;
+}
+
+.contract-actions li:hover {
+  opacity: .75;
 }
 
 .user-page-contracts .contract .contract-image {

@@ -51,6 +51,10 @@ window.User = {
     });
   },
 
+  block: function block(user){
+    $('.settings-blocked-table').prepend('<tr><td class="border-secondary-color"><div class="avatar position-float-left position-margin-right-10px user-page-link" data-user-handle="' + user.handle + '" style="background: url("' + user.avatar + '") 50% 50% / cover no-repeat"></div><div class="position-float-left position-margin-top-5px"><div class="user-page-link" data-user-handle="' + user.handle + '">' + user.name + '</div><div class="user-page-link type-opacity position-margin-top-2px" data-user-handle="' + user.handle + '">' + user.handle + '</div></td><td class="border-secondary-color"><button class="button-primary secondary-color user-unblock position-float-right">Unblock</button></td></tr>');
+  },
+
   view: function view(user, updatePageViews){
     if (updatePageViews){
       pageViews.push({"page": "user", "id": user.id, "handle": user.handle, "active": true});

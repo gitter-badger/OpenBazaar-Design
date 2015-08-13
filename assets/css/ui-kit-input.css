@@ -18,6 +18,18 @@ textarea:read-only{
   cursor: not-allowed;
 }
 
+/*input:hover,
+input:active,
+input:focus,
+select:hover {
+  border-bottom: dotted 1px;
+  opacity: .9;
+}*/
+
+input:hover > td {
+  background: red;
+}
+
 .textarea {
   background: #fff;
   border-radius: 1px;

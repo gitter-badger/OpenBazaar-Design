@@ -63,6 +63,7 @@ $(function() {
   $(window).on("resize", resize);
   $(document).on("keyup", keypress);
   $(document).on("keydown", keydown);
+  // $(document).on("click", "body", function(){ $('.contract-actions').hide(); });
   // $('#main').on("scroll", scroll);
 
   // functions

@@ -49,7 +49,7 @@ window.Discover = {
     $('.discover-vendors-list').empty();
     _.each(_.shuffle(window.preloadData.users), function(user){
       // if(user.roles.toString().includes("vendor")){
-        $('.discover-vendors-list').append('<tr><td><div class="avatar position-float-left position-margin-right-10px user-page-link" data-user-handle="' + user.handle + '" style="background: url(' + user.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-5px "><div class="user-page-link" data-user-handle="' + user.handle + '">' + user.name + '</div><div class="user-page-link type-opacity position-margin-top-2px" data-user-handle="' + user.handle + '">' + user.handle + '</div></div></td><td class=""><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
+        $('.discover-vendors-list').append('<tr class="border-secondary-color"><td class="border-secondary-color"><div class="avatar position-float-left position-margin-right-10px user-page-link" data-user-handle="' + user.handle + '" style="background: url(' + user.avatar + ') 50% 50% / cover no-repeat"></div> <div class="position-float-left position-margin-top-5px "><div class="user-page-link" data-user-handle="' + user.handle + '">' + user.name + '</div><div class="user-page-link type-opacity position-margin-top-2px" data-user-handle="' + user.handle + '">' + user.handle + '</div></div></td><td class="border-secondary-color"><button class="button-primary position-float-right follow-user" data-user-handle="' + user.handle + '">Follow</button></td></tr>');
       // }
     });
     Helper.setDefualtColors(true);

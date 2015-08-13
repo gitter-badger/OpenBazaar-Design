@@ -47,6 +47,7 @@
           <button id="button-user-page-header" class="opacity-0">Upload a photo (950px by 400px)</button>
           <div class="user-page-avatar position-float-left"></div>
           <h1 class="user-page-name-holder"><span class="user-page-name"></span> <span class="user-page-handle type-opacity-75"></span></h1>
+          <div class="user-page-moderator">Moderated by <span class="user-page-link type-weight-light" data-user-handle="ob1">@ob1</span> and <span class="user-page-link type-weight-light" data-user-handle="ob2">@ob2</span></div>
         </div>
         <div class="user-page-header-shadow"></div>
       </div>
@@ -132,37 +133,45 @@
       </div>
 
       <div class="user-page-contract-detail visibility-hidden">
-        <div class="user-page-breadcrumb border-secondary-color"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name"></span></div>
+        <div class="user-page-breadcrumb border-secondary-color">
+          <span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; 
+          <span class="user-page-contract-detail-name"></span>
+          
+        </div>
 
         <div style="position-padding-20px">
           <!-- <h1 class="user-page-contract-detail-name position-padding-20px"></h1> -->
           <div class="user-page-contract-detail-image"></div>
           <div class="pod primary-color user-page-contract-detail-meta">
-            <div class="user-page-contract-detail-pricing secondary-color">
-              <table>
-                <tr class="user-page-contract-detail-price-row">
-                  <td>Price</td>
-                  <td class="user-page-contract-detail-price"></td>
-                </tr>
-                <tr class="user-page-contract-detail-shipping-row">
-                  <td>Shipping</td>
-                  <td class="user-page-contract-detail-shipping"></td>
-                </tr>
-                <tr class="user-page-contract-detail-condition-row">
-                  <td>Condition</td>
-                  <td class="user-page-contract-detail-condition"></td>
-                </tr>
-                <tr class="user-page-contract-detail-type-row">
-                  <td>Type</td>
-                  <td class="user-page-contract-detail-type"></td>
-                </tr>
-              </table>
-              
               <div class="user-page-contract-detail-buttons position-padding-left-10px position-margin-top-4px">
-                <div class="user-page-contract-detail-quantity position-inline-block"><input type="number" class="input input-user-page-contract-detail-quantity input-quantity" value="1" min="1" style="padding: 0; background: #fff !important; color:#252525 !important;" /></div>
-                <button class="button-primary user-page-contract-detail-buy primary-color position-inline-block">Buy</button>
+                <!-- <div class="user-page-contract-detail-quantity position-inline-block"><input type="number" class="input input-user-page-contract-detail-quantity input-quantity" value="1" min="1" style="padding: 0; background: #fff !important; color:#252525 !important;" /></div> -->
                 <!-- <button class="button-primary user-page-contract-detail-sold-out visibility-hidden position-inline-block">Sold out</button> -->
               </div>
+            <div class="user-page-contract-detail-pricing primary-color">
+              <table>
+<!--                 <tr class="user-page-contract-detail-price-row">
+                  <td colspan="2" class="border-secondary-color user-page-contract-detail-name"></td> -->
+                <tr class="user-page-contract-detail-price-row">
+                  <td class="border-secondary-color" style="width: 100px">Price</td>
+                  <td class="border-secondary-color" style="padding: 9px 9px 9px 18px; line-height: 32px">
+                    <span class="user-page-contract-detail-price"></span>
+                    <button class="button-primary user-page-contract-detail-buy secondary-color position-inline-block position-float-right">Buy with Bitcoin</button>
+                  </td>
+                </tr>
+                <tr class="user-page-contract-detail-shipping-row">
+                  <td class="border-secondary-color">Shipping</td>
+                  <td class="border-secondary-color user-page-contract-detail-shipping"></td>
+                </tr>
+                <tr class="user-page-contract-detail-condition-row">
+                  <td class="border-secondary-color">Condition</td>
+                  <td class="border-secondary-color user-page-contract-detail-condition"></td>
+                </tr>
+                <tr class="user-page-contract-detail-type-row">
+                  <td class="border-secondary-color">Type</td>
+                  <td class="border-secondary-color user-page-contract-detail-type"></td>
+                </tr>
+              </table>
+  
             </div>
             <div class="user-page-details-navigation secondary-color border-secondary-color">
               <ul style="z-index: 100; position: relative;">
@@ -191,7 +200,10 @@
 
       <div class="user-page-add-contract position-margin-0 visibility-hidden">
         <input type="file" class="input-user-page-add-contract-photo" style="position: absolute; left: -1000px" />
-        <div class="user-page-breadcrumb border-secondary-color"><span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; <span class="user-page-contract-detail-name">Item name</span></div>
+        <div class="user-page-breadcrumb border-secondary-color position-inline-block">
+          <span class="user-page-navigation-store" data-section="user-page-store">All Items</span> &nbsp;>&nbsp; 
+          <span class="user-page-contract-detail-name">Item name</span>
+        </div>
         <div class="position-float-left">
           <div class="user-page-contract-detail-image" style="margin: 15px;"><button id="button-user-page-add-contract-photo" class="border-secondary-color">Primary photo</button></div>
           <div class="position-clear-both position-margin-left-15px">

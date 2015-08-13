@@ -5,14 +5,27 @@ $(function() {
 window.Contract = {
   initialize: function() {
     $(document).on("click", ".user-page-contract-detail-buy", function(){  Contract.displayCheckout() });
-    $(document).on("click", ".contract-meta-data, .contract-image, .contract-name", function(event){ Contract.displayDetails(event) });
+    $(document).on("click", ".contract-image, .contract-name", function(event){ Contract.displayDetails(event) });
     $(document).on("click", ".contract-trade-payment-type-next", function(event){ Contract.displayTradeFlowAddress() });
     $(document).on("click", ".contract-trade-address-next", function(event){ Contract.displayTradeFlowSummary() });
     $(document).on("click", ".new-product-save", function(){ Contract.create() });
     $(document).on("click", ".contract-delete, .user-page-contract-delete", function(event){ Contract.deleteConfirm(event) });
     $(document).on("click", ".contract-edit, .user-page-contract-edit", function(event){ Contract.edit(event) });
+    $(document).on("mouseenter", ".contract", function(event){ Contract.hoverItem(event) });
+    $(document).on("mouseleave", ".contract", function(event){ Contract.unhoverItem(event) });
     $(document).on("mouseover", ".contract-image", function(event){ Contract.hover(event) });
     $(document).on("mouseleave", ".contract-image", function(event){ Contract.unhover(event) });
+    $(document).on("click", ".contract-menu", function(event){ Contract.showActions(event) });
+    $(document).on("click", ".action-hide-item", function(event){ 
+      $(event.currentTarget).parent().parent().parent().remove(); 
+    });
+    $(document).on("click", ".action-block-user", function(event){ 
+      var user = User.find($(event.currentTarget).attr('data-user-handle'));
+      if (confirm("Are you sure you want to block this user? They'll no longer be able to message you or view your page.") == true) {
+          User.block(user);
+          $(".contract[data-vendor-handle='" + user.handle + "']").remove();
+      }
+    });
   },
 
   create: function create(){
@@ -81,6 +94,18 @@ window.Contract = {
     $('.user-page').show();
 
   },
+
+  showActions: function showActions(event){
+    Helper.setDefualtColors(true);
+    $('.contract-actions').hide();
+    $(event.currentTarget).parent().find('.contract-actions').show();
+  },
+
+  // hideActions: function hideActions(event){
+  //   event.stopPropagation();
+  //   event.preventDefault();
+  //   $('.contract-actions').hide();
+  // },
 
   deleteConfirm: function deleteConfirm(event){
     event.stopPropagation();
@@ -170,6 +195,14 @@ window.Contract = {
     return _.find($store, function(contract){ return contract.id == id });     
   },
 
+  hoverItem: function hoverItem(event){
+    $(event.currentTarget).find('.contract-menu').show();
+  },
+
+  unhoverItem: function unhoverItem(event){
+    $(event.currentTarget).find('.contract-menu').hide();
+  },
+
   hover: function hover(event){
     var user = User.find($(event.currentTarget).attr('data-vendor-handle'));
     if(user.handle === $session.handle && $('.discover').not(':visibile')){
@@ -190,7 +223,7 @@ window.Contract = {
     }
 
     var randomNum = Math.ceil(Math.random() * 500) + 75;
-    var output = '<div class="contract border-secondary-color" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'"><div class="contract-image opacity-0" data-vendor-handle="' + vendor.handle + '"  data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><button data-vendor-handle="' + vendor.handle + '"  data-contract-id="' + contract.id +'" class="button-primary contract-delete primary-color">Delete</button><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-user-handle="' + vendor.handle +'"></div><div><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">$23.52 (' + contract.price + ' btc)</div></div>';
+    var output = '<div class="contract border-secondary-color" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" data-vendor-handle="' + vendor.handle + '"><div class="contract-actions primary-color border-secondary-color"><ul><li class="action-hide-item">Hide item</li><li data-user-handle="' + vendor.handle + '" class="action-block-user">Block user</li></ul></div><div class="contract-menu"><svg viewBox="-90 0 280 28" class="icon-more  position-float-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-more"></use></svg></div><div class="contract-image opacity-0" data-vendor-handle="' + vendor.handle + '"  data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><button data-vendor-handle="' + vendor.handle + '"  data-contract-id="' + contract.id +'" class="button-primary contract-delete primary-color">Delete</button><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-user-handle="' + vendor.handle +'"></div><div><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">$23.52 (' + contract.price + ' btc)</div></div>';
 
     if (div === '.discover-contracts'){
       // output += '<div class="contract-vendor" data-contract-id="' + contract.id +'"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-contract-id="' + contract.id +'"></div><div class="contract-vendor-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + name + '</div></div>';
@@ -200,6 +233,9 @@ window.Contract = {
 
     $(div).append(output);
     $(div + ' div:last-child .contract-image').delay(20).fadeTo(randomNum, 1);
+    if (div === '.discover-contracts'){
+      Helper.setDefualtColors(true);
+    }
   },
 
   renderContractDetail: function renderContractDetail(vendor, contract, updatePageViews){  

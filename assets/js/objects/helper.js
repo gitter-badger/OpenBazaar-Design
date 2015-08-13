@@ -50,18 +50,18 @@ window.Helper = {
   setDefualtColors: function setDefualtColors(instant){
     if (instant){
       $('body').css('background', '#074161');
-      $('.user-page-navigation li, .button-first').css('border-color', defaultPrimaryColor); 
-      $('.modal-pretty tbody td, .discover-vendors-list tr, .list-input').css('border-color', defaultSecondaryColor); 
-      $('#header, .user-page-navigation, .user-page-navigation li, .button-primary, .item-meta-data, thead tr, .modal-footer, .modal-footer button, .discover-footer').css('background', defaultSecondaryColor); 
-      $('.navigation-controls, .navigation-controls span, .control-panel li, .user-page-navigation-selected, .modal-body, .transactions-body, .pill').css('background', defaultPrimaryColor);
+      $('.border-primary-color').css('border-color', defaultPrimaryColor); 
+      $('.border-secondary-color').css('border-color', defaultSecondaryColor); 
+      $('.secondary-color').css('background', defaultSecondaryColor); 
+      $('.primary-color').css('background', defaultPrimaryColor);
       $('.item-price, .item-meta-data').css('color', defaultTextColor); 
       $('.user-page-navigation-selected .pill').css('background', defaultSecondaryColor);
     }else{
       $('body').animate({ backgroundColor: '#074161', color: defaultTextColor }, fade);
-      $('.user-page-navigation li, .button-first').css('border-color', defaultPrimaryColor); 
-      $('.modal-pretty tbody td, .discover-vendors-list tr, .list-input').css('border-color', defaultSecondaryColor); 
-      $('#header, .user-page-navigation, .user-page-navigation li, .button-primary, .item-meta-data, thead tr, .modal-footer, .modal-footer button, .discover-footer').animate({ backgroundColor: defaultSecondaryColor }, fade);  
-      $('.navigation-controls, .navigation-controls span, .control-panel li,.user-page-navigation-selected, .modal-body, .transactions-body, .pill').animate({ backgroundColor: defaultPrimaryColor, color: defaultTextColor }, fade);
+      $('.border-primary-color').css('border-color', defaultPrimaryColor); 
+      $('.border-secondary-color').css('border-color', defaultSecondaryColor); 
+      $('.secondary-color').animate({ backgroundColor: defaultSecondaryColor }, fade);  
+      $('.primary-color').animate({ backgroundColor: defaultPrimaryColor, color: defaultTextColor }, fade);
       $('.item-meta-data, .item-price').animate({ color: defaultTextColor });
       $('.user-page-navigation-selected .pill').css('background', defaultSecondaryColor);
 
