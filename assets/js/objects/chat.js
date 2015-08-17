@@ -81,7 +81,7 @@ window.Chat = {
       }
 
       if(lastMessage){
-        $('.chat-conversations table').append('<tr class="chat-view-details ' + read + '" data-id="' + chat.id + '"><td style="width: 30px"><div class="chat-avatar" data-id="' + chat.id + '" style="background: url(' + lastMessage.avatar + ') 100% 100% / cover no-repeat"></div></td><td class="chat-message" data-id="' + chat.id + '"><div class="chat-name" data-id="' + chat.id + '">' + lastMessage.from +  '</div><div data-id="' + chat.id + '">' + lastMessage.message + '</div></td></tr>');
+        $('.chat-conversations table').append('<tr class="chat-view-details ' + read + '" data-id="' + chat.id + '" data-user-handle="' + chat.from  + '"><td style="width: 30px"><div class="chat-avatar" data-id="' + chat.id + '" style="background: url(' + lastMessage.avatar + ') 100% 100% / cover no-repeat"></div></td><td class="chat-message" data-id="' + chat.id + '"><div class="chat-name" data-id="' + chat.id + '">' + lastMessage.from +  '</div><div data-id="' + chat.id + '">' + lastMessage.message + '</div></td></tr>');
       }
     });
   },
@@ -172,6 +172,7 @@ window.Chat = {
     $('.chat-conversation-detail .chat-conversation-detail-body').empty();
     $('.chat-conversation-detail-title span').html(chat.from);
     $('.chat table tr').css('opacity','.4');
+    $('.action-block-user').attr('data-user-handle', chat.from);
 
     _.each(chat.conversation, function(message){
       if (message.from === "@wolf"){

@@ -2,7 +2,7 @@
   background: #327eb8;
   border-radius: 1px;
   border: 0;
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   outline: none;
   opacity: .85;
@@ -33,7 +33,7 @@ input:hover > td {
 .textarea {
   background: #fff;
   border-radius: 1px;
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   outline: none;
   opacity: .85;
@@ -58,7 +58,7 @@ input:hover > td {
   border-radius: 3px;
   color: #fff;
   border: 0;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   padding: 12px;
@@ -87,7 +87,7 @@ input:hover > td {
 }
 
 label {
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   clear: both;
   display: block;

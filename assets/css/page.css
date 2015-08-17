@@ -78,7 +78,7 @@
 .user-page-details-navigation {
   border-bottom: 0;
   height: 46px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 46px;
   opacity: 1;
@@ -110,7 +110,7 @@
   float: left;
   margin-right: 0;
   min-width: 95px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   height: 46px;
   line-height: 46px;
@@ -188,7 +188,7 @@
   z-index: 50;
   font-size: 13px;
   opacity: .75;
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .user-page-name-holder:hover {
@@ -197,7 +197,7 @@
 }
 
 .user-page-details table {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
 }
@@ -236,7 +236,7 @@
 .contract-actions {
   border-bottom: solid 1px;
   display: none;
-  height: 75px;
+  height: 54px;
   width: 100%;
   background: #252525;
   position: absolute;
@@ -245,7 +245,7 @@
   margin: 0;
   left: 0;
   z-index: 105;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   opacity: .95;
 }
@@ -285,7 +285,7 @@
 }
 
 .user-page-details td.label{
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   width: 150px;
 }
 
@@ -301,7 +301,7 @@
 }
 
 .user-page-contract-detail {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin: auto;
   min-height: 550px;
   position: relative;
@@ -331,7 +331,7 @@
   border: solid 1px red;
   clear: both;
   font-size: 14px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 17px;
   margin: 9px 0 50px 0;
   padding: 15px;
@@ -369,7 +369,7 @@
   background: #000; 
   border: 0; 
   color: #fff;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 20px;
   height: 100%; 
   outline: none;

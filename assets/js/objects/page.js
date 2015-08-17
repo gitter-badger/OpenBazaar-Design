@@ -6,6 +6,7 @@ window.Page = {
   initialize: function() {
     $(document).on("click", ".modal-store-setup-next, .modal-store-setup-skip", function(){ Page.storeSetupNext() });
     $(document).on("change", "input[name='shipping-address']:radio", function(event){ Page.addressSelected(event) });
+    $(document).on("change ", ".order-quantity", function(){ Page.quantityChanged() });
     $(document).on("click", ".modal-trade-flow-new-address", function(){ Page.addressNew() });
     $(document).on("click", ".modal-store-setup-back", function(){ Page.storeSetupBack() });
     $(document).on("click", ".modal-store-setup-close", function(){ Modal.close() });
@@ -216,6 +217,17 @@ window.Page = {
         Page.setBackgroundColor(hex);
       } 
     });
+  },
+
+  quantityChanged: function quantityChanged(){
+    var qty = $('.order-quantity').val();
+    var total = ($('.hidden-item-price').val() * qty) + ($('.hidden-shipping-price').val() * qty);
+    var fee = total * .01;
+    var qrPrice = $('.hidden-qr-price-btc').val() * qty;
+    $('.modal-trade-flow .modal-contract-price').html('$' + $('.hidden-item-price').val() * qty );
+    $('.modal-trade-flow .modal-shipping-price').html('$' + $('.hidden-shipping-price').val() * qty );
+    $('.modal-trade-flow .modal-moderator-price').html('$' + fee);
+    $('.modal-qr-cost').html('Send ' + qrPrice + ' btc to');
   },
 
   hideSections: function hideSections(){  

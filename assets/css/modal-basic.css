@@ -2,7 +2,7 @@
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
   height: 560px;
   background: #086A9E;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   border-radius: 3px;
   position: absolute;
   z-index: 1250;
@@ -24,7 +24,7 @@
 .modal-header {
   background: #327eb8;
   height: 30px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   line-height: 30px;
   padding: 10px 15px;
@@ -34,7 +34,7 @@
 .modal-navigation {
   background: #327eb8;
   height: 50px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 50px;
   width: 100%;
@@ -69,7 +69,7 @@
   border-radius: 3px;
   color: #fff;
   border: 0;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   margin: 4px;

@@ -1,18 +1,18 @@
 h1 {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 26px;
   line-height: 24px;
 }
 
 h2 {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 18px;
   line-height: 18px;
   letter-spacing: .2px;
 }
 
 h2 {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 15px;
   line-height: 15px;
   letter-spacing: .2px;
@@ -26,7 +26,7 @@ a {
 
 p,
 span {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
 }
 
@@ -66,11 +66,11 @@ span {
 }
 
 .type-weight-light {
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .type-weight-medium {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .type-letter-spacing-1_2 {

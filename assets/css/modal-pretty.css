@@ -4,7 +4,7 @@
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
   height: 590px;
   background: #086A9E;
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   border-radius: 3px;
   position: absolute;
   z-index: 1250;
@@ -22,7 +22,7 @@
   background: #327eb8;
   height: 30px;
   line-height: 30px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 15px;
   padding: 10px 0;
   width: 100%;
@@ -52,7 +52,7 @@
   color: #fff;
   cursor: pointer;
   height: 50px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   float: left;
   outline: none;
@@ -95,7 +95,7 @@
   bottom: 12px;
   right: 12px;
   font-size: 16px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .modal-pretty table {
@@ -126,7 +126,7 @@
   width: 100%;
   color: #252525;
   font-size: 22px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   top: 20px;
   position: absolute;
 }
@@ -162,7 +162,7 @@
 
 .modal-purchase-detail-dispute td {
   vertical-align: top;
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 16px;
 }
 

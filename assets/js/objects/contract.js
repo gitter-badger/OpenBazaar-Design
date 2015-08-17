@@ -21,9 +21,14 @@ window.Contract = {
     });
     $(document).on("click", ".action-block-user", function(event){ 
       var user = User.find($(event.currentTarget).attr('data-user-handle'));
+      console.log($(event.currentTarget).attr('data-user-handle'));
       if (confirm("Are you sure you want to block this user? They'll no longer be able to message you or view your page.") == true) {
-          User.block(user);
-          $(".contract[data-vendor-handle='" + user.handle + "']").remove();
+        User.block(user);
+        $(".contract[data-vendor-handle='" + user.handle + "']").remove();
+        $(".chat-view-details[data-user-handle='" + user.handle + "']").remove();
+        $('.chat-conversation-detail').hide();
+        $('.chat-view-details').removeClass('chat-active');
+        $('.chat table tr').css('opacity','1');
       }
     });
   },
@@ -223,7 +228,7 @@ window.Contract = {
     }
 
     var randomNum = Math.ceil(Math.random() * 500) + 75;
-    var output = '<div class="contract border-secondary-color" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" data-vendor-handle="' + vendor.handle + '"><div class="contract-actions primary-color border-secondary-color"><ul><li class="action-hide-item">Hide item</li><li data-user-handle="' + vendor.handle + '" class="action-block-user">Block user</li></ul></div><div class="contract-menu"><svg viewBox="-90 0 280 28" class="icon-more  position-float-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-more"></use></svg></div><div class="contract-image opacity-0" data-vendor-handle="' + vendor.handle + '"  data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><button data-vendor-handle="' + vendor.handle + '"  data-contract-id="' + contract.id +'" class="button-primary contract-delete primary-color">Delete</button><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-user-handle="' + vendor.handle +'"></div><div><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">$23.52 (' + contract.price + ' btc)</div></div>';
+    var output = '<div class="contract border-secondary-color" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" data-vendor-handle="' + vendor.handle + '"><div class="contract-actions primary-color border-secondary-color"><ul><li data-user-handle="' + vendor.handle + '" class="action-block-user">Block user</li></ul></div><div class="contract-menu"><svg viewBox="-90 0 240 78" class="icon-more  position-float-right" style="width: 40px; height: 40px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-more"></use></svg></div><div class="contract-image opacity-0" data-vendor-handle="' + vendor.handle + '"  data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'" style="background: url(' + contract.photo1 + ') 50% 50% / cover no-repeat"><button data-vendor-handle="' + vendor.handle + '"  data-contract-id="' + contract.id +'" class="button-primary contract-delete primary-color">Delete</button><div class="contract-image-gradient"></div></div><div class="contract-meta-data" data-vendor-guid="' + vendor.guid + '"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-user-handle="' + vendor.handle +'"></div><div><div class="contract-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + contract.name + '</div><div class="contract-price position-margin-top-3px">$23.52 (' + contract.price + ' btc)</div></div>';
 
     if (div === '.discover-contracts'){
       // output += '<div class="contract-vendor" data-contract-id="' + contract.id +'"><div class="contract-vendor-avatar" style="background-image: url(' + vendor.avatar + ')"  data-contract-id="' + contract.id +'"></div><div class="contract-vendor-name" data-vendor-guid="' + vendor.guid + '" data-contract-id="' + contract.id +'">' + name + '</div></div>';

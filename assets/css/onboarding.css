@@ -2,7 +2,7 @@
   box-shadow: 0px 0 0 rgba(0, 0, 0, 0.15);
   height: 590px;
   background: #086A9E;
-  font-family: "font-regular";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   border-radius: 3px;
   position: absolute;
   z-index: 1250;
@@ -42,7 +42,7 @@
   clear: none;
   float: left;
   font-size: 13px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-top: 4px;
 }
 
@@ -61,7 +61,7 @@
   background: #327eb8;
   height: 30px;
   line-height: 30px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   padding: 10px 15px;
   width: 100%;
@@ -93,7 +93,7 @@
   bottom: 30px;
   color: #fff;
   font-size: 15px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin: 0 10%;
   position: absolute;
   text-align: center;
@@ -115,7 +115,7 @@
   color: #fff;
   cursor: pointer;
   height: 50px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   float: left;
   outline: none;

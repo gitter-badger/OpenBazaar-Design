@@ -95,7 +95,7 @@
   border-radius: 4px;
   cursor: pointer;
   float: left;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   height: 30px;
   line-height: 30px;
@@ -124,7 +124,7 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   color: #fff;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   padding: 5px 0;
   right: 10px;
@@ -144,7 +144,7 @@
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.10);
   border-radius: 4px;
   color: #fff;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   right: 48px;
   top: 44px;

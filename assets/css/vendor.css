@@ -23,7 +23,7 @@
 
 .vendor-breadcrumb {
   border-bottom: solid 1px #327eb8;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 18px;
   color: #fff;
   padding: 15px 20px;
@@ -31,7 +31,7 @@
 
 .vendor-navigation {
   height: 42px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 42px;
   opacity: 1;
@@ -147,7 +147,7 @@
 
 
 .vendor-description {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 17px;
   margin-top: 2px;
@@ -156,7 +156,7 @@
 }
 
 .vendor-details table {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   transition: all .3s cubic-bezier(0, 0, 0.2, 1);
 }
@@ -177,7 +177,7 @@
 }
 
 .vendor-details td.label{
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   width: 150px;
 }
 

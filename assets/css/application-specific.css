@@ -16,7 +16,6 @@ body {
 
 table {
   border-collapse: collapse;
-  font-family: "font-regular";
   font-size: 13px;
   width: 100%;
 }
@@ -26,7 +25,7 @@ table tr {
 }
 
 table td {
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   padding: 10px 15px;
   vertical-align: middle;
@@ -40,13 +39,13 @@ table thead tr {
   background: #327eb8;
   border-radius: 3px;
   height: 20px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 table thead tr td{
   height: 20px;
   line-height: 20px;
-  font-family: "font-medium";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 15px;
   padding: 15px;
 }
