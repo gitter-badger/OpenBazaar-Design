@@ -1,5 +1,7 @@
 # OpenBazaar-Design
 
+[![Join the chat at https://gitter.im/OpenBazaar/OpenBazaar-Design](https://badges.gitter.im/OpenBazaar/OpenBazaar-Design.svg)](https://gitter.im/OpenBazaar/OpenBazaar-Design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a design prototype by @morebrownies for OpenBazaar.
 
 It is meant to be basic HTML only and is split into components using Polymer.
